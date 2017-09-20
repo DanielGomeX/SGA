@@ -2,25 +2,45 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Acesso</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <h1 align="middle">Seja Bem vindo</h1>
+ <body>
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>SGA</h1>
+			</div>
+                    <form  name="login" action="login.php" method="POST">
+                    <div class="login-form" >
+	<div class="control-group">
+	<input type="text" class="login-field" name='nomeusuario'
+               placeholder="Usuário" id="login-name">
         
-        <h3 align="middle">Selecione seu usuário</h3>
+	<label class="login-field-icon fui-user" for="login-name"></label>
+	</div>
+
+	<div class="control-group">
+	<input type="password" class="login-field" name="senha"
+               placeholder="Senha" id="login-pass">
         
-        <form align="middle" name="login" action="conexaoBD.php" method="POST">
-            <strong><label>Usuário:</label></strong></br>
-            Nome: <input type="text" name='nomeusuario'/>
-            <select name="tipousuario">
-                <option value="">Você é?</option>
-                <option value="1">Administrador</option>
-                <option value="2">Balconista</option>
-                <option value="3">Professor</option>
-            </select></br></br>
-            Senha:  <input type="password" name="senha"/></br></br>
-            
-            <input type="submit" name="acessar" value="Acessar"/>
-        </form>
-    </body>
+	<label class="login-field-icon fui-lock" for="login-pass"></label>
+	</div>
+
+         <input class="btn btn-primary btn-large btn-block" type="submit"
+                name="acessar" value="Acessar"/>
+	
+			</div>
+		</div>
+	</div>
+     </form>
+                    <center><img src="img/logoct.png" height="200" width="200"
+                 border="0"></center
+</body>
 </html>
+
+
+
+
+			
