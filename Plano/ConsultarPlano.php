@@ -10,10 +10,10 @@
             <fieldset>
                 <legend>Selecione o Plano a ser consultado</legend>
                 <select name="plano">
-                    <option>JiuJitsu</option>
-                    <option>MMA</option>
-                    <option>Taekwondo</option>
-                    <option>Muay Tai</option>
+                    <option>Mensal</option>
+                    <option>Trimestral</option>
+                    <option>Semestral</option>
+                    <option>Anual</option>
                 </select>
             </fieldset><br>
             <input type="submit" name="consultar" value="Consultar">
