@@ -6,17 +6,15 @@
         <link href="css/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
- <body>
+        <form action="Login/Login.php" method="POST">
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
-				<h1>SGA</h1>
-			</div>
-                    <form  name="login" action="login.php" method="POST">
-                    <div class="login-form" >
-	<div class="control-group">
-	<input type="text" class="login-field" name='nomeusuario'
-               placeholder="Usuário" id="login-name">
+				<h1>SGA</h1></div>
+        <div class="login-form">
+            <div class="control-group">
+                <input type="text" class="login-field" name='usuario'
+                    accept="" placeholder="Usuário" id="login-name">
         
 	<label class="login-field-icon fui-user" for="login-name"></label>
 	</div>
@@ -31,12 +29,13 @@
          <input class="btn btn-primary btn-large btn-block" type="submit"
                 name="acessar" value="Acessar"/>
 	
-			</div>
+	</div>
 		</div>
 	</div>
-     </form>
+    </form> 
+
                     <center><img src="img/logoct.png" height="200" width="200"
-                 border="0"></center
+                                 border="0"></center>
 </body>
 </html>
 
