@@ -11,6 +11,6 @@
 <body>
     <h1>PAINEL DO USUÁRIO</h1>
     <p>Bem-vindo ao seu painel, <?php echo $_SESSION['user_status']; ?> |
-        <a href="logout.php">Sair</a></p>
+        <a href="sair.php">Sair</a></p>
 </body>
 </html>

@@ -27,6 +27,7 @@ $sql = "SELECT id, status FROM acesso WHERE usuario = :usuario AND senha = :senh
     
     if(count($users)<=0){
         echo '</br><font color="red">Ops! Email ou senha incorretos!!!</font> ';
+        echo '<a href="../index.php">Voltar</a></p>';
         exit;
     }
     //recupera o primeiro usuario

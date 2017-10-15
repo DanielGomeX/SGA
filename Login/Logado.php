@@ -13,9 +13,9 @@ require 'inicializar.php';
         <h1>SGA</h1>
         <?php if (isLoggedIn()): ?>
         <p>Olá, <?php echo $_SESSION['user_status']; ?>. <a href="painel.php">
-                    Painel</a> | <a href="logout.php">Sair</a></p>
+                    Painel</a> | <a href="sair.php">Sair</a></p>
         <?php else: ?>
-            <p>Olá, visitante. <a href="form-login.php">Login</a></p>
+        <p>Olá, visitante. <a href="../index.php">Login</a></p>
         <?php endif; ?>
  
     </body>
