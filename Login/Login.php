@@ -8,6 +8,7 @@ $senha = isset ($_POST['senha']) ? $_POST['senha']:'';
 
 if(empty($usuario) || empty($senha)){
     echo '</br>Informe o Usuário e Senha!';
+    echo '<a href="../index.php">Voltar</a></p>';
     exit;
 }
 //encriptando a senha
@@ -33,10 +34,24 @@ $sql = "SELECT id, status FROM acesso WHERE usuario = :usuario AND senha = :senh
     //recupera o primeiro usuario
     $user=$users[0];
     
-    session_start();
-    $_SESSION['logged_in'] = true;
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['user_status'] = $user['status'];
+    //a partir daqui ele verifica o nivel de privilégio de cada um
+    if($user['status'] == 1){
+        
+        session_start();
+        $_SESSION['logged_in'] = true;
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_status'] = $user['status'];
+    }elseif ($user['status'] == 2) {
+        session_start();
+        $_SESSION['logged_in'] = true;
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_status'] = $user['status'];
+    }else{
+        session_start();
+        $_SESSION['logged_in'] = true;
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_status'] = $user['status'];
+    }
     
     header('location: Logado.php');
     ?>
