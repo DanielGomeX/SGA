@@ -14,23 +14,24 @@
     if(empty($nome)|| empty($rg) || empty($cpf) || empty($dtnasc)||
         empty($endereco)||empty($email)|| empty($telefone)){
         echo '</br><font color="red">Volte e preencha os campos, por favor!</font>';
+        echo '<a href="form-add.php">Voltar</a>';
         exit;
     }
     
     //inserir no banco
     $PDO = db_connect();
-    $sql = "INSERT INTO professor(nm_professor,registro_geral_professor,"
-            . "cpf_professor,dt_nascimento_professor,nm_endereco,"
-            . "nm_email_professor,cd_telefone_professor)VALUES(:nome,:rg,:cpf,"
-            . ":dtnasc,:endereco,:email,:telefone)";
+    $sql = "INSERT INTO professor(nm_professor, registro_geral_professor,"
+            . "cpf_professor, dt_nascimento_professor, nm_endereco,"
+            . "nm_email_professor, cd_telefone_professor)VALUES(:nome, :rg, :cpf,"
+            . ":dtnasc, :endereco, :email, :telefone)";
     $stmt = $PDO->prepare($sql);
-    $stmt = $PDO->bindParam(':nome',$nome);
-    $stmt = $PDO->bindParam(':rg',$rg);
-    $stmt = $PDO->bindParam(':cpf',$cpf);
-    $stmt = $PDO->bindParam(':dtnasc',$dtnasc);
-    $stmt = $PDO->bindParam(':endereco',$endereco);
-    $stmt = $PDO->bindParam(':email',$email);
-    $stmt = $PDO->bindParam(':telefone',$telefone);
+    $stmt->bindParam(':nome' ,$nome);
+    $stmt->bindParam(':rg' ,$rg);
+    $stmt->bindParam(':cpf' ,$cpf);
+    $stmt->bindParam(':dtnasc' ,$dtnasc);
+    $stmt->bindParam(':endereco' ,$endereco);
+    $stmt->bindParam(':email' ,$email);
+    $stmt->bindParam(':telefone' ,$telefone);
     
     if($stmt->execute()){
         header('location: index.php');
