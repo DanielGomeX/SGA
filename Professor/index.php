@@ -26,7 +26,7 @@
         <title>Cadastro Professor</title>
     </head>
         <body>
-          <h1>CADASTRO DE PROFESSORES</h1>
+          <h1>Sistema de Gerenciamento de Academia</h1>
           <p><a href="form-add.php">Adicionar Professor</a></p>
           <h2>Lista de professores</h2>
           <p>Total de Professores: <?php echo $total ?></p>
