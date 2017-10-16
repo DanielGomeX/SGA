@@ -76,3 +76,12 @@ box-shadow: none;
   display: block;
 	margin-top: 12px;
 }
+
+label.cadastrofunc{
+    display:inline-block;
+    width: 90px;
+}
+
+h1,h2{
+    text-align: center;
+}
