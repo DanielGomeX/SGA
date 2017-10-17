@@ -67,7 +67,7 @@
           </table>
         <?php else: ?>
  
-        <p>Nenhum usuário registrado</p>
+        <p>Nenhum professor registrado</p>
  
         <?php endif; ?>
       </body>

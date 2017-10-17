@@ -23,7 +23,7 @@
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    print_r($user);
+    
     // se o método fetch() não retornar um array, significa
     // que o ID não corresponde a um usuário válido.
     if(!is_array($user)){
@@ -36,14 +36,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Edição de Usuário</title>
+    <title>Editar Professor</title>
      <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     
-    <h1>Sistema de Gerenciamento de Academia</h1>
+    <h1 align="center">Sistema de Gerenciamento de Academia</h1>
    
-    <h2>Edição de Usuário</h2>
+    <h2 align="center">Editar Professor</h2>
     
     <form action="edit.php" method="POST"  align='middle'>
         <label for="nome" class="cadastrofunc">Nome:</label>

@@ -5,7 +5,7 @@
     $PDO = db_connect();
     
   // SQL para contar o total de registros
-    $sql_count = "SELECT COUNT(*) AS total FROM professor";
+    $sql_count = "SELECT COUNT(*) AS total FROM aluno";
     
   // SQL para selecionar os registros
     $sql = "SELECT * FROM aluno ";
@@ -29,7 +29,7 @@
           <h1>Sistema de Gerenciamento de Academia</h1>
           <p><a href="form-add.php">Adicionar Aluno</a></p>
           <h2>Lista de Alunos</h2>
-          <p>Total de ALunos: <?php echo $total ?></p>
+          <p>Total de Alunos: <?php echo $total ?></p>
 
           <?php if($total > 0):?>
 
@@ -67,7 +67,7 @@
           </table>
         <?php else: ?>
  
-        <p>Nenhum usuário registrado</p>
+        <p>Nenhum aluno registrado</p>
  
         <?php endif; ?>
       </body>

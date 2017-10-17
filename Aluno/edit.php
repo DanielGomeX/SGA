@@ -3,12 +3,12 @@
     
     //recupera os valores do formulário
     $nome = isset($_POST['nome'] )? $_POST['nome']: null;
-    $rg = isset($_POST['rg'] )? $_POST['rg']: null;
     $cpf = isset($_POST['cpf'] )? $_POST['cpf']: null;
-    $dtnasc = isset($_POST['dtnasc'] )? $_POST['dtnasc']: null;
+    $rg = isset($_POST['rg'] )? $_POST['rg']: null;
     $endereco = isset($_POST['end'] )? $_POST['end']: null;
-    $email = isset($_POST['email'] )? $_POST['email']: null;
+    $dtnasc = isset($_POST['dtnasc'] )? $_POST['dtnasc']: null;
     $telefone = isset($_POST['tel'] )? $_POST['tel']: null;
+    $email = isset($_POST['email'] )? $_POST['email']: null;
     $id = isset($_POST['id'])? $_POST['id'] : null;
     
     //validação(simples)
@@ -20,21 +20,24 @@
     
     //atualiza o banco de dados
     $PDO = db_connect();
-    $sql = "UPDATE professor SET nm_professor = :nome,
-        registro_geral_professor = :rg,
-        cpf_professor = :cpf,dt_nascimento_professor = :dtnasc,
-        nm_endereco = :dtnasc,
-        nm_email_professor = :email, cd_telefone_professor = :telefone 
-        WHERE id_professor = :id";
+    $sql = "UPDATE aluno SET 
+        nm_aluno = :nome,
+        cpf_aluno = :cpf,
+        registro_geral_aluno = :rg,
+        nm_endereco = :endereco,
+        dt_nascimento_aluno = :dtnasc,
+        cd_telefone_aluno = :telefone 
+        nm_email_aluno = :email,
+        WHERE matricula_aluno = :id";
     
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':nome',$nome);
-    $stmt->bindParam(':rg',$rg);
     $stmt->bindParam(':cpf',$cpf);
-    $stmt->bindParam(':dtnasc',$dtnasc);
+    $stmt->bindParam(':rg',$rg);
     $stmt->bindParam(':endereco',$endereco);
-    $stmt->bindParam(':email',$email);
+    $stmt->bindParam(':dtnasc',$dtnasc);
     $stmt->bindParam(':telefone',$telefone);
+    $stmt->bindParam(':email',$email);
     $stmt->bindParam(':id',$id, PDO::PARAM_INT);
     
     if($stmt->execute()){

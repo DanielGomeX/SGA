@@ -3,12 +3,12 @@
     
     //recupera dados do formulário
     $nome = isset($_POST['nome'] )? $_POST['nome']: null;
-    $rg = isset($_POST['rg'] )? $_POST['rg']: null;
     $cpf = isset($_POST['cpf'] )? $_POST['cpf']: null;
-    $dtnasc = isset($_POST['dtnasc'] )? $_POST['dtnasc']: null;
+    $rg = isset($_POST['rg'] )? $_POST['rg']: null;
     $endereco = isset($_POST['end'] )? $_POST['end']: null;
-    $email = isset($_POST['email'] )? $_POST['email']: null;
+    $dtnasc = isset($_POST['dtnasc'] )? $_POST['dtnasc']: null;
     $telefone = isset($_POST['tel'] )? $_POST['tel']: null;
+    $email = isset($_POST['email'] )? $_POST['email']: null;
     
     //validação(simples)
     if(empty($nome)|| empty($rg) || empty($cpf) || empty($dtnasc)||

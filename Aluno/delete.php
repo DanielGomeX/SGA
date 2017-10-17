@@ -10,7 +10,7 @@
     }
     //remove do banco
     $PDO = db_connect();
-    $sql = "DELETE FROM professor WHERE id_professor = :id";
+    $sql = "DELETE FROM aluno WHERE matricula_aluno = :id";
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     
