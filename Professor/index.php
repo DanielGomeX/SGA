@@ -8,7 +8,7 @@
     $sql_count = "SELECT COUNT(*) AS total FROM professor";
     
   // SQL para selecionar os registros
-    $sql = "SELECT * FROM professor";
+    $sql = "SELECT * FROM professor ";
     
     // conta o total de registros
     $stmt_count = $PDO->prepare($sql_count);
@@ -43,6 +43,7 @@
                       <th>Endereço:</th>
                       <th>Email:</th>
                       <th>Telefone</th>
+                      <th>Ações</th>
                   </tr>
               </thead>
               <tbody>

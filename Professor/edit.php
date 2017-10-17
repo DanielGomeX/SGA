@@ -20,21 +20,22 @@
     
     //atualiza o banco de dados
     $PDO = db_connect();
-    $sql = "UPDATE professor SET nm_professor = :nome,"
-            . "registro_geral_professor = :rg,"
-            . "cpf_professor = :cpf,dt_nascimento_professor = :dtnasc,"
-            . "nm_endereco = :dtnasc,"
-            . "nm_email_professor = :email, cd_telefone_professor = :telefone"
-            . "WHERE id_professor = :id";
+    $sql = "UPDATE professor SET nm_professor = :nome,
+        registro_geral_professor = :rg,
+        cpf_professor = :cpf,dt_nascimento_professor = :dtnasc,
+        nm_endereco = :dtnasc,
+        nm_email_professor = :email, cd_telefone_professor = :telefone 
+        WHERE id_professor = :id";
+    
     $stmt = $PDO->prepare($sql);
-    $stmt = $PDO->bindParam(':nome',$nome);
-    $stmt = $PDO->bindParam(':rg',$rg);
-    $stmt = $PDO->bindParam(':cpf',$cpf);
-    $stmt = $PDO->bindParam(':dtnasc',$dtnasc);
-    $stmt = $PDO->bindParam(':endereco',$endereco);
-    $stmt = $PDO->bindParam(':email',$email);
-    $stmt = $PDO->bindParam(':telefone',$telefone);
-    $stmt = $PDO->bindParam(':id',$id, PDO::PARAM_INT);
+    $stmt->bindParam(':nome',$nome);
+    $stmt->bindParam(':rg',$rg);
+    $stmt->bindParam(':cpf',$cpf);
+    $stmt->bindParam(':dtnasc',$dtnasc);
+    $stmt->bindParam(':endereco',$endereco);
+    $stmt->bindParam(':email',$email);
+    $stmt->bindParam(':telefone',$telefone);
+    $stmt->bindParam(':id',$id, PDO::PARAM_INT);
     
     if($stmt->execute()){
         header('location: index.php');
