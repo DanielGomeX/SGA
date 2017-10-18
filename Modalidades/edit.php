@@ -19,7 +19,7 @@
     $sql = "UPDATE modalidade SET nm_professor = :nomeprofessor,"
             . "nm_modalidade = :nomemodalidade,"
             . "qt_aulasem = :qtdaulasemanal,"
-            . "qt_hraula = qtdhoraaula,"
+            . "qt_hraula = :qtdhoraaula,"
             . "WHERE cd_modalidade = :id";
     $stmt = $PDO->prepare($sql);
     $stmt = $PDO->bindParam(':nomeprofessor',$nomeprof);

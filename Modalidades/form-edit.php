@@ -13,7 +13,9 @@
     
     //recupera os dados do usuário a ser editado
     $PDO = db_connect();
-    $sql = "SELECT nm_modalidade,nm_professor,
+    $sql2 = "SELECT nm_professor, ";
+    
+    $sql = "SELECT nm_modalidade,
             qt_aulasem,qt_hraula
              FROM modalidade
              WHERE id_modalidade = '$id'";

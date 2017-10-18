@@ -102,5 +102,5 @@
             <a href="form-add.php"><button id="button">Adicionar Modalidade</button></a>
         </div>
     </center>
-      </body>
+        </body>
 </html>
