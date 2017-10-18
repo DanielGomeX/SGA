@@ -36,18 +36,18 @@
           <table width="50%" border="1">
               <thead>
                   <tr>
+                      <th>Nome do Professor: </th>
                       <td>Modalidade: </td>
-                      <td><select name="modalidade" id="moda">
+                      <td><select name="modalidade" id="nomemoda">
                             <option>Selecione...</option>
                             <option value="Muay Thai">Muay Thai</option>
                             <option value="Taekwondo">Taekwondo</option>
                             <option value="Jiu-Jitsu">Jiu-Jitsu</option>
                             <option value="MMA">MMA</option>
                           </select>
-                         <span class="style1">*      </span></td>
-                      <th>Nome do Professor: </th>
+                         <span class="style1">     </span></td>
                       <td>Qtd Aula Semanal: </td>
-                      <td><select name="qaula" id="hraula">
+                      <td><select name="qtaula" id="qtaula">
                             <option>Selecione...</option>
                             <option value="1">1 Aula</option>
                             <option value="2">2 Aulas</option>
@@ -60,21 +60,20 @@
                             <option value="9">9 Aulas</option>
                             <option value="10">10 Aulas</option>
                           </select>
-                            <span class="style1">*      </span></td>
+                            <span class="style1">      </span></td>
                       <td>Quantidade Hora Aula:</td>
-                      <td><select name="haula" id="hraula">
+                      <td><select name="hraula" id="hraula">
                             <option>Selecione...</option>
                             <option value="1">1 Hora</option>
                             <option value="2">2 Horas</option>
                             <option value="3">3 Horas</option>
                           </select>
-                         <span class="style1">*      </span></td>
+                         <span class="style1">      </span></td>
                   </tr>
               </thead>
               <tbody>
                   <?php while($user = $stmt->fetch(PDO::FETCH_ASSOC)):?>
                   <tr>
-                      <td><?PHP echo $user['cd_modalidade'] ?></td>
                       <td><?PHP echo $user['nm_modalidade'] ?></td>
                       <td><?PHP echo $user['nm_professor'] ?></td>
                       <td><?PHP echo $user['qt_aulasem'] ?></td>

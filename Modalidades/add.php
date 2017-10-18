@@ -2,35 +2,28 @@
     require_once 'init.php';
     
     //recupera dados do formulário
-    $nome = isset($_POST['nome'] )? $_POST['nome']: null;
-    $rg = isset($_POST['rg'] )? $_POST['rg']: null;
-    $cpf = isset($_POST['cpf'] )? $_POST['cpf']: null;
-    $dtnasc = isset($_POST['dtnasc'] )? $_POST['dtnasc']: null;
-    $endereco = isset($_POST['end'] )? $_POST['end']: null;
-    $email = isset($_POST['email'] )? $_POST['email']: null;
-    $telefone = isset($_POST['tel'] )? $_POST['tel']: null;
-    
+    $nomeprof = isset($_POST['professormoda'] )? $_POST['professormoda']: null;
+    $nomemoda = isset($_POST['nomemoda'] )? $_POST['nomemoda']: null;
+    $quantaula = isset($_POST['quantidadedaula'] )? $_POST['quantidadedaula']: null;
+    $horaaula = isset($_POST['hraula'] )? $_POST['hraula']: null;
+
     //validação(simples)
-    if(empty($nome)|| empty($rg) || empty($cpf) || empty($dtnasc)||
-        empty($endereco)||empty($email)|| empty($telefone)){
+    if (empty($nomeprof)|| empty($nomemoda) || empty($quantaula) || empty($horaaula))
+    {
         echo '</br><font color="red">Volte e preencha os campos, por favor!</font>';
         exit;
     }
     
     //inserir no banco
     $PDO = db_connect();
-    $sql = "INSERT INTO professor(nm_professor,registro_geral_professor,"
-            . "cpf_professor,dt_nascimento_professor,nm_endereco,"
-            . "nm_email_professor,cd_telefone_professor)VALUES(:nome,:rg,:cpf,"
-            . ":dtnasc,:endereco,:email,:telefone)";
+    $sql = "INSERT INTO modalidades(nm_professor,nm_modalidade,"
+            . "qt_aulasem,qt_hraula)VALUES(:nomeprofessor,:nomemodalidade,"
+            . ":qtdaulasemanal,:qtdhoraaula)";
     $stmt = $PDO->prepare($sql);
-    $stmt = $PDO->bindParam(':nome',$nome);
-    $stmt = $PDO->bindParam(':rg',$rg);
-    $stmt = $PDO->bindParam(':cpf',$cpf);
-    $stmt = $PDO->bindParam(':dtnasc',$dtnasc);
-    $stmt = $PDO->bindParam(':endereco',$endereco);
-    $stmt = $PDO->bindParam(':email',$email);
-    $stmt = $PDO->bindParam(':telefone',$telefone);
+    $stmt = $PDO->bindParam(':nomeprofessor',$nomeprof);
+    $stmt = $PDO->bindParam(':nomemodalidade',$nomemoda);
+    $stmt = $PDO->bindParam(':qtdaulasemanal',$quantaula);
+    $stmt = $PDO->bindParam(':qtdhoraaula',$horaaula);
     
     if($stmt->execute()){
         header('location: index.php');

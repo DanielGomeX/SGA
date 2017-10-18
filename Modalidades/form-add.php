@@ -18,10 +18,10 @@
         <h2>Cadastrar Modalidade</h2><br/><br/>
         
         <label for="professormoda" class="cadastromoda">Nome do Professor:</label>
-        <input type="text" id="profmoda" placeholder="Professor"/> <br/><br/>
+        <input type="text" id="professormoda" placeholder="Professor"/> <br/><br/>
         
         <label for="nomemoda" class="cadastromoda">Modalidade:  </label>
-        <select name="modalidade" id="moda">
+        <select name="modalidade" id="nomemoda">
                             <option>Selecione...</option>
                             <option value="Muay Thai">Muay Thai</option>
                             <option value="Taekwondo">Taekwondo</option>
@@ -32,7 +32,7 @@
        
         
         <label for="quantidadedaula" class="cadastromoda">Qtd Aula Semanal:</label>
-                            <select name="qaula" id="hraula">
+                            <select name="qtaula" id="quantidadedaula">
                             <option>Selecione...</option>
                             <option value="1">1 Aula</option>
                             <option value="2">2 Aulas</option>
@@ -48,7 +48,7 @@
                             <span class="style1">      </span><br/><br/>
         
         <label for="hraula" class="cadastromoda">Quantidade Hora Aula:</label>
-                            <select name="haula" id="hraula">
+                            <select name="hraula" id="hraula">
                             <option>Selecione...</option>
                             <option value="1">1 Hora</option>
                             <option value="2">2 Horas</option>
