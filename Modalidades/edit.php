@@ -1,5 +1,5 @@
 <?php
-    require_once 'init.php';
+    require_once '../Model/init.php';
     
     //recupera os valores do formulário
     $nomeprof = isset($_POST['professormoda'] )? $_POST['professormoda']: null;

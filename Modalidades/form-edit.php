@@ -1,5 +1,5 @@
 <?php
-    require 'init.php';
+    require_once '../Model/init.php';
     
     //recupera o ID da URL
     $id = isset($_GET['id'])? (int) $_GET['id']: null;
@@ -62,10 +62,10 @@
                value="<?php echo $user['qt_hraula']?>"/> <br/><br/>
         
          <input type="hidden" name="id" value="<?php echo $id ?>"/>
-         
+                
         <label for="alterar" class="cadastrofunc"></label>
-        <input type="submit" id="alterar" value="Alterar" /> 
-        <input type="submit" name="voltar" value="Voltar" formaction="index.php"/> <br/>
+        <button id="salvar" >Alterar</button>
+        <button id="voltar" formaction="index.php">Voltar</button>
     </form>
 </body>
 </html>

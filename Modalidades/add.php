@@ -1,5 +1,5 @@
 <?php
-    require_once 'init.php';
+    require_once '../Model/init.php';
     
     //recupera dados do formulário
     $nomeprof = isset($_POST['professormoda'] )? $_POST['professormoda']: null;
@@ -11,6 +11,7 @@
     if (empty($nomeprof)|| empty($nomemoda) || empty($quantaula) || empty($horaaula))
     {
         echo '</br><font color="red">Volte e preencha os campos, por favor!</font>';
+        echo '</br><a href="form-add.php">Voltar</a>';
         exit;
     }
     
@@ -29,6 +30,7 @@
         header('location: index.php');
     }else{
         echo '</br><font color="red">Ops! Erro ao cadastrar!</font>';
+        echo '</br><a href="form-add.php">Voltar</a>';
         print_r($stmt->errorInfo());
     }
 ?>

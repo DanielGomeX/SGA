@@ -82,8 +82,7 @@
          <input type="hidden" name="id" value="<?php echo $id ?>"/>
          
         <label for="alterar" class="cadastrofunc"></label>
-        
-        <button id="salvar" >Salvar</button>
+        <button id="salvar" >Alterar</button>
         <button id="salvar" formaction="index.php">Voltar</button>
         
     </form>

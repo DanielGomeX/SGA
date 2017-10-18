@@ -15,6 +15,7 @@
     if(empty($nome)|| empty($rg) || empty($cpf) || empty($dtnasc)||
         empty($endereco)||empty($email)|| empty($telefone)){
         echo '</br><font color="red">Volte e preencha os campos, por favor!</font>';
+        echo '</br><a href="form-add.php">Voltar</a>';
         exit;
     }
     
@@ -43,6 +44,7 @@
         header('location: index.php');
     }else{
         echo '</br><font color="red">Erro ao alterar!</font>';
+        echo '</br><a href="form-add.php">Voltar</a>';
         print_r($stmt->errorInfo());
     }
     

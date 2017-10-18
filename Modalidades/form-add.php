@@ -1,5 +1,5 @@
 <?php
-    require 'init.php';
+    require_once '../Model/init.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
      <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    
+    <center>
     <h1>Sistema de Gerenciamento de Academia</h1>
    
     
@@ -56,10 +56,11 @@
                           </select>
                         <span class="style1">      </span><br/><br/>
         
-       
-        <label for="salvar" class="ccadastromoda"></label>
-        <input type="submit" id="salvar" value="Salvar" /> 
-        <input type="submit" name="voltar" value="Voltar" formaction="index.php" /> <br/>
+                        
+        <label for="alterar" class="cadastrofunc"></label>
+        <button id="salvar" >Salvar</button>
+        <button id="voltar" formaction="index.php">Voltar</button>
     </form>
+    </center>
 </body>
 </html>

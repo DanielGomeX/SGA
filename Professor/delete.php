@@ -6,6 +6,7 @@
     //valida ID
     if(empty($id)){
         echo '</br><font color="red">ID não informado</font>';
+        echo '</br><a href="form-add.php">Voltar</a>';
         exit;
     }
     //remove do banco
@@ -18,6 +19,7 @@
         header('location: index.php');
     }else{
         echo '</br><font color="red">Erro ao remover!</font>';
+        echo '</br><a href="form-add.php">Voltar</a>';
         print_r($stmt->errorInfo());
     }
 ?>

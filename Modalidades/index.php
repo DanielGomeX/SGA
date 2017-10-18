@@ -1,5 +1,5 @@
 <?php
-    require_once 'init.php';
+    require_once '../Model/init.php';
 
     // abre a conexão
     $PDO = db_connect();
@@ -24,10 +24,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Cadastro Modalidade</title>
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
     </head>
+    <center>
         <body>
           <h1>Sistema de Gerenciamento de Academia</h1>
-          <p><a href="form-add.php">Adicionar Modalidade</a></p>
           <h2>Lista de modalidades</h2>
           <p>Total de modalidades: <?php echo $total ?></p>
 
@@ -79,9 +80,12 @@
                       <td><?PHP echo $user['qt_aulasem'] ?></td>
                       <td><?PHP echo $user['qt_hraula'] ?></td>
                       <td>
-              <a href="form-edit.php?id=<?php echo $user['id_professor'] ?>">Editar</a>
+                            
+              <a href="form-edit.php?id=<?php echo $user['id_professor'] ?>">
+                  <button>Editar</button></a>
               <a href="delete.php?id=<?php echo $user['id_professor'] ?>"
-              onclick="return confirm('Tem certeza que deseja remover?');">Excluir</a>
+                 onclick="return confirm('Tem certeza que deseja remover?');">
+                  <button>Excluir</button></a>
                       </td>
                   </tr>
                   <?php endwhile;?>
@@ -92,5 +96,11 @@
         <p>Nenhum usuário registrado</p>
  
         <?php endif; ?>
+        
+        </br></br>
+        <div class="container">
+            <a href="form-add.php"><button id="button">Adicionar Modalidade</button></a>
+        </div>
+    </center>
       </body>
 </html>
