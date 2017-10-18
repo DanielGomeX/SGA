@@ -9,12 +9,15 @@
     //validação(simples)
     if(empty($codigo)|| empty($valorplano) || empty($data)){
         echo '</br><font color="red">Volte e preencha os campos, por favor!</font>';
+        echo '<a href="index.php"> Voltar</a>';
         exit;
     }
     
     //atualiza o banco de dados
     $PDO = db_connect();
-    $sql = "UPDATE plano SET cd_plano = :codigo, vl_plano = :valorplano, dt_plano = :data
+    $sql = "UPDATE plano SET cd_plano = :codigo,
+        vl_plano = :valorplano,
+        dt_plano = :data
         WHERE cd_plano = :codigo";
     
     $stmt = $PDO->prepare($sql);
@@ -26,6 +29,7 @@
         header('location: index.php');
     }else{
         echo '</br><font color="red">Erro ao alterar!</font>';
+        echo '<a href="index.php"> Voltar</a>';
         print_r($stmt->errorInfo());
     }
     

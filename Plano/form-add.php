@@ -22,7 +22,7 @@
         <input type="text" id="valorplano" name="valorplano" placeholder="Valor do Plano"/> <br/><br/>
         
         <label for="data" class="cadastrofunc">Data:</label>
-        <input type="text" id="data" name="data" placeholder="Data" readonly="true" value="<?php echo  date('Y-m-d');?>" /> <br/><br/>
+        <input type="date" id="data" name="data" placeholder="Data" readonly="true" value="<?php echo  date('Y-m-d');?>" /> <br/><br/>
         
        <label for="salvar" class="cadastrofunc"></label>
         <button id="salvar" >Salvar</button>

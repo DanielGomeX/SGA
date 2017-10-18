@@ -18,6 +18,7 @@
     //Seleciona os registros
     $stmt = $PDO->prepare($sql);
     $stmt->execute();
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,9 +52,9 @@
                       <td><?PHP echo $user['vl_plano'] ?></td>
                       <td><?PHP echo $user['dt_plano'] ?></td>
                       <td>
-                      <a href="form-edit.php?id=<?php echo $user['matricula_aluno'] ?>">
+                      <a href="form-edit.php?codigo=<?php echo $user['cd_plano'] ?>">
                   <button>Editar</button></a>
-              <a href="delete.php?id=<?php echo $user['matricula_aluno'] ?>"
+              <a href="delete.php?codigo=<?php echo $user['cd_plano'] ?>"
                  onclick="return confirm('Tem certeza que deseja remover?');">
                   <button>Excluir</button></a>
                       </td>
@@ -69,7 +70,7 @@
         
         </br></br>
         <div class="container">
-            <a href="form-add.php"><button id="button">Adicionar professor</button></a>
+            <a href="form-add.php"><button id="button">Adicionar Plano</button></a>
         </div>
       </body>
     </center>

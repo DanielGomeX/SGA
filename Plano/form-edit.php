@@ -3,7 +3,7 @@
     
     //recupera o ID da URL
     $codigo = isset($_GET['codigo'])? (int) $_GET['codigo']: null;
-       
+    
     //valida o ID
     if(empty($codigo)){
         echo '</br><font color="red">ID para alteração não definido</font>';
@@ -13,9 +13,11 @@
     
     //recupera os dados do usuário a ser editado
     $PDO = db_connect();
-    $sql = "SELECT cd_plano, vl_plano, dt_plano
-             FROM plano
-             WHERE cd_plano = '$codigo'";
+    $sql = "SELECT cd_plano,
+                   vl_plano,
+                   dt_plano
+            FROM plano
+            WHERE cd_plano = '$codigo'";
     
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':codigo', $codigo, PDO::PARAM_INT);
@@ -45,18 +47,21 @@
     
     <form action="edit.php" method="POST"  align='middle'>
         <label for="codigo" class="cadastrofunc">Código do Plano:</label>
-        <input type="text" id="codigo" name="codigo" placeholder="Código do Plano" value="<?PHP echo $user['cd_plano'] ?>"/> <br/><br/>
+        <input type="text" id="codigo" name="codigo" placeholder="Código do Plano"
+               value="<?PHP echo $user['cd_plano'] ?>"/> <br/><br/>
         
         <label for="valorplano" class="cadastrofunc">Valor do Plano:</label>
-        <input type="text" id="valorplano" name="valorplano" placeholder="Valor do Plano" value="<?PHP echo $user['vl_plano'] ?>"/> <br/><br/>
+        <input type="text" id="valorplano" name="valorplano" placeholder="Valor do Plano"
+               value="<?PHP echo $user['vl_plano'] ?>"/> <br/><br/>
         
         <label for="data" class="cadastrofunc">Data:</label>
-        <input type="text" id="data" name="data" placeholder="Data" readonly="true" value="<?PHP echo $user['dt_plano'] ?>" /> <br/><br/>
+        <input type="text" id="data" name="data" placeholder="Data" readonly="true"
+               value="<?PHP echo $user['dt_plano'] ?>" /> <br/><br/>
         
-        <input type="hidden" name="id" value="<?php echo $codigo ?>"/>
+        <input type="hidden" name="codigo" value="<?php echo $codigo ?>"/>
          
         <label for="alterar" class="cadastrofunc"></label>
-        <button id="salvar" >Alterar</button>
+        <button id="alterar" >Alterar</button>
         <button id="salvar" formaction="index.php">Voltar</button>
     </form>
 </body>

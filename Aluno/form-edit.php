@@ -33,7 +33,6 @@
     if(!is_array($user)){
         echo '</br><font color="red">Nenhum aluno encontrado</font>';
         echo '<a href="index.php"> Voltar</a>';
-        echo'PIROCA TORTONA';
         exit;
     }
 ?>
