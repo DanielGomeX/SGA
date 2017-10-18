@@ -26,8 +26,8 @@
         registro_geral_aluno = :rg,
         nm_endereco = :endereco,
         dt_nascimento_aluno = :dtnasc,
-        cd_telefone_aluno = :telefone 
-        nm_email_aluno = :email,
+        cd_telefone_aluno = :telefone, 
+        nm_email_aluno = :email
         WHERE matricula_aluno = :id";
     
     $stmt = $PDO->prepare($sql);
