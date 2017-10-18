@@ -16,7 +16,7 @@
     
     //inserir no banco
     $PDO = db_connect();
-    $sql = "INSERT INTO modalidades(nm_professor,nm_modalidade,"
+    $sql = "INSERT INTO modalidade(nm_professor,nm_modalidade,"
             . "qt_aulasem,qt_hraula)VALUES(:nomeprofessor,:nomemodalidade,"
             . ":qtdaulasemanal,:qtdhoraaula)";
     $stmt = $PDO->prepare($sql);

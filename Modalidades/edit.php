@@ -20,7 +20,7 @@
             . "nm_modalidade = :nomemodalidade,"
             . "qt_aulasem = :qtdaulasemanal,"
             . "qt_hraula = qtdhoraaula,"
-            . "WHERE id_professor = :id";
+            . "WHERE cd_modalidade = :id";
     $stmt = $PDO->prepare($sql);
     $stmt = $PDO->bindParam(':nomeprofessor',$nomeprof);
     $stmt = $PDO->bindParam(':nomemodalidade',$nomemoda);
