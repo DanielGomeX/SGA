@@ -1,5 +1,5 @@
 <?php
-    require 'init.php';
+    require_once '../Model/init.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,19 +10,22 @@
 </head>
 <body>
     
-    <h1>Sistema de Gerenciamento de Academia</h1>
-   
-    <h2>Cadastrar Professor</h2>
-    
+    <center>
+        
+        <h1>Sistema de Gerenciamento de Academia</h1>
+        
+        <h2>Cadastrar Professor</h2>
+    </center>
+
     <form action="add.php" method="POST"  align='middle'>
         <label for="nome" class="cadastrofunc">Nome:</label>
         <input type="text" id="nome" name="nome" placeholder="Nome do professor" /> <br/><br/>
         
         <label for="rg" class="cadastrofunc">RG:</label>
-        <input type="text" id="rg" name="rg" placeholder="RG"/> <br/><br/>
+        <input type="text" id="rg" name="rg" maxlength="9" placeholder="RG"/> <br/><br/>
         
         <label for="cpf" class="cadastrofunc">CPF:</label>
-        <input type="text" id="cpf" name="cpf" placeholder="CPF"/> <br/><br/>
+        <input type="text" id="cpf" name="cpf" maxlength="11" placeholder="CPF"/> <br/><br/>
         
         <label for="dtnasc" class="cadastrofunc">Data de Nascimento:</label>
         <input type="date" id="dtnasc" name="dtnasc"
@@ -38,8 +41,9 @@
         <input type="text" id="tel" name="tel" placeholder="Telefone"/> <br/><br/>
         
         <label for="salvar" class="cadastrofunc"></label>
-        <input type="submit" id="salvar" value="Salvar" /> 
-        <input type="submit" name="voltar" value="Voltar" formaction="index.php" /> <br/>
+        <button id="salvar" >Salvar</button>
+        <button id="salvar" formaction="index.php">Voltar</button>
+        
     </form>
 </body>
 </html>

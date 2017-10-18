@@ -1,5 +1,5 @@
 <?php
-    require_once 'init.php';
+    require_once '../Model/init.php';
     
     //recupera dados do formulário
     $nome = isset($_POST['nome'] )? $_POST['nome']: null;
@@ -20,10 +20,21 @@
     
     //inserir no banco
     $PDO = db_connect();
-    $sql = "INSERT INTO professor(nm_professor, registro_geral_professor,"
-            . "cpf_professor, dt_nascimento_professor, nm_endereco,"
-            . "nm_email_professor, cd_telefone_professor)VALUES(:nome, :rg, :cpf,"
-            . ":dtnasc, :endereco, :email, :telefone)";
+    $sql = "INSERT INTO professor(nm_professor,
+             registro_geral_professor,
+            cpf_professor,
+            dt_nascimento_professor,
+            nm_endereco,
+            nm_email_professor,
+            cd_telefone_professor)
+            VALUES(
+            :nome,
+            :rg,
+            :cpf,
+            :dtnasc,
+            :endereco,
+            :email,
+            :telefone)";
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':nome' ,$nome);
     $stmt->bindParam(':rg' ,$rg);

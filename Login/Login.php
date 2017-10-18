@@ -1,6 +1,6 @@
 <?php
 //Incluindo arquivo de inicialização
-require 'inicializar.php';
+require '../Model/init.php';
 
 //recupera variaveis do formulario
 $usuario = isset($_POST['usuario']) ? $_POST['usuario']:'';
@@ -8,7 +8,7 @@ $senha = isset ($_POST['senha']) ? $_POST['senha']:'';
 
 if(empty($usuario) || empty($senha)){
     echo '</br>Informe o Usuário e Senha!';
-    echo '<a href="../index.php">Voltar</a></p>';
+    echo '</br><a href="../index.php">Voltar</a></p>';
     exit;
 }
 //encriptando a senha
@@ -28,7 +28,7 @@ $sql = "SELECT id, status FROM acesso WHERE usuario = :usuario AND senha = :senh
     
     if(count($users)<=0){
         echo '</br><font color="red">Ops! Email ou senha incorretos!!!</font> ';
-        echo '<a href="../index.php">Voltar</a></p>';
+        echo '</br><a href="../index.php">Voltar</a></p>';
         exit;
     }
     //recupera o primeiro usuario

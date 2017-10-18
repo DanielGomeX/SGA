@@ -1,5 +1,5 @@
 <?php
-    require_once 'init.php';
+    require_once '../Model/init.php';
     //recupera o id da URL
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     

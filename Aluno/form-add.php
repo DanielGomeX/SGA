@@ -1,5 +1,5 @@
 <?php
-    require 'init.php';
+    require '../Model/init.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
      <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    
+    <center>
     <h1>Sistema de Gerenciamento de Academia</h1>
    
     <h2>Cadastrar Aluno</h2>
@@ -19,10 +19,10 @@
         <input type="text" id="nome" name="nome" placeholder="Nome do professor" /> <br/><br/>
         
         <label for="cpf" class="cadastrofunc">CPF:</label>
-        <input type="text" id="cpf" name="cpf" placeholder="CPF"/> <br/><br/>
+        <input type="text" id="cpf" name="cpf" maxlength="11" placeholder="CPF"/> <br/><br/>
         
         <label for="rg" class="cadastrofunc">RG:</label>
-        <input type="text" id="rg" name="rg" placeholder="RG"/> <br/><br/>
+        <input type="text" id="rg" name="rg" maxlength="9" placeholder="RG"/> <br/><br/>
         
         <label for="endereço" class="cadastrofunc">Endereço:</label>
         <input type="text" id="end" name="end" placeholder="Endereço"/> <br/><br/>
@@ -38,8 +38,10 @@
         <input type="text" id="email" name="email" placeholder="E-mail"/> <br/><br/>
         
         <label for="salvar" class="cadastrofunc"></label>
-        <input type="submit" id="salvar" value="Salvar" /> 
-        <input type="submit" name="voltar" value="Voltar" formaction="index.php" /> <br/>
+        <button id="salvar" >Salvar</button>
+        <button id="salvar" formaction="index.php">Voltar</button>
+        
     </form>
+    </center>
 </body>
 </html>

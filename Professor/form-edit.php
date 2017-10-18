@@ -1,5 +1,5 @@
 <?php
-    require 'init.php';
+    require_once '../Model/init.php';
     
     //recupera o ID da URL
     $id = isset($_GET['id'])? (int) $_GET['id']: null;
@@ -13,11 +13,14 @@
     
     //recupera os dados do usuário a ser editado
     $PDO = db_connect();
-    $sql = "SELECT nm_professor,registro_geral_professor,
-            cpf_professor,dt_nascimento_professor,nm_endereco,
-             nm_email_professor,cd_telefone_professor
-             FROM professor
-             WHERE id_professor = '$id'";
+    $sql = "SELECT nm_professor,
+            registro_geral_professor,
+            cpf_professor,
+            dt_nascimento_professor,
+            nm_endereco,
+            nm_email_professor,cd_telefone_professor
+            FROM professor
+            WHERE id_professor = '$id'";
     
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -41,10 +44,12 @@
 </head>
 <body>
     
-    <h1 align="center">Sistema de Gerenciamento de Academia</h1>
-   
-    <h2 align="center">Editar Professor</h2>
-    
+        <center>
+            <h1>Sistema de Gerenciamento de Academia</h1>
+
+            <h2>Editar Professor</h2>
+
+        </center>
     <form action="edit.php" method="POST"  align='middle'>
         <label for="nome" class="cadastrofunc">Nome:</label>
         <input type="text" id="nome" name="nome" placeholder="Nome do professor"
@@ -77,8 +82,10 @@
          <input type="hidden" name="id" value="<?php echo $id ?>"/>
          
         <label for="alterar" class="cadastrofunc"></label>
-        <input type="submit" id="alterar" value="Alterar" /> 
-        <input type="submit" name="voltar" value="Voltar" formaction="index.php"/> <br/>
+        
+        <button id="alterar" >Salvar</button>
+        <button id="salvar" formaction="index.php">Voltar</button>
+       
     </form>
 </body>
 </html>

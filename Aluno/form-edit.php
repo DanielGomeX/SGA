@@ -1,5 +1,5 @@
 <?php
-    require 'init.php';
+    require '../Model/init.php';
     
     //recupera o ID da URL
     $id = isset($_GET['id'])? (int) $_GET['id']: null;
@@ -41,14 +41,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Edição de Usuário</title>
+    <title>Edição de Aluno</title>
      <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    
+<center>
     <h1>Sistema de Gerenciamento de Academia</h1>
    
-    <h2>Edição de Usuário</h2>
+    <h2>Edição de Aluno</h2>
     
     <form action="edit.php" method="POST"  align='middle'>
         <label for="nome" class="cadastrofunc">Nome:</label>
@@ -82,8 +82,11 @@
          <input type="hidden" name="id" value="<?php echo $id ?>"/>
          
         <label for="alterar" class="cadastrofunc"></label>
-        <input type="submit" id="alterar" value="Alterar" /> 
-        <input type="submit" name="voltar" value="Voltar" formaction="index.php"/> <br/>
+        
+        <button id="salvar" >Salvar</button>
+        <button id="salvar" formaction="index.php">Voltar</button>
+        
     </form>
+</center>
 </body>
 </html>

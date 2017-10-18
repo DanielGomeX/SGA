@@ -1,7 +1,7 @@
 <?php
 session_start();
  
-require 'inicializar.php';
+require '../Model/init.php';
 ?>
 <!doctype html>
 <html>

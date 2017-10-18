@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once 'inicializar.php';
+    require '../Model/init.php';
     require 'check.php';
 ?>
 <!DOCTYPE <html>

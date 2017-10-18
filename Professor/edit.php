@@ -1,5 +1,5 @@
 <?php
-    require_once 'init.php';
+    require_once '../Model/init.php';
     
     //recupera os valores do formulário
     $nome = isset($_POST['nome'] )? $_POST['nome']: null;
@@ -22,9 +22,11 @@
     $PDO = db_connect();
     $sql = "UPDATE professor SET nm_professor = :nome,
         registro_geral_professor = :rg,
-        cpf_professor = :cpf,dt_nascimento_professor = :dtnasc,
+        cpf_professor = :cpf,
+        dt_nascimento_professor = :dtnasc,
         nm_endereco = :dtnasc,
-        nm_email_professor = :email, cd_telefone_professor = :telefone 
+        nm_email_professor = :email,
+        cd_telefone_professor = :telefone 
         WHERE id_professor = :id";
     
     $stmt = $PDO->prepare($sql);

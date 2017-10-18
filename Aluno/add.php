@@ -1,5 +1,5 @@
 <?php
-    require_once 'init.php';
+    require_once '../Model/init.php';
     
     //recupera dados do formulário
     $nome = isset($_POST['nome'] )? $_POST['nome']: null;
@@ -13,6 +13,7 @@
     //validação(simples)
     if(empty($nome)|| empty($rg) || empty($cpf) || empty($dtnasc)||
         empty($endereco)||empty($email)|| empty($telefone)){
+      
         echo '</br><font color="red">Volte e preencha os campos, por favor!</font>';
         echo '<a href="form-add.php">Voltar</a>';
         exit;

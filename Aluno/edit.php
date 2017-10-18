@@ -1,5 +1,5 @@
 <?php
-    require_once 'init.php';
+    require_once '../init.php';
     
     //recupera os valores do formulário
     $nome = isset($_POST['nome'] )? $_POST['nome']: null;
