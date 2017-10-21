@@ -24,15 +24,27 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Cadastro Plano</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/barramenu.css" rel="stylesheet" type="text/css" />
+        <title>Cadastro Plano</title>
     </head>
     <center>
         <body>
-          <h1>Sistema de Gerenciamento de Academia</h1>
+          <h1>SISTEMA DE GERENCIAMENTO DE ACADEMIA</h1>
+          <div id="menu">
+            <ul>
+                <li><a href="../Professor/index.php">PROFESSORES</a></li>
+                <li><a href="../Aluno/index.php">ALUNOS</a></li>
+                <li><a href="../Modalidades/index.php">MODALIDADES</a></li>
+                <li><a href="../Plano/index.php">PLANOS</a></li>
+                <li><a href="../Login/sair.php">SAIR</a></li>
+                <li><a><?php echo dataatual()?></a></li>
+            </ul>
+        </div>
           
           <h2>Lista de Planos</h2>
-          <p>Total de Planos: <?php echo $total ?></p>
+          <h3>Total de Planos: <?php echo $total ?></h3>
 
           <?php if($total > 0):?>
 
@@ -50,7 +62,7 @@
                   <tr>
                       <td><?PHP echo $user['cd_plano'] ?></td>
                       <td><?PHP echo $user['vl_plano'] ?></td>
-                      <td><?PHP echo $user['dt_plano'] ?></td>
+                      <td><?PHP echo date("d/m/Y", strtotime($user['dt_plano']))?></td>
                       <td>
                       <a href="form-edit.php?codigo=<?php echo $user['cd_plano'] ?>">
                   <button>Editar</button></a>

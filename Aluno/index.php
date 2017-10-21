@@ -23,14 +23,28 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Cadastro Aluno</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/barramenu.css" rel="stylesheet" type="text/css" />
+        <title>Cadastro Aluno</title>
+        
     </head>
         <body>  
         <center>
-          <h1>Sistema de Gerenciamento de Academia</h1>
+          <h1>SISTEMA DE GERENCIAMENTO DE ACADEMIA</h1>
+          <div id="menu">
+            <ul>
+                <li><a href="../Professor/index.php">PROFESSORES</a></li>
+                <li><a href="../Aluno/index.php">ALUNOS</a></li>
+                <li><a href="../Modalidades/index.php">MODALIDADES</a></li>
+                <li><a href="../Plano/index.php">PLANOS</a></li>
+                <li><a href="../Login/sair.php">SAIR</a></li>
+                <li><a><?php echo dataatual()?></a></li>
+            </ul>
+        </div>
+        </br>
           <h2>Lista de Alunos</h2>
-          <p>Total de Alunos: <?php echo $total ?></p>
+          <h3>Total de Alunos: <?php echo $total ?></h3>
 
           <?php if($total > 0):?>
 
@@ -76,7 +90,7 @@
         
         </br></br>
         <div class="container">
-            <a href="form-add.php"><button id="button">Adicionar professor</button></a>
+            <a href="form-add.php"><button id="button">Adicionar Aluno</button></a>
         </div>
         
         </center>

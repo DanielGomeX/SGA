@@ -10,7 +10,7 @@
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
-				<h1>SGA</h1></div>
+				<h1>CT NINO SOARES</h1></div>
         <div class="login-form">
             <div class="control-group">
                 <input type="text" class="login-field" name='usuario'

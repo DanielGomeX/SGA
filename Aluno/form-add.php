@@ -16,7 +16,7 @@
     
     <form action="add.php" method="POST"  align='middle'>
         <label for="nome" class="cadastrofunc">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Nome do professor" /> <br/><br/>
+        <input type="text" id="nome" name="nome" placeholder="Nome do Aluno" /> <br/><br/>
         
         <label for="cpf" class="cadastrofunc">CPF:</label>
         <input type="text" id="cpf" name="cpf" maxlength="11" placeholder="CPF"/> <br/><br/>

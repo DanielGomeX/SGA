@@ -22,19 +22,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Cadastro Professor</title>
+         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/barramenu.css" rel="stylesheet" type="text/css" />
+        <title>Cadastro Professor</title>
     </head>
         <body>
         <center>
-          <h1>Sistema de Gerenciamento de Academia</h1>
-          
-          <h2>Lista de professores</h2>
-          <p>Total de Professores: <?php echo $total ?></p>
+        <h1>SISTEMA DE GERENCIAMENTO DE ACADEMIA</h1>
+        <div id="menu">
+            <ul>
+                <li><a href="../Professor/index.php">PROFESSORES</a></li>
+                <li><a href="../Aluno/index.php">ALUNOS</a></li>
+                <li><a href="../Modalidades/index.php">MODALIDADES</a></li>
+                <li><a href="../Plano/index.php">PLANOS</a></li>
+                <li><a href="../Login/sair.php">SAIR</a></li>
+                <li><a><?php echo dataatual()?></a></li>
+            </ul>
+        </div>
+        </br>
+        
+        <h2>Lista de professores</h2>
+          <h3>Total de Professores: <?php echo $total ?></h3>
 
           <?php if($total > 0):?>
 
+          <form name="frmBusca" method="post" action="">
+              <input type="text" name="cxnome" id="cxnome" placeholder="Fazer busca"/>
+              <button type="submit" name="buscar" value="Buscar">Buscar</button>
+              <button type="reset" value="limpar" name="limpar">Limpar</button>
+          </form>
           <table border="1">
               <thead>
                   <tr>
@@ -81,3 +99,41 @@
         </center>
       </body>
 </html>
+
+<?php
+    if(!defined($nome)){
+        $nome=$_POST["cxnome"];
+    }
+ 
+ $pesquisa=$_POST['buscar'];
+
+   if(isset($pesquisa)&&!empty($nome)){
+	$stmt = $PDO->prepare("SELECT * FROM professor
+                               WHERE nm_professor
+                               LIKE :letra");
+        
+	$stmt->bindValue(':letra', '%'.$nome.'%', PDO::PARAM_STR);
+	$stmt->execute();
+	$resultados = $stmt->rowCount();
+
+  if($resultados>=1){
+    echo "Resultado(s) encontrado(s): ".$resultados."<br /><br />";
+      while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
+       echo $reg->nm_professor." - "."</br>";
+       echo $reg->registro_geral_professor."<br />";
+       echo $reg->cpf_professor."<br />";
+       echo $reg->dt_nascimento_professor."<br />";
+       echo $reg->nm_endereco."<br />";
+       echo $reg->nm_email_professor."<br />";
+       echo $reg->cd_telefone_professor."<br />";
+       
+       echo "<a href='index.php')><button >Limpar busca</button></a> ";
+      }
+  }else{
+	echo "Não existe usuario cadastrado";
+   }
+	}
+   else{
+	echo "Preencha o campo de pesquisa";
+    }
+ ?>
