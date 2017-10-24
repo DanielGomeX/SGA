@@ -47,8 +47,13 @@
           <h3>Total de Planos: <?php echo $total ?></h3>
 
           <?php if($total > 0):?>
-
-          <table border="1">
+           <form name="frmBusca" method="post" action="busca.php">
+                <input type="text" name="cxnome" id="cxnome" placeholder="Digite o código"/>
+                <button type="submit" name="buscar" value="Buscar">Buscar</button><a/>
+               <button type="reset" value="limpar" name="limpar">Limpar</button></a>
+            </form>
+          </br>
+          <table border="1" style="background-color: #fff; border-radius: 4px;">
               <thead>
                   <tr>
                       <th>Código:</th>

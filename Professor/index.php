@@ -1,6 +1,5 @@
 <?php
     require_once '../Model/init.php';
-
     // abre a conexão
     $PDO = db_connect();
     
@@ -8,7 +7,7 @@
     $sql_count = "SELECT COUNT(*) AS total FROM professor";
     
   // SQL para selecionar os registros
-    $sql = "SELECT * FROM professor ";
+    $sql = "SELECT * FROM professor LIMIT 10";
     
     // conta o total de registros
     $stmt_count = $PDO->prepare($sql_count);
@@ -47,13 +46,14 @@
           <h3>Total de Professores: <?php echo $total ?></h3>
 
           <?php if($total > 0):?>
-
-          <form name="frmBusca" method="post" action="">
-              <input type="text" name="cxnome" id="cxnome" placeholder="Fazer busca"/>
-              <button type="submit" name="buscar" value="Buscar">Buscar</button>
-              <button type="reset" value="limpar" name="limpar">Limpar</button>
-          </form>
-          <table border="1">
+          
+          <form name="frmBusca" method="post" action="busca.php">
+                <input type="text" name="cxnome" id="cxnome" placeholder="Digite o nome"/>
+                <button type="submit" name="buscar" value="Buscar">Buscar</button><a/>
+               <button type="reset" value="limpar" name="limpar">Limpar</button></a>
+            </form>
+          </br>
+          <table border="1" style="background-color: #fff; border-radius: 4px;">
               <thead>
                   <tr>
                       <th>Nome:</th>
@@ -99,41 +99,3 @@
         </center>
       </body>
 </html>
-
-<?php
-    if(!defined($nome)){
-        $nome=$_POST["cxnome"];
-    }
- 
- $pesquisa=$_POST['buscar'];
-
-   if(isset($pesquisa)&&!empty($nome)){
-	$stmt = $PDO->prepare("SELECT * FROM professor
-                               WHERE nm_professor
-                               LIKE :letra");
-        
-	$stmt->bindValue(':letra', '%'.$nome.'%', PDO::PARAM_STR);
-	$stmt->execute();
-	$resultados = $stmt->rowCount();
-
-  if($resultados>=1){
-    echo "Resultado(s) encontrado(s): ".$resultados."<br /><br />";
-      while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
-       echo $reg->nm_professor." - "."</br>";
-       echo $reg->registro_geral_professor."<br />";
-       echo $reg->cpf_professor."<br />";
-       echo $reg->dt_nascimento_professor."<br />";
-       echo $reg->nm_endereco."<br />";
-       echo $reg->nm_email_professor."<br />";
-       echo $reg->cd_telefone_professor."<br />";
-       
-       echo "<a href='index.php')><button >Limpar busca</button></a> ";
-      }
-  }else{
-	echo "Não existe usuario cadastrado";
-   }
-	}
-   else{
-	echo "Preencha o campo de pesquisa";
-    }
- ?>

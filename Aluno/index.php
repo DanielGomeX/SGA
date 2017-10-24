@@ -8,7 +8,7 @@
     $sql_count = "SELECT COUNT(*) AS total FROM aluno";
     
   // SQL para selecionar os registros
-    $sql = "SELECT * FROM aluno ";
+    $sql = "SELECT * FROM aluno LIMIT 10 ";
     
     // conta o total de registros
     $stmt_count = $PDO->prepare($sql_count);
@@ -47,8 +47,13 @@
           <h3>Total de Alunos: <?php echo $total ?></h3>
 
           <?php if($total > 0):?>
-
-          <table width="90%" border="1">
+          <form name="frmBusca" method="post" action="busca.php">
+                <input type="text" name="cxnome" id="cxnome" placeholder="Digite o nome"/>
+                <button type="submit" name="buscar" value="Buscar">Buscar</button><a/>
+               <button type="reset" value="limpar" name="limpar">Limpar</button></a>
+            </form>
+          </br>
+          <table border="1" style="background-color: #fff; border-radius: 4px;">
               <thead>
                   <tr>
                       <th>Nome:</th>
