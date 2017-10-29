@@ -1,5 +1,5 @@
 <?php
-    require_once '../Model/init.php';
+    require_once '../controllers/header.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,13 +11,12 @@
 <body>
     
     <center>
-        
+        <div class="mensagem"><?php echo $msg; ?></div>
         <h1>Sistema de Gerenciamento de Academia</h1>
         
         <h2>Cadastrar Professor</h2>
     </center>
-
-    <form action="add.php" method="POST"  align='middle'>
+    <form action="form-add.php?acao=cadastrar" method="POST"  align='middle'>
         <label for="nome" class="cadastrofunc">Nome:</label>
         <input type="text" id="nome" name="nome" placeholder="Nome do professor" /> <br/><br/>
         

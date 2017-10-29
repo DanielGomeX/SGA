@@ -1,5 +1,5 @@
 <?php
-    require_once '../Model/init.php';
+    require_once '../controllers/header.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,11 +10,11 @@
 </head>
 <body>
     <center>
+    <div class="mensagem"><?php echo $msg; ?></div>
     <h1>Sistema de Gerenciamento de Academia</h1>
    
     <h2>Cadastrar Plano</h2>
-    
-    <form action="add.php" method="POST"  align='middle'>
+    <form action="form-add.php?acao=cadastrar" method="POST"  align='middle'>
         <label for="codigo" class="cadastrofunc">Código do Plano:</label>
         <input type="text" id="codigo" name="codigo" placeholder="Código do Plano" /> <br/><br/>
         

@@ -15,9 +15,11 @@
         empty($endereco)||empty($email)|| empty($telefone)){
         echo '</br><font color="red">Volte e preencha os campos, por favor!</font>';
         echo '<a href="form-add.php">Voltar</a>';
+        
         exit;
     }
-    
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      
     //inserir no banco
     $PDO = db_connect();
     $sql = "INSERT INTO professor(nm_professor,
@@ -43,11 +45,16 @@
     $stmt->bindParam(':endereco' ,$endereco);
     $stmt->bindParam(':email' ,$email);
     $stmt->bindParam(':telefone' ,$telefone);
-    
+
     if($stmt->execute()){
         header('location: index.php');
     }else{
         echo '</br><font color="red">Ops! Erro ao cadastrar!</font>';
         print_r($stmt->errorInfo());
     }
+
+    }else{
+        echo "Digite seu email corretamente!";
+    }
+    
 ?>

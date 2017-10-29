@@ -45,17 +45,21 @@
               echo '</thead>';
               echo '<tbody>';
                 while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
-              echo '<tr>';
-                echo '<td>'.$reg->nm_professor.'</td>';
-                echo '<td>'.$reg->registro_geral_professor.'</td>';
-                echo '<td>'.$reg->cpf_professor.'</td>';
-                echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_professor)).'</td>';
-                echo '<td>'.$reg->nm_endereco.'</td>';
-                echo '<td>'.$reg->nm_email_professor.'</td>';
-                echo '<td>'.$reg->cd_telefone_professor.'</td>';
-                echo '</table>';
-                echo "<a href='index.php')><button >Voltar</button></a> ";
+                  echo '<tr>';
+                  echo '<td>'.$reg->nm_professor.'</td>';
+                  echo '<td>'.$reg->registro_geral_professor.'</td>';
+                  echo '<td>'.$reg->cpf_professor.'</td>';
+                  echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_professor)).'</td>';
+                  echo '<td>'.$reg->nm_endereco.'</td>';
+                  echo '<td>'.$reg->nm_email_professor.'</td>';
+                  echo '<td>'.$reg->cd_telefone_professor.'</td>';
+                  echo '</tr>';
+                
                 }
+                echo '</tbody>';
+                echo '</table>';
+
+                echo "<a href='index.php')><button >Voltar</button></a> ";
                 }else{
                     echo "Não existe usuario cadastrado";
                     echo "</br><a href='index.php')><button>Voltar</button></a> ";
