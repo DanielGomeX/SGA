@@ -1,5 +1,17 @@
 <?php
     require_once '../Model/init.php';
+    require_once '../Classes/Aluno.class.php';
+    
+    //recupera o id da URL
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
+    
+    $deletar = new Aluno($id, $nome, $rg, $cpf,
+            $datanascimento, $endereco, $telefone, $email);
+    $deletar->Excluir($id);
+
+
+/*
+    require_once '../Model/init.php';
     //recupera o id da URL
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     
@@ -20,4 +32,4 @@
         echo '</br><font color="red">Erro ao remover!</font>';
         print_r($stmt->errorInfo());
     }
-?>
+ */

@@ -77,9 +77,9 @@
                  <td><?PHP echo $user['cd_telefone_aluno'] ?></td>
                  <td><?PHP echo $user['nm_email_aluno'] ?></td>
                  <td>
-              <a href="form-edit.php?id=<?php echo $user['matricula_aluno'] ?>">
+              <a href="form-edit.php?id=<?php echo $user['id'] ?>">
                   <button>Editar</button></a>
-              <a href="delete.php?id=<?php echo $user['matricula_aluno'] ?>"
+              <a href="delete.php?id=<?php echo $user['id'] ?>"
                  onclick="return confirm('Tem certeza que deseja remover?');">
                   <button>Excluir</button></a>
                  </td>

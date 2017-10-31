@@ -53,9 +53,12 @@
                 echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_aluno)).'</td>';
                 echo '<td>'.$reg->cd_telefone_aluno.'</td>';
                 echo '<td>'.$reg->nm_email_aluno.'</td>';
-                echo '</table>';
-                echo "<a href='index.php')><button >Voltar</button></a> ";
+                 echo '</tr>';
                 }
+                echo '</tbody>';
+                echo '</table>';
+
+                echo "<a href='index.php')><button >Voltar</button></a> ";
                 }else{
                     echo "Não existe usuario cadastrado";
                     echo "</br><a href='index.php')><button>Voltar</button></a> ";

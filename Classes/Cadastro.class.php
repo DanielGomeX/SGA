@@ -6,11 +6,12 @@ class Cadastro{
 
 		//validacao de email
 		$PDO = db_connect();
-		$stmt= $PDO->prepare("SELECT * FROM professor WHERE nm_email_professor = :email, cpf_professor = :cpf");
-		$stmt->bindValue(':email', $email);
-		$stmt->bindValue(':cpf', $cpf);
-		$stmt->execute();
-		$resultado= $stmt->rowCount();
+		$validar= $PDO->prepare("SELECT * FROM professor
+                        WHERE nm_email_professor = :email OR cpf_professor = :cpf");
+		$validar->bindValue(':email', $email);
+		$validar->bindValue(':cpf', $cpf);
+		$validar->execute();
+		$resultado= $validar->rowCount();
 
 		if ($resultado == 0) {	
 		//insercao no banco
@@ -40,7 +41,7 @@ class Cadastro{
 			$stmt->execute();
 			header ('Location: ../Professor/index.php');
 		}else{
-			$msg="Desculpe, mas já existe um usuário com este email e/ou cpf em nosso sistema!";
+                    $msg="Desculpe, mas já existe um usuário com este email e/ou cpf em nosso sistema!";
 		}
 			if (isset($stmt)) {
 				$msg="Cadastro realizado com sucesso!";
