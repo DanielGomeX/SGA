@@ -13,13 +13,19 @@
     
     //recupera os dados do usuário a ser editado
     $PDO = db_connect();
-    $sql2 = "SELECT nm_professor, ";
+    //$sql2 = "SELECT nm_professor, ";
     
-    $sql = "SELECT nm_modalidade,
+    $sql = "SELECT  nm_professor
+            FROM    professor
+            INNER JOIN modalidade
+            ON professor.id_professor = modalidade.cd_modalidade";
+            
+            /*
+            "SELECT nm_modalidade,
             qt_aulasem,qt_hraula
              FROM modalidade
              WHERE id_modalidade = '$id'";
-    
+             */
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();

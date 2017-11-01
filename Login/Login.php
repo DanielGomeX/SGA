@@ -1,15 +1,14 @@
 <?php
 //Incluindo arquivo de inicialização
 require '../Model/init.php';
+include '../controllers/header.php';
 
 //recupera variaveis do formulario
 $usuario = isset($_POST['usuario']) ? $_POST['usuario']:'';
 $senha = isset ($_POST['senha']) ? $_POST['senha']:'';
 
 if(empty($usuario) || empty($senha)){
-    echo '</br>Informe o Usuário e Senha!';
-    echo '</br><a href="../index.php">Voltar</a></p>';
-    exit;
+    $msg = "Preencha Todos os Campos!!";
 }
 //encriptando a senha
     $senhahash = make_hash($senha);

@@ -1,6 +1,6 @@
 <?php
     require '../Model/init.php';
     if(!isLoggedIn()){
-        header('location: form-login.php');
+        header('location: ../index.php');
     }
 ?>
