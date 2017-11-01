@@ -28,7 +28,7 @@
             
                 $consultar = new Aluno($id,$nome,$rg,$cpf,
                         $datanascimento,$endereco,$telefone,$email);
-                $consultar->Consultar($id,$nome,$rg,$cpf,
+                $consultar->ConsultarAluno($id,$nome,$rg,$cpf,
                         $datanascimento,$endereco,$telefone,$email);
             ?>
         </center>

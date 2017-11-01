@@ -121,7 +121,7 @@ button {
     background: $green;
   }
   &:active {
-    //letter-spacing: 2px;
+    letter-spacing: 2px;
     letter-spacing: 2px ;
   }
   &:after {
@@ -140,14 +140,14 @@ button {
     content:"";
   }
   &:hover {
-    color:$green;
+    color:green;
     background: white;
   }
 }
 .validate {
   font-size:13px;
   color: white;
-  background: $green;
+  background: green;
   &:after {
     font-family:'FontAwesome';
     content:"\f00c";

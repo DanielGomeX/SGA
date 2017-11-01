@@ -94,7 +94,7 @@
         <?php endif; ?>
         </br>
        
-       <a href="form-add.php"><button>Adicionar professor</button></a>
+        <a href="../Views/professor.php"><button>Adicionar professor</button></a>
                        
         </center>
       </body>

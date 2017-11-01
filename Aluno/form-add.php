@@ -1,5 +1,5 @@
 <?php
-    require '../Model/init.php';
+    require_once '../controllers/header.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
    
     <h2>Cadastrar Aluno</h2>
     
-    <form action="add.php" method="POST"  align='middle'>
+    <form action="form-add.php?acao=cadastrar" method="POST"  align='middle'>
         <label for="nome" class="cadastrofunc">Nome:</label>
         <input type="text" id="nome" name="nome" placeholder="Nome do Aluno" /> <br/><br/>
         

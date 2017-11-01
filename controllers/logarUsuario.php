@@ -7,6 +7,7 @@
 
 		if(empty($usuario) || empty($senha)){
     		$msg = "Preencha Todos os Campos!!";
+			header('Location: ../index.php');
 		}else{
 			//Executa a classe de acesso
 			$acessar = new Acesso($usuario,$senha);

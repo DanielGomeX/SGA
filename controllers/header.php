@@ -7,5 +7,5 @@
 		$startaction=1;
 	}
 	include ('../Model/init.php');
-	include ('../Classes/Cadastro.class.php');
-	include ('../controllers/cadastro.php');
+	include ('../Classes/Professor.class.php');
+	include ('../controllers/cadastroProfessor.php');

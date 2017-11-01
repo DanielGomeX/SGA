@@ -1,5 +1,5 @@
 <?php 
-require_once '../Model/init.php';
+require_once '../controllers/header.php';
 
 class Professor{
 
@@ -86,7 +86,7 @@ class Professor{
         $this->telefone = $telefone;
     }
 
-	public function cadastrar($nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone){
+	public function CadastrarProfessor($nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone){
 		$nome=ucwords(strtolower($nome));
 		$endereco=ucwords(strtolower($endereco));
 
@@ -100,8 +100,22 @@ class Professor{
 
 		if ($resultado == 0) {	
 		//insercao no banco
-	    $sql = "INSERT INTO professor(nm_professor, registro_geral_professor, cpf_professor, dt_nascimento_professor, nm_endereco,nm_email_professor, cd_telefone_professor)
-            VALUES(:nome, :rg, :cpf, :dtnasc, :endereco, :email, :telefone)";
+	    $sql = "INSERT INTO professor
+                    (nm_professor,
+                    registro_geral_professor,
+                    cpf_professor,
+                    dt_nascimento_professor,
+                    nm_endereco,
+                    nm_email_professor,
+                    cd_telefone_professor)
+                    VALUES
+                    (:nome,
+                    :rg,
+                    :cpf,
+                    :dtnasc,
+                    :endereco,
+                    :email,
+                    :telefone)";
 
 			$stmt = $PDO->prepare($sql);
 			$stmt->bindParam(':nome' ,$nome);
@@ -128,7 +142,7 @@ class Professor{
 		echo $msg;
 	}
 
-	public function excluir($id){
+	public function ExcluirProfessor($id){
 		
 	    //remove do banco
 	    $PDO = db_connect();
@@ -140,7 +154,7 @@ class Professor{
 	    
 	}
 
-	public function alterar(){
+	public function AlterarProfessor(){
 
 	}
 }

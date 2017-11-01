@@ -87,7 +87,7 @@ require_once '../Model/init.php';
     
     
 //----------------------------MÉTODOS---------------------------------------------
-    public function CadastrarAluno($nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email){
+    public function CadastrarAluno($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email){
 		$nome=ucwords(strtolower($nome));
 		$endereco=ucwords(strtolower($endereco));
 
@@ -229,8 +229,8 @@ require_once '../Model/init.php';
 
                 echo "<a href='../Aluno/index.php')><button >Voltar</button></a> ";
                 }else{
-                    echo "Não existe usuario cadastrado";
-                    echo "</br><a href='index.php')><button>Voltar</button></a> ";
+                    echo "Não existe Aluno cadastrado";
+                    echo "</br><a href='../Aluno/index.php')><button>Voltar</button></a> ";
                 }
                 }
                 else{
