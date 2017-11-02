@@ -47,7 +47,7 @@
           <h3>Total de Alunos: <?php echo $total ?></h3>
 
           <?php if($total > 0):?>
-          <form name="frmBusca" method="post" action="../controllers/buscaAluno.php">
+          <form name="frmBusca" method="post" action="busca.php">
                 <input type="text" name="cxnome" id="cxnome" placeholder="Digite o nome"/>
                 <button type="submit" name="buscar" value="Buscar">Buscar</button><a/>
                <button type="reset" value="limpar" name="limpar">Limpar</button></a>
@@ -79,7 +79,7 @@
                  <td>
               <a href="form-edit.php?id=<?php echo $user['matricula_aluno'] ?>">
                   <button>Editar</button></a>
-                     <a href="../controllers/delete.php?id=<?php echo $user['id'] ?>"
+              <a href="../controllers/deletarAluno.php?id=<?php echo $user['matricula_aluno'] ?>"
                  onclick="return confirm('Tem certeza que deseja remover?');">
                   <button>Excluir</button></a>
                  </td>

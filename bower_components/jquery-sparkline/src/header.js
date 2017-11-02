@@ -213,7 +213,7 @@
 (function($) {
     'use strict';
 
-    var UNSET_OPTION = {},
+    var UNSET_OPTION = {}
         getDefaults, createClass, SPFormat, clipval, quartile, normalizeValue, normalizeValues,
         remove, isNumber, all, sum, addCSS, ensureArray, formatNumber, RangeMap,
         MouseHandler, Tooltip, barHighlightMixin,

@@ -68,7 +68,7 @@
     <section class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">        
-          :<!-- colocar usuario -->       
+          <h4 class="center"><?php echo ucwords($_SESSION['user_name']); ?>  </h4>   
       </div>
 
       <!-- search form (Optional) -->
@@ -93,17 +93,6 @@
         <li><a href="../Aluno/index.php"><i class="fa fa-link"></i> <span>Alunos</span></a></li>
         <li><a href="../Modalidade/index.php"><i class="fa fa-link"></i> <span>Modalidades</span></a></li>
         <li><a href="../Plano/index.php"><i class="fa fa-link"></i> <span>Planos</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

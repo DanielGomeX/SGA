@@ -18,19 +18,7 @@
         <h2>Cadastrar Modalidade</h2><br/><br/>
         
         <label for="professormoda" class="cadastromoda">Nome do Professor:</label>
-        <select name="professor" id="professormoda">
-            <option>Selecione...</option>
-            <?php 
-                $PDO = db_connect();
-                $listar = "SELECT nm_professor
-                          FROM professor
-                          ORDER BY nm_professor ASC";
-                foreach($PDO->query($listar) as $dado){
-                    
-                 echo "<option value='".$dado['nm_professor']."'>".$dado['nm_professor']."</option>";
-                }    
-            ?>
-        </select>
+        <input type="text" id="professormoda" placeholder="Professor"/> <br/><br/>
         
         <label for="nomemoda" class="cadastromoda">Modalidade:  </label>
         <select name="modalidade" id="nomemoda">
@@ -42,6 +30,7 @@
                           </select>
                          <span class="style1">      </span><br/><br/>
        
+        
         <label for="quantidadedaula" class="cadastromoda">Qtd Aula Semanal:</label>
                             <select name="qtaula" id="quantidadedaula">
                             <option>Selecione...</option>

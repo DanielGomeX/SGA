@@ -1,0 +1,13 @@
+<?php 
+	$acao="";
+	$startaction="";
+	$msg="";
+	if (isset($_GET["acao"])) {
+		$acao=$_GET["acao"];
+		$startaction=1;
+	}
+	include ('../Model/init.php');
+	include ('../Classes/Professor.class.php');
+	include ('../controllers/deletarProfessor.php');
+	include ('../controllers/cadastroProfessor.php');
+

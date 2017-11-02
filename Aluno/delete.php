@@ -6,12 +6,11 @@
     //valida ID
     if(empty($id)){
         echo '</br><font color="red">ID não informado</font>';
-        echo '</br><a href="form-add.php">Voltar</a>';
         exit;
     }
     //remove do banco
     $PDO = db_connect();
-    $sql = "DELETE FROM professor WHERE id_professor = :id";
+    $sql = "DELETE FROM aluno WHERE matricula_aluno = :id";
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     
@@ -19,7 +18,6 @@
         header('location: index.php');
     }else{
         echo '</br><font color="red">Erro ao remover!</font>';
-        echo '</br><a href="form-add.php">Voltar</a>';
         print_r($stmt->errorInfo());
     }
 ?>

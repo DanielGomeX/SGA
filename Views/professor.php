@@ -2,29 +2,13 @@
 session_start();
  
 require '../Model/init.php';
-//require '../controllers/check.php';
+require '../controllers/check.php';
+include ('../controllers/limitarProfessor.php');
 include ('header.php'); 
-// abre a conexão
-    $PDO = db_connect();
-    
-  // SQL para contar o total de registros
-    $sql_count = "SELECT COUNT(*) AS total FROM professor";
-    
-  // SQL para selecionar os registros
-    $sql = "SELECT * FROM professor LIMIT 10";
-    
-    // conta o total de registros
-    $stmt_count = $PDO->prepare($sql_count);
-    $stmt_count->execute();
-    $total = $stmt_count->fetchColumn();
-    
-    //Seleciona os registros
-    $stmt = $PDO->prepare($sql);
-    $stmt->execute();
 ?>
 
 
-<h2 class="center">Lista de professores</h2>
+          <h2 class="center">Lista de professores</h2>
           <h3 class="center">Total de Professores: <?php if(isset($total)){echo $total;} ?></h3>
 
           <?php if(isset($total) > 0):?>
@@ -36,7 +20,7 @@ include ('header.php');
                       <th>Nome</th>
                       <th>RG</th>
                       <th>CPF</th>
-                      <th>Data de Nascimento:</th>
+                      <th>Data de Nasciment:</th>
                       <th>Endereço</th>
                       <th>Email</th>
                       <th>Telefone</th>

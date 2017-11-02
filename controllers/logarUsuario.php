@@ -4,9 +4,9 @@
 		//recupera variaveis do formulario
 		$usuario = isset($_POST['usuario']) ? $_POST['usuario']:'';
 		$senha = isset($_POST['senha']) ? $_POST['senha']:'';
-
+		
 		if(empty($usuario) || empty($senha)){
-    		$msg = "Preencha Todos os Campos!!";
+    		echo $msg = "Preencha Todos os Campos!!";
 			header('Location: ../index.php');
 		}else{
 			//Executa a classe de acesso

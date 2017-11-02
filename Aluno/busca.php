@@ -21,8 +21,8 @@
             
             $PDO = db_connect();
             if(isset($pesquisa)&&!empty($nome)){
-            $stmt = $PDO->prepare("SELECT * FROM professor
-                                            WHERE nm_professor
+            $stmt = $PDO->prepare("SELECT * FROM aluno
+                                            WHERE nm_aluno
                                             LIKE :letra");
            
             $stmt->bindValue(':letra', '%'.$nome.'%', PDO::PARAM_STR);
@@ -35,30 +35,28 @@
                  echo'<thead>';
                   echo'<tr>';
                       echo '<th>Nome:</th>';
-                      echo '<th>RG:</th>';
                       echo '<th>CPF:</th>';
-                      echo '<th>Data de Nascimento:</th>';
+                      echo '<th>RG:</th>';
                       echo '<th>Endereço:</th>';
-                      echo '<th>Email:</th>';
+                      echo '<th>Data de Nascimento:</th>';
                       echo '<th>Telefone</th>';
+                      echo '<th>Email:</th>';
                   echo '</tr>';
               echo '</thead>';
               echo '<tbody>';
                 while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
-                  echo '<tr>';
-                  echo '<td>'.$reg->nm_professor.'</td>';
-                  echo '<td>'.$reg->registro_geral_professor.'</td>';
-                  echo '<td>'.$reg->cpf_professor.'</td>';
-                  echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_professor)).'</td>';
-                  echo '<td>'.$reg->nm_endereco.'</td>';
-                  echo '<td>'.$reg->nm_email_professor.'</td>';
-                  echo '<td>'.$reg->cd_telefone_professor.'</td>';
-                  echo '</tr>';
-                
+              echo '<tr>';
+                echo '<td>'.$reg->nm_aluno.'</td>';
+                echo '<td>'.$reg->cpf_aluno.'</td>';
+                echo '<td>'.$reg->registro_geral_aluno.'</td>';
+                echo '<td>'.$reg->nm_endereco.'</td>';
+                echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_aluno)).'</td>';
+                echo '<td>'.$reg->cd_telefone_aluno.'</td>';
+                echo '<td>'.$reg->nm_email_aluno.'</td>';
+                echo '</tr>';
                 }
                 echo '</tbody>';
                 echo '</table>';
-
                 echo "<a href='index.php')><button >Voltar</button></a> ";
                 }else{
                     echo "Não existe usuario cadastrado";

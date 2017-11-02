@@ -15,5 +15,6 @@
 	$deletar = new Professor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
 
 	$deletar->excluir($id);
+?>
 
 	

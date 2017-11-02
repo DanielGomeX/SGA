@@ -8,4 +8,5 @@
 	}
 	include ('../Model/init.php');
 	include ('../Classes/Professor.class.php');
-	include ('../controllers/cadastroProfessor.php');
+	include ('../Classes/Aluno.class.php');
+	include ('../Classes/Acesso.class.php');

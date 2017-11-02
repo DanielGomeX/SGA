@@ -11,7 +11,7 @@
             </div>
             <div class="box-body">
             	<div class="mensagem"><?php echo $msg; ?></div>
-			    <form action="profAdd.php?acao=cadastrar" method="POST"  align='middle'>
+			    <form action="../controllers/cadastroProfessor.php" method="POST"  align='middle'>
 			    	<div class="form-group">
 			    		<label for="nome">Nome</label>
 			        	<input class="form-control" type="text" id="nome" name="nome" placeholder="Nome do professor" />
