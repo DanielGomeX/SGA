@@ -34,11 +34,11 @@
 			    	</div>
 			    	<div class="form-group">
 			    		<label for="email">Email</label>
-			        	<input class="form-control" type="text" id="email" name="email" placeholder="E-mail"/>
+			        	<input class="form-control" type="email" id="email" name="email" placeholder="E-mail"/>
 			    	</div>
 			    	<div class="form-group">
 			    		<label for="tel">Telefone</label>
-			        	<input class="form-control" type="text" id="tel" name="tel" placeholder="Telefone"/>
+                                        <input class="form-control" type="text" id="tel" maxlength="12" name="tel" placeholder="Telefone"/>
 			    	</div> 
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>

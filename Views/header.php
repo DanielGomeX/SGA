@@ -72,7 +72,7 @@
       </div>
 
       <!-- search form (Optional) -->
-      <form name="frmBusca" method="post" action="profList.php" class="sidebar-form">
+     <!-- <form name="frmBusca" method="post" action="../controllers/busca.php" class="sidebar-form">
             <div class="input-group">
               <input type="text" name="cxnome" id="cxnome" class="form-control" placeholder="Digite o nome">
               <span class="input-group-btn">
@@ -81,7 +81,7 @@
                   </button>
               </span>
             </div>
-          </form>
+          </form> -->
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
@@ -90,7 +90,7 @@
         <li class="header">OPÇÕES</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="professor.php"><i class="fa fa-link"></i> <span>Professores</span></a></li>
-        <li><a href="../Aluno/index.php"><i class="fa fa-link"></i> <span>Alunos</span></a></li>
+        <li><a href="aluno.php"><i class="fa fa-link"></i> <span>Alunos</span></a></li>
         <li><a href="../Modalidade/index.php"><i class="fa fa-link"></i> <span>Modalidades</span></a></li>
         <li><a href="../Plano/index.php"><i class="fa fa-link"></i> <span>Planos</span></a></li>
       </ul>

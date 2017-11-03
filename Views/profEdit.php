@@ -51,7 +51,7 @@ include ('header.php');
                     
                     <input type="hidden" name="id" value="<?php echo $id ?>"/>
                     <label for="alterar"></label>        
-                    <button class="btn btn-primary" id="alterar" >Salvar</button>
+                    <button class="btn btn-primary" id="alterar" type="submit">Salvar</button>
                     <button class="btn btn-primary" id="salvar" formaction="professor.php">Voltar</button>
                 </form>
             </div>

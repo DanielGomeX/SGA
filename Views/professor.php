@@ -6,8 +6,18 @@ require '../controllers/check.php';
 include ('../controllers/limitarProfessor.php');
 include ('header.php'); 
 ?>
-
-
+<!-- search form (Optional) -->
+<form name="frmBusca" method="post" action="../Views/profList.php" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="cxnome" id="cxnome" class="form-control" placeholder="Digite o nome">
+              <span class="input-group-btn">
+                  <button type="submit" name="buscar" id="search-btn" class="btn btn-flat">
+                    <i class="fa fa-search"></i>
+                  </button>
+              </span>
+            </div>
+      </form>   
+      <!-- /.search form -->
           <h2 class="center">Lista de professores</h2>
           <h3 class="center">Total de Professores: <?php if(isset($total)){echo $total;} ?></h3>
 
@@ -20,7 +30,7 @@ include ('header.php');
                       <th>Nome</th>
                       <th>RG</th>
                       <th>CPF</th>
-                      <th>Data de Nasciment:</th>
+                      <th>Data de Nascimento:</th>
                       <th>Endereço</th>
                       <th>Email</th>
                       <th>Telefone</th>
