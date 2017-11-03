@@ -31,7 +31,10 @@ class Acesso{
     	$senhahash = make_hash($senha);
 		//-------------------    
 	    $PDO = db_connect();
-		$sql = "SELECT id, status FROM acesso WHERE usuario = :usuario AND senha = :senha";
+		$sql = "SELECT id,usuario, status
+                        FROM acesso
+                        WHERE usuario = :usuario AND senha = :senha";
+                
 	    $stmt = $PDO->prepare($sql);
 	    $stmt->bindParam(':usuario', $usuario);
 	    $stmt->bindParam(':senha', $senhahash);
@@ -51,6 +54,7 @@ class Acesso{
 	        $_SESSION['logged_in'] = true;
 	        $_SESSION['user_id'] = $user['id'];
 	        $_SESSION['user_status'] = $user['status'];
+                $_SESSION['user_name'] = $user['usuario'];
 	    }elseif ($user['status'] == 2) {
 	        session_start();
 	        $_SESSION['logged_in'] = true;

@@ -126,7 +126,7 @@ require_once '../Model/init.php';
 			$stmt->bindParam(':email' ,$email);
 			$stmt->bindParam(':telefone' ,$telefone);		
 			$stmt->execute();
-			header ('Location: ../Aluno/index.php');
+			header ('Location: ../Views/aluno.php');
 		}else{
                     $msg="Desculpe, mas já existe um usuário com este email e/ou cpf em nosso sistema!";
 		}
@@ -227,15 +227,15 @@ require_once '../Model/init.php';
                 echo '</tbody>';
                 echo '</table>';
 
-                echo "<a href='../Aluno/index.php')><button >Voltar</button></a> ";
+                echo "<a href='../Views/aluno.php')><button >Voltar</button></a> ";
                 }else{
                     echo "Não existe Aluno cadastrado";
-                    echo "</br><a href='../Aluno/index.php')><button>Voltar</button></a> ";
+                    echo "</br><a href='../Views/aluno.php')><button>Voltar</button></a> ";
                 }
                 }
                 else{
                     echo "Preencha o campo de pesquisa";
-                    echo "</br><a href='index.php')><button >Voltar</button></a> ";
+                    echo "</br><a href='../Views/aluno.php')><button >Voltar</button></a> ";
                 }
     }
     
@@ -247,15 +247,10 @@ require_once '../Model/init.php';
             }
         //remove do banco
         $PDO = db_connect();
-        $sql = "DELETE FROM aluno WHERE id = :id";
+        $sql = "DELETE FROM aluno WHERE matricula_aluno = :id";
         $stmt = $PDO->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    
-        if($stmt->execute()){
-            header('location: index.php');
-        }else{
-            echo '</br><font color="red">Erro ao remover!</font>';
-            print_r($stmt->errorInfo());
-        }
+        $stmt->execute();
+        header('Location: ../Views/aluno.php');
     }
 }
