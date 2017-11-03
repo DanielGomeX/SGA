@@ -12,9 +12,7 @@
     $email = isset($_POST['email'] )? $_POST['email']: null;
     $id = isset($_POST['id'])? $_POST['id'] : null;
     
-    $alterar = new Aluno($id,$nome,$rg,$cpf,
-            $datanascimento,$endereco,$telefone,$email);
-    $alterar->Alterar($id,$nome,$rg,$cpf,
-            $datanascimento,$endereco,$telefone,$email);
+    $alterar = new Aluno($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email);
+    $alterar->AlterarAluno($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email);
     
 ?>
