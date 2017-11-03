@@ -143,16 +143,6 @@ require_once '../Model/init.php';
     
     public function AlterarAluno($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email){
         
-                //recupera os valores do formulário
-        $nome = isset($_POST['nome'] )? $_POST['nome']: null;
-        $cpf = isset($_POST['cpf'] )? $_POST['cpf']: null;
-        $rg = isset($_POST['rg'] )? $_POST['rg']: null;
-        $endereco = isset($_POST['end'] )? $_POST['end']: null;
-        $datanascimento = isset($_POST['dtnasc'] )? $_POST['dtnasc']: null;
-        $telefone = isset($_POST['tel'] )? $_POST['tel']: null;
-        $email = isset($_POST['email'] )? $_POST['email']: null;
-        $id = isset($_POST['id'])? $_POST['id'] : null;
-
         //atualiza o banco de dados
         $PDO = db_connect();
         $sql = "UPDATE aluno SET 
@@ -176,7 +166,7 @@ require_once '../Model/init.php';
         $stmt->bindParam(':id',$id, PDO::PARAM_INT);
 
         if($stmt->execute()){
-            header('location: index.php');
+            header('location: ../Views/aluno.php');
         }else{
             echo '</br><font color="red">Erro ao alterar!</font>';
             print_r($stmt->errorInfo());
@@ -200,7 +190,7 @@ require_once '../Model/init.php';
 
             if($resultados>=1){
                 echo "Resultado(s) encontrado(s): ".$resultados."<br /><br />";
-                echo "<table border='1' bgcolor='white'>";
+                echo "<table class='table table-hover'>";
                  echo'<thead>';
                   echo'<tr>';
                       echo '<th>Nome:</th>';
@@ -227,15 +217,15 @@ require_once '../Model/init.php';
                 echo '</tbody>';
                 echo '</table>';
 
-                echo "<a href='../Views/aluno.php')><button >Voltar</button></a> ";
+                echo "<a href='../Views/aluno.php')><button class='btn btn-primary' >Voltar</button></a> ";
                 }else{
                     echo "Não existe Aluno cadastrado";
-                    echo "</br><a href='../Views/aluno.php')><button>Voltar</button></a> ";
+                    echo "</br><a href='../Views/aluno.php')><button class='btn btn-primary'>Voltar</button></a> ";
                 }
                 }
                 else{
                     echo "Preencha o campo de pesquisa";
-                    echo "</br><a href='../Views/aluno.php')><button >Voltar</button></a> ";
+                    echo "</br><a href='../Views/aluno.php')><button class='btn btn-primary' >Voltar</button></a> ";
                 }
     }
     

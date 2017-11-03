@@ -1,5 +1,5 @@
 <?php 
-require_once '../controllers/header.php';
+require_once '../Model/init.php';
 
 class Professor{
 
@@ -211,17 +211,7 @@ class Professor{
 
 	public function AlterarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone){
 
-            //recupera os valores do formulário
-            $nome = isset($_POST['nome'] )? $_POST['nome']: null;
-            $rg = isset($_POST['rg'] )? $_POST['rg']: null;
-            $cpf = isset($_POST['cpf'] )? $_POST['cpf']: null;
-            $dtnasc = isset($_POST['dtnasc'] )? $_POST['dtnasc']: null;
-            $endereco = isset($_POST['end'] )? $_POST['end']: null;
-            $email = isset($_POST['email'] )? $_POST['email']: null;
-            $telefone = isset($_POST['tel'] )? $_POST['tel']: null;
-            $id = isset($_POST['id'])? $_POST['id'] : null;
-
-                        //atualiza o banco de dados
+            //atualiza o banco de dados
             $PDO = db_connect();
             $sql = "UPDATE professor SET 
                 nm_professor = :nome,
