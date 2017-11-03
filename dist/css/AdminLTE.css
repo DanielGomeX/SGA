@@ -668,6 +668,7 @@ a:focus {
 .sidebar-menu > li.header {
   white-space: nowrap;
   overflow: hidden;
+  color:#fff;
 }
 .sidebar-menu:hover {
   overflow: visible;
