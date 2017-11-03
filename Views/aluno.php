@@ -6,11 +6,11 @@
     include ('header.php'); 
 ?>
     
-<form name="frmBusca" method="post" action="../Views/alunoList.php" class="sidebar-form">
+<form name="frmBusca" method="post" action="../Views/alunoList.php">
             <div class="input-group">
               <input type="text" name="cxnome" id="cxnome" class="form-control" placeholder="Digite o nome">
               <span class="input-group-btn">
-                  <button type="submit" name="buscar" id="search-btn" class="btn btn-flat">
+                  <button type="submit" name="buscar" id="search-btn" class="btn btn-primary">
                     <i class="fa fa-search"></i>
                   </button>
               </span>
@@ -47,10 +47,10 @@
                     <td><?PHP echo $user['nm_email_aluno'] ?></td>
                     <td><?PHP echo $user['cd_telefone_aluno'] ?></td>
                     <td>
-              <a href="alunoEdit.php?id=<?php echo $user['matricula_aluno'] ?>">
-                  <button class="btn btn-primary fa fa-edit"></button></a>
-                  <a href="../controllers/deletarAluno.php?id=<?php echo $user['matricula_aluno'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
-                  <button class="btn btn-danger fa fa-times"></button></a>
+                    <a href="alunoEdit.php?id=<?php echo $user['matricula_aluno'] ?>">
+                    <button class="btn btn-primary fa fa-edit"></button></a>
+                    <a href="../controllers/deletarAluno.php?id=<?php echo $user['matricula_aluno'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
+                    <button class="btn btn-danger fa fa-times"></button></a>
                       </td>
                   </tr>
                   <?php endwhile;?>

@@ -1,9 +1,9 @@
 <?php
-session_start();
-require_once '../Model/init.php';
-require '../controllers/check.php';
-include ('../controllers/buscarProfessor.php');   
-include ('header.php');
+    session_start();
+    require_once '../Model/init.php';
+    require '../controllers/check.php';
+    include ('../controllers/buscarProfessor.php');   
+    include ('header.php');
 ?>
         <h2 class="center">Sistema de Gerenciamento de Academia</h2>
       
@@ -51,7 +51,7 @@ include ('header.php');
                     
                     <input type="hidden" name="id" value="<?php echo $id ?>"/>
                     <label for="alterar"></label>        
-                    <button class="btn btn-primary" id="alterar" type="submit">Salvar</button>
+                    <button class="btn btn-primary" id="alterar" >Salvar</button>
                     <button class="btn btn-primary" id="salvar" formaction="professor.php">Voltar</button>
                 </form>
             </div>

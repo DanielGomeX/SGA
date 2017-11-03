@@ -7,11 +7,11 @@ include ('../controllers/limitarProfessor.php');
 include ('header.php'); 
 ?>
 <!-- search form (Optional) -->
-<form name="frmBusca" method="post" action="../Views/profList.php" class="sidebar-form">
+<form name="frmBusca" method="post" action="../Views/profList.php">
             <div class="input-group">
               <input type="text" name="cxnome" id="cxnome" class="form-control" placeholder="Digite o nome">
               <span class="input-group-btn">
-                  <button type="submit" name="buscar" id="search-btn" class="btn btn-flat">
+                  <button type="submit" name="buscar" id="search-btn" class="btn btn-primary">
                     <i class="fa fa-search"></i>
                   </button>
               </span>
@@ -48,10 +48,10 @@ include ('header.php');
                     <td><?PHP echo $user['nm_email_professor'] ?></td>
                     <td><?PHP echo $user['cd_telefone_professor'] ?></td>
                     <td>
-              <a href="profEdit.php?id=<?php echo $user['id_professor'] ?>">
-                  <button class="btn btn-primary fa fa-edit"></button></a>
-              <a href="../controllers/deletarProfessor.php?id=<?php echo $user['id_professor'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
-                  <button class="btn btn-danger fa fa-times"></button></a>
+                    <a href="profEdit.php?id=<?php echo $user['id_professor'] ?>">
+                    <button class="btn btn-primary fa fa-edit"></button></a>
+                    <a href="../controllers/deletarProfessor.php?id=<?php echo $user['id_professor'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
+                    <button class="btn btn-danger fa fa-times"></button></a>
                       </td>
                   </tr>
                   <?php endwhile;?>
