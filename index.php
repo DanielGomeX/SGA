@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Acesso</title>
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="dist/css/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <form action="Login/Login.php" method="POST">
+        <form action="controllers/logarUsuario.php" method="POST">
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
@@ -32,10 +32,11 @@
 	</div>
 		</div>
 	</div>
-    </form> 
-
-                    <center><img src="img/logoct.png" height="200" width="200"
-                                 border="0"></center>
+    </form>
+        <center>
+            <img src="dist/img/logoct.png" height="200" width="200"iden
+                 border="0">
+        </center>
 </body>
 </html>
 
