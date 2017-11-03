@@ -6,7 +6,7 @@
     <link href="dist/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form action="index.php?acao=logar" method="POST">
+    <form action="../SGA/controllers/logarUsuario.php" method="POST">
        <div class="login">
         <div class="mensagem"><?php if(isset($msg)){echo $msg;} ?></div>
         <div class="login-screen">
