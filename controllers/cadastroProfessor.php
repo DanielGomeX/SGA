@@ -1,5 +1,5 @@
 <?php
-	require_once '../Classes/Professor.class.php';
+	require_once '../controllers/header.php';
 	//recupera dados do formulário
     $nome = isset($_POST['nome'] )? $_POST['nome']: null;
     $rg = isset($_POST['rg'] )? $_POST['rg']: null;
@@ -17,9 +17,9 @@
 	else{
 		//Email valido
 		if (filter_var($email,FILTER_VALIDATE_EMAIL)) {
-				//Executa a classe de cadastro
-				$cadastro = new Professor($nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
-				$cadastro->cadastrar($nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
+                    //Executa a classe de cadastro
+                    $cadastro = new Professor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
+                    $cadastro->CadastrarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
 		}
 		//Email invalido
 		else{

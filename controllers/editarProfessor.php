@@ -1,6 +1,6 @@
 <?php
     require_once '../Model/init.php';
-    require_once '../Classes/Professor.class.php';
+    require_once '../controllers/header.php';
     
     //recupera os valores do formulário
     $nome = isset($_POST['nome'] )? $_POST['nome']: null;
@@ -20,7 +20,7 @@
         exit;
     }
 
-	$editar = new Professor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
-	$editar->alterar($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
+    $editar = new Professor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
+    $editar->AlterarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
 ?>
    	

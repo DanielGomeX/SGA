@@ -1,7 +1,8 @@
 <?php
-	require_once '../Classes/Professor.class.php';
-
-	$nome="";
+        require_once '../controllers/header.php';
+        
+	$id = "";
+        $nome="";
 	$rg="";
 	$cpf="";
 	$dtnasc="";
@@ -14,7 +15,7 @@
 
 	$deletar = new Professor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
 
-	$deletar->excluir($id);
+	$deletar->ExcluirProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
 ?>
 
 	
