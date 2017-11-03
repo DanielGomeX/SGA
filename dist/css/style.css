@@ -81,12 +81,7 @@ label.cadastrofunc{
     display:inline-block;
     width: 90px;
 }
-
-
-
-green: #1ECD97{ 
-    gray: #bbbbbb;
-    
+* {
   font-family: 'Roboto', sans-serif;
 }
 .container {
@@ -121,7 +116,6 @@ button {
     background: green;
   }
   &:active {
-    letter-spacing: 2px;
     letter-spacing: 2px ;
   }
   &:after {

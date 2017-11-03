@@ -522,6 +522,9 @@ a:focus {
   margin: 0;
   padding: 0;
 }
+.sidebar-menu > li:hover {
+  color: #ccc;
+}
 .sidebar-menu > li > a {
   padding: 12px 5px 12px 15px;
   display: block;
@@ -663,12 +666,10 @@ a:focus {
 .sidebar-expanded-on-hover .main-sidebar {
   box-shadow: 3px 0 8px rgba(0, 0, 0, 0.125);
 }
-.sidebar-menu,
-.main-sidebar .user-panel,
-.sidebar-menu > li.header {
-  white-space: nowrap;
-  overflow: hidden;
-  color:#fff;
+.sidebar-menu, .main-sidebar .user-panel, .sidebar-menu > li.header {
+    white-space: nowrap;
+    overflow: hidden;
+    color: #fff;
 }
 .sidebar-menu:hover {
   overflow: visible;
@@ -2779,16 +2780,16 @@ a:focus {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  border-top: 1px solid #f4f4f4;
+  border-top: 1px solid #000;
 }
 .table > thead > tr > th {
-  border-bottom: 2px solid #f4f4f4;
+  border-bottom: 2px solid #000;
 }
 .table tr td .progress {
   margin-top: 5px;
 }
 .table-bordered {
-  border: 1px solid #f4f4f4;
+  border: 1px solid #000;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -2796,7 +2797,8 @@ a:focus {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #f4f4f4;
+  border: 1px solid #000;
+  background-color: #fff;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
@@ -2819,6 +2821,7 @@ table.text-center th {
 .table.align td {
   text-align: right;
 }
+
 /*
  * Component: Label
  * ----------------
