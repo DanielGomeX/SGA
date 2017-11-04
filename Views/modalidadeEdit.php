@@ -19,7 +19,7 @@
                                  <option>Selecione...</option>
                                     <?php
                                         $pdo = db_connect();
-                                        $sql = "SELECT nm_professor FROM professor ORDER BY nm_professor";
+                                        $sql = "SELECT nm_professor FROM modalidade ORDER BY nm_professor";
 					foreach ($pdo->query($sql) as $row) {
                                             echo "<option value='".$row['nm_professor']."'>".$row['nm_professor']."</option>";
                                         }

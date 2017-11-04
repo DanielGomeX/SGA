@@ -2,7 +2,7 @@
     session_start();
     require_once '../Model/init.php';
     require '../controllers/check.php';
-    include ('../controllers/buscarAluno.php');     
+    include '../controllers/buscarAluno.php';
     include ('header.php');
 ?>
         <h2 class="center">Sistema de Gerenciamento de Academia</h2>

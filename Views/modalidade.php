@@ -40,9 +40,9 @@
                     <td><?PHP echo $user['qt_aulasem'] ?></td>
                     <td><?PHP echo $user['qt_hraula'] ?></td>
                     <td>
-                    <a href="modalidadeEdit.php?id=<?php echo $user['matricula_aluno'] ?>">
+                    <a href="modalidadeEdit.php?cd_modalidade=<?php echo $user['cd_modalidade'] ?>">
                     <button class="btn btn-primary fa fa-edit"></button></a>
-                    <a href="../controllers/deletarModalidade.php?id=<?php echo $user['matricula_aluno'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
+                    <a href="../controllers/deletarModalidade.php?cd_modalidade=<?php echo $user['cd_modalidade'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
                     <button class="btn btn-danger fa fa-times"></button></a>
                       </td>
                   </tr>

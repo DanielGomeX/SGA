@@ -13,15 +13,17 @@
                 <form action="../controllers/cadastrarModalidade.php" method="POST"  align='middle'>
                     <div class="form-group">
 			<label for="nomeprofessor">Nome do Professor</label>
-                              <select class="form-control" type="" id="nomeprofessor" name="nome">
+                              <select class="form-control" type="" id="nomeprofessor" name="nomeprofessor">
                                  <option>Selecione...</option>
                                     <?php
                                         $pdo = db_connect();
-                                        $sql = "SELECT nm_professor FROM professor ORDER BY nm_professor";
+                                        $sql = "SELECT nm_professor FROM professor ORDER BY nm_professor ASC";
 					foreach ($pdo->query($sql) as $row) {
                                             echo "<option value='".$row['nm_professor']."'>".$row['nm_professor']."</option>";
+                                            
                                         }
-                                    ?>               
+                                    ?>
+                                <input type="hidden" id="idprofessor" name="idprofessor" value="<?php $idProfessor = "SELECT id_professor FROM professor"?>"/>
                                 </select>
 			    	</div>
 			    	<div class="form-group">
