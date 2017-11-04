@@ -91,7 +91,7 @@
         <!-- Optionally, you can add icons to the links -->
         <li><a href="professor.php"><i class="fa fa-link"></i> <span>Professores</span></a></li>
         <li><a href="aluno.php"><i class="fa fa-link"></i> <span>Alunos</span></a></li>
-        <li><a href="../Modalidade/index.php"><i class="fa fa-link"></i> <span>Modalidades</span></a></li>
+        <li><a href="modalidade.php"><i class="fa fa-link"></i> <span>Modalidades</span></a></li>
         <li><a href="../Plano/index.php"><i class="fa fa-link"></i> <span>Planos</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
