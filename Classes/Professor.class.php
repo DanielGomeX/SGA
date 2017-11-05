@@ -228,7 +228,7 @@ class Professor{
             $stmt->bindParam(':cpf',$cpf);
             $stmt->bindParam(':rg',$rg);
             $stmt->bindParam(':endereco',$endereco);
-            $stmt->bindParam(':dtnasc',$datanascimento);
+            $stmt->bindParam(':dtnasc',$dtnasc);
             $stmt->bindParam(':telefone',$telefone);
             $stmt->bindParam(':email',$email);
             $stmt->bindParam(':id',$id, PDO::PARAM_INT);

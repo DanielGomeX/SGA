@@ -109,20 +109,19 @@ class Modalidade {
          //atualiza o banco de dados
         $PDO = db_connect();
         $sql = "UPDATE modalidade SET 
-            cd_modalidade = :cdModalidade,
-            nm_modalidade = :nomemodalidade,
-            qt_aulasem = :qtAulaSemanal,
-            qt_hraula = :qtHorasAula,
-            nm_professor = :nomeProfessor,
-            id_professor = :idProfessor
-            WHERE cd_modalidade = :id";
+            nm_modalidade = :nm_modalidade,
+            qt_aulasem = :qt_aulasem,
+            qt_hraula = :qt_hraula,
+            nm_professor = :nm_professor,
+            id_professor = :id_professor
+            WHERE cd_modalidade = :cd_modalidade";
 
         $stmt = $PDO->prepare($sql);
-        $stmt->bindParam(':nomemodalidade',$nomemodalidade);
+        $stmt->bindParam(':nm_modalidade',$nomemodalidade);
         $stmt->bindParam(':qt_aulasem',$qtAulaSemanal);
         $stmt->bindParam(':qt_hraula',$qtHorasAula);
         $stmt->bindParam(':nm_professor',$nomeProfessor);
-        $stmt = $PDO->bindParam(':id_professor',$idProfessor);
+        $stmt->bindParam(':id_professor',$idProfessor);
         $stmt->bindParam(':cd_modalidade',$cdModalidade, PDO::PARAM_INT);
 
         if($stmt->execute()){

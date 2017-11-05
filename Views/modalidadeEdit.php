@@ -2,7 +2,7 @@
     session_start();
     require_once '../Model/init.php';
     require '../controllers/check.php';
-    include ('../controllers/buscarAluno.php');     
+    include ('../controllers/buscarModalidade.php');     
     include ('header.php');
 ?>
         <h2 class="center">Sistema de Gerenciamento de Academia</h2>
@@ -19,12 +19,11 @@
                                  <option>Selecione...</option>
                                     <?php
                                         $pdo = db_connect();
-                                        $sql = "SELECT nm_professor FROM modalidade ORDER BY nm_professor";
+                                        $sql = "SELECT nm_professor FROM professor ORDER BY nm_professor";
 					foreach ($pdo->query($sql) as $row) {
                                             echo "<option value='".$row['nm_professor']."'>".$row['nm_professor']."</option>";
                                         }
                                     ?>
-                                 <option value="<?php echo $user['nm_professor'];?>"></option>
                                 </select>
 			    	</div>
 			    	<div class="form-group">
@@ -40,7 +39,6 @@
                                             <option value="3">3 aulas</option>
                                             <option value="4">4 aulas</option>
                                             <option value="5">5 aulas</option>
-                                            <option value="<?php echo $user['qt_aulasem'];?>"></option>
                                         </select>
 			    	</div>
 			    	<div class="form-group">
@@ -52,7 +50,6 @@
                                             <option value="3">3 horas/aula</option>
                                             <option value="4">4 horas/aula</option>
                                             <option value="5">5 horas/aula</option>
-                                            <option value="<?php echo $user['qt_hraula'];?>"></option>
                                         </select>
 			    	</div>
 			        <label for="salvar"></label>
