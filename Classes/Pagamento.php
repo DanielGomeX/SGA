@@ -2,13 +2,14 @@
 require_once '../Model/init.php';
 
 class Pagamento {
+    public $cdpagamento;
     public $nomealuno;
     public $valormensalidade;
     public $modalidade;
     public $mesreferente;
     public $datavencimento;
     
-    function __construct($nomealuno, $valormensalidade, $modalidade, $mesreferente, $datavencimento) {
+    function __construct($cdpagamento,$nomealuno, $valormensalidade, $modalidade, $mesreferente, $datavencimento) {
         $this->nomealuno = $nomealuno;
         $this->valormensalidade = $valormensalidade;
         $this->modalidade = $modalidade;
@@ -16,6 +17,10 @@ class Pagamento {
         $this->datavencimento = $datavencimento;
     }
 
+    function getCdpagamento(){
+        return $this->$cdpagamento;
+    }    
+    
     function getNomealuno() {
         return $this->nomealuno;
     }
@@ -34,6 +39,10 @@ class Pagamento {
 
     function getDatavencimento() {
         return $this->datavencimento;
+    }
+    
+    function setCdpagamento($cdpagamento){
+        $this->cdpagamento= $cdpagamento;
     }
 
     function setNomealuno($nomealuno) {
@@ -58,19 +67,31 @@ class Pagamento {
 
 //----------------------------MÉTODOS---------------------------------------------
     
-    function CadastrarPagamento($nomealuno, $valormensalidade, $modalidade, $mesreferente, $datavencimento){
+    function CadastrarPagamento($cdpagamento,$nomealuno, $valormensalidade, $modalidade, $mesreferente, $datavencimento) {
         
     }
     
-    function AlterarPagamento($nomealuno, $valormensalidade, $modalidade, $mesreferente, $datavencimento){
+    function AlterarPagamento($cdpagamento,$nomealuno, $valormensalidade, $modalidade, $mesreferente, $datavencimento) {
         
     }
     
-    function ConsultarPagamento($nomealuno, $valormensalidade, $modalidade, $mesreferente, $datavencimento){
+    function ConsultarPagamento($cdpagamento,$nomealuno, $valormensalidade, $modalidade, $mesreferente, $datavencimento) {
         
     }
     
-    function ExcluirPagamento($nomealuno, $valormensalidade, $modalidade, $mesreferente, $datavencimento){
+    function ExcluirPagamento($cdpagamento,$nomealuno, $valormensalidade, $modalidade, $mesreferente, $datavencimento) {
         
+        if(empty($cdpagamento)){
+                echo '</br><font color="red">ID não informado</font>';
+                exit;
+            }
+        //remove do banco
+        $PDO = db_connect();
+        $sql = "DELETE FROM pagamento WHERE cd_modalidade = :id";
+        $stmt = $PDO->prepare($sql);
+        $stmt->bindParam(':id', $cdModalidade, PDO::PARAM_INT);
+        $stmt->execute();
+        header('Location: ../Views/pagamento.php');
     }
+        
 }

@@ -1,9 +1,9 @@
  <?php
     //recupera o ID da URL
-    $id = isset($_GET['id'])? (int) $_GET['id']: null;
+    $cdplano = isset($_GET['cdplano'])? (int) $_GET['cdplano']: null;
        
     //valida o ID
-    if(empty($id)){
+    if(empty($cdplano)){
         echo '</br><font color="red">ID para alteração não definido</font>';
         echo '<a href="../Views/plano.php"> Voltar</a>';
         exit;
@@ -15,10 +15,10 @@
             nm_modalidade,
             forma_pagamento
             FROM plano
-            WHERE cd_plano = '$id'";
+            WHERE cd_plano = '$cdplano'";
     
     $stmt = $PDO->prepare($sql);
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->bindParam(':cdplano', $cdplano, PDO::PARAM_INT);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     

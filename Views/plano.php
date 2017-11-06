@@ -38,9 +38,9 @@
                     <td><?PHP echo $user['forma_pagamento'] ?></td>
                     <td><?PHP echo $user['nm_modalidade'] ?></td>
                     <td>
-                    <a href="planoEdit.php?id=<?php echo $user['cd_plano'] ?>">
+                    <a href="planoEdit.php?cdplano=<?php echo $user['cd_plano'] ?>">
                     <button class="btn btn-primary fa fa-edit"></button></a>
-                    <a href="../controllers/deletarPlano.php?id=<?php echo $user['matricula_aluno'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
+                    <a href="../controllers/deletarPlano.php?cdplano=<?php echo $user['cd_plano'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
                     <button class="btn btn-danger fa fa-times"></button></a>
                       </td>
                   </tr>

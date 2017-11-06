@@ -94,7 +94,7 @@ class Plano {
         $stmt->bindParam(':tipo_plano',$tipoplano);
         $stmt->bindParam(':nm_modalidade',$modalidade);
         $stmt->bindParam(':forma_pagamento',$formapagamento);
-        $stmt->bindParam(':cd_plano',$cd_plano, PDO::PARAM_INT);
+        $stmt->bindParam(':cd_plano',$cdplano, PDO::PARAM_INT);
 
         if($stmt->execute()){
             header('location: ../Views/plano.php');
@@ -160,12 +160,13 @@ class Plano {
         if(empty($cdplano)){
                 echo '</br><font color="red">ID não informado</font>';
                 exit;
+                
             }
         //remove do banco
         $PDO = db_connect();
-        $sql = "DELETE FROM plano WHERE cd_plano = :id";
+        $sql = "DELETE FROM plano WHERE cd_plano = :cdplano";
         $stmt = $PDO->prepare($sql);
-        $stmt->bindParam(':id', $cd_plano, PDO::PARAM_INT);
+        $stmt->bindParam(':cdplano', $cdplano, PDO::PARAM_INT);
         $stmt->execute();
         header('Location: ../Views/plano.php');
     }
