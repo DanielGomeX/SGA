@@ -139,7 +139,11 @@ class Modalidade {
             
             $PDO = db_connect();
             if(isset($pesquisa)&&!empty($nome)){
-            $stmt = $PDO->prepare("SELECT * FROM modalidade
+            $stmt = $PDO->prepare("SELECT nm_modalidade,
+                                          nm_professor,
+                                          qt_aulasem,
+                                          qt_hraula
+                                            FROM modalidade
                                             WHERE nm_modalidade
                                             LIKE :letra");
            
@@ -161,8 +165,8 @@ class Modalidade {
               echo '<tbody>';
                 while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
               echo '<tr>';
-                echo '<td>'.$reg->nm_modalidade.'</td>';
                 echo '<td>'.$reg->nm_professor.'</td>';
+                echo '<td>'.$reg->nm_modalidade.'</td>';
                 echo '<td>'.$reg->qt_aulasem.'</td>';
                 echo '<td>'.$reg->qt_hraula.'</td>';
                  echo '</tr>';

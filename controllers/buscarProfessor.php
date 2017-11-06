@@ -5,7 +5,7 @@
     //valida o ID
     if(empty($id)){
         echo '</br><font color="red">ID para alteração não definido</font>';
-        echo '<a href="index.php"> Voltar</a>';
+        echo '<a href="../Views/professor.php"> Voltar</a>';
         exit;
     }
     

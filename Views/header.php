@@ -92,7 +92,8 @@
         <li><a href="professor.php"><i class="fa fa-link"></i> <span>Professores</span></a></li>
         <li><a href="aluno.php"><i class="fa fa-link"></i> <span>Alunos</span></a></li>
         <li><a href="modalidade.php"><i class="fa fa-link"></i> <span>Modalidades</span></a></li>
-        <li><a href="../Plano/index.php"><i class="fa fa-link"></i> <span>Planos</span></a></li>
+        <li><a href="plano.php"><i class="fa fa-link"></i> <span>Planos</span></a></li>
+        <li><a href="pagamento.php"><i class="fa fa-link"></i> <span>Pagamento</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

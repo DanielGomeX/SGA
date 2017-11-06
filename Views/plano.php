@@ -2,11 +2,11 @@
     session_start();
     require '../Model/init.php';
     require '../controllers/check.php';
-    include ('../controllers/limitarModalidade.php');
+    include ('../controllers/limitarPlano.php');
     include ('header.php'); 
 ?>
     
-<form name="frmBusca" method="post" action="../Views/modalidadeList.php">
+<form name="frmBusca" method="post" action="../Views/planoList.php">
             <div class="input-group">
               <input type="text" name="cxnome" id="cxnome" class="form-control" placeholder="Digite o nome">
               <span class="input-group-btn">
@@ -17,8 +17,8 @@
             </div>
         </form>  
 
-<h2 class="center">Lista de Modalidades</h2>
-          <h3 class="center">Total de Modalidades: <?php if(isset($total)){echo $total;} ?></h3>
+<h2 class="center">Lista de Planos</h2>
+          <h3 class="center">Total de Planos: <?php if(isset($total)){echo $total;} ?></h3>
 
           <?php if(isset($total) > 0):?>
           
@@ -26,23 +26,21 @@
           <table class="table table-hover">
               <thead>
                   <tr>
-                      <th>Nome do professor:</th>
-                      <th>Nome da modalidade:</th>
-                      <th>Quantidade de aulas por semana:</th>
-                      <th>Quantidade de horas/aula:</th>
+                      <th>Tipo de Plano</th>
+                      <th>Forma de pagamento</th>
+                      <th>Modalidade</th>
                   </tr>
               </thead>
               <tbody>
                   <?php while($user = $stmt->fetch(PDO::FETCH_ASSOC)):?>
                   <tr>                    
-                    <td><?PHP echo $user['nm_professor'] ?></td>
+                    <td><?PHP echo $user['tipo_plano'] ?></td>
+                    <td><?PHP echo $user['forma_pagamento'] ?></td>
                     <td><?PHP echo $user['nm_modalidade'] ?></td>
-                    <td><?PHP echo $user['qt_aulasem'] ?></td>
-                    <td><?PHP echo $user['qt_hraula'] ?></td>
                     <td>
-                    <a href="modalidadeEdit.php?cd_modalidade=<?php echo $user['cd_modalidade'] ?>">
+                    <a href="planoEdit.php?id=<?php echo $user['cd_plano'] ?>">
                     <button class="btn btn-primary fa fa-edit"></button></a>
-                    <a href="../controllers/deletarModalidade.php?cd_modalidade=<?php echo $user['cd_modalidade'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
+                    <a href="../controllers/deletarPlano.php?id=<?php echo $user['matricula_aluno'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
                     <button class="btn btn-danger fa fa-times"></button></a>
                       </td>
                   </tr>
@@ -51,11 +49,10 @@
           </table>
         <?php else: ?>
  
-        <p>Nenhuma modalidade registrada</p>
+        <p>Nenhum Plano registrado</p>
  
         <?php endif; ?>
         </br>
-        <a href="modalidadeAdd.php"><button class="btn btn-primary fa fa-plus-square-o"> Modalidade</button></a>
-                       
-        
+       <a href="planoAdd.php"><button class="btn btn-primary fa fa-plus-square-o"> Plano</button></a>
+
 <?php include ('footer.php');?>

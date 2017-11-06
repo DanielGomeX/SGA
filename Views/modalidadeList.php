@@ -2,6 +2,7 @@
     session_start();
     require_once '../Model/init.php';
     require_once '../controllers/header.php';
+    include '../Classes/Modalidade.class.php';
     include 'header.php';
     $msg="";
 ?>
@@ -18,10 +19,11 @@
                         $nomemodalidade="";
                         $qtAulaSemanal="";
                         $nomeProfessor="";
+                        $idProfessor="";
                         $qtHorasAula="";
                         
-		            $consultaAluno = new Modalidade($cdModalidade, $nomemodalidade, $qtAulaSemanal, $nomeProfessor, $qtHorasAula);
-                            $consultaAluno->ConsultarModalidade($cdModalidade, $nomemodalidade, $qtAulaSemanal, $nomeProfessor, $qtHorasAula);
+		            $consultamodalidade = new Modalidade($cdModalidade, $nomemodalidade, $qtAulaSemanal, $idProfessor, $nomeProfessor, $qtHorasAula);
+                            $consultamodalidade->ConsultarModalidade($cdModalidade, $nomemodalidade, $qtAulaSemanal, $idProfessor, $nomeProfessor, $qtHorasAula);
 		        ?>
 		    </div>
 		</div>              
