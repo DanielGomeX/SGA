@@ -38,14 +38,15 @@
                     <td><?PHP echo $user['mes_referente'] ?></td>
                     <td><?PHP echo $user['dt_vencimento'] ?></td>
                     <td>
-                    <a href="pagamentoEdit.php?cd_pagamento=<?php echo $user['cd_pagamento'] ?>">
+                    <a href="pagamentoEdit.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>">
                     <button class="btn btn-primary fa fa-edit"></button></a>
-                    <a href="../controllers/deletarPagamento.php?cd_pagamento=<?php echo $user['cd_pagamento'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
+                    <a href="../controllers/deletarPagamento.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
                     <button class="btn btn-danger fa fa-times"></button></a>
                       </td>
                   </tr>
                   <?php endwhile;?>
               </tbody>
+              
           </table>
         <?php else: ?>
  

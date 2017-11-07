@@ -15,20 +15,17 @@
                 <form action="../controllers/editarPagamento.php" method="POST"  align='middle'>
 			    	<div class="form-group">
 			    		<label for="valormensalidade">Valor da Mensalidade</label>
-			        	<input class="form-control" type="text" id="valormensalidade" value="<?php echo $user['vl_modalidade'];?>" name="nomemodalidade"/>
+                                        <input required="required" class="form-control" type="text" id="valormensalidade" name="valormensalidade" value="<?php echo $user['vl_mensalidade'];?>" name="nomemodalidade"/>
 			    	</div>
 			    	<div class="form-group">
 			    		<label for="mesreferente">Mês referente</label>
-                                        <input type="text" class="form-control" id="mesreferente" value="<?php echo $mesdeagora = date('d-m-Y');?>"/>
+                                        <input required="required" type="text" class="form-control" id="mesreferente" name="mesreferente" value="<?php echo $user['mes_referente'];?>"/>
 			    	</div>
 			    	<div class="form-group">
-			    		<label for="quthorasaula">Data de vencimento</label>
-                                        <select class="form-control" type="" id="qthorasaula" name="qtaulassemana">
-                                            <option value="">Selecione...</option>
-                                            <option value="dia5">Dia 5</option>
-                                            <option value="dia10">Dia 10</option>
-                                            <option value="dia15">Dia 15</option>
-                                        </select>
+                                        <label for="dtvencimento">Data de vencimento</label></br>
+                                    <input required="required" type="radio" id="dtvencimento" name="dtvencimento" value="dia 5"/>Dia 5</br>
+                                    <input type="radio" id="dtvencimento" name="dtvencimento" value="dia 10"/>Dia 10</br>
+                                    <input type="radio" id="dtvencimento" name="dtvencimento" value="dia 15"/>Dia 15</br>
 			    	</div>
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>

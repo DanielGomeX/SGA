@@ -81,7 +81,27 @@ class Pagamento {
     }
     
     function AlterarPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
-        
+         //atualiza o banco de dados
+        $PDO = db_connect();
+        $sql = "UPDATE pagamento SET 
+            vl_mensalidade = :vl_mensalidade,
+            dt_vencimento = :dt_vencimento,
+            mes_referente = :mes_referente
+            WHERE cd_pagamento = :cd_pagamento";
+
+        $stmt = $PDO->prepare($sql);
+        $stmt->bindParam(':vl_mensalidade',$valormensalidade);
+        $stmt->bindParam(':dt_vencimento',$datavencimento);
+        $stmt->bindParam(':mes_referente',$mesreferente);
+        $stmt->bindParam(':cd_pagamento',$cdpagamento, PDO::PARAM_INT);
+
+        if($stmt->execute()){
+            header('location: ../Views/pagamento.php');
+        }else{
+            echo '</br><font color="red">Erro ao alterar!</font>';
+            print_r($stmt->errorInfo());
+        }
+    
     }
     
     function ConsultarPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
@@ -89,6 +109,18 @@ class Pagamento {
     }
     
     function ExcluirPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
-        
-    }
+        if(empty($cdpagamento)){
+                   echo '</br><font color="red">ID não informado</font>';
+                   exit;
+
+               }
+           //remove do banco
+           $PDO = db_connect();
+           $sql = "DELETE FROM pagamento WHERE cd_pagamento = :cdpagamento";
+           $stmt = $PDO->prepare($sql);
+           $stmt->bindParam(':cdpagamento', $cdpagamento, PDO::PARAM_INT);
+           $stmt->execute();
+           header('Location: ../Views/pagamento.php');
+       }   
+
   }

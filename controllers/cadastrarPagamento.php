@@ -5,9 +5,9 @@
     //recupera os valores do formulário
     $cdpagamento = "";
     
-    if($_POST['dtvencimento'] == 'dia5'){
+    if($_POST['dtvencimento'] == 'dia 5'){
         $datavencimento = isset($_POST['dtvencimento'])? $_POST['dtvencimento']: null;
-    }elseif ($_POST['dtvencimento'] == 'dia10') {
+    }elseif ($_POST['dtvencimento'] == 'dia 10') {
         $datavencimento = isset($_POST['dtvencimento'])? $_POST['dtvencimento']: null;
     }else{
         $datavencimento = isset($_POST['dtvencimento'])? $_POST['dtvencimento']: null;

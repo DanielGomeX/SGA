@@ -1,11 +1,11 @@
 <?php
     //recupera o ID da URL
-    $cd_pagamento = isset($_GET['cd_pagamento'])? (int) $_GET['cd_pagamento']: null;
+    $cdpagamento = isset($_GET['cdpagamento'])? (int) $_GET['cdpagamento']: null;
        
     //valida o ID
-    if(empty($cd_pagamento)){
+    if(empty($cdpagamento)){
         echo '</br><font color="red">ID para alteração não definido</font>';
-        echo '<a href="../Views/pagamaento.php"> Voltar</a>';
+        echo '<a href="../Views/pagamento.php"> Voltar</a>';
         exit;
     }
     
@@ -16,10 +16,10 @@
             dt_vencimento,
             mes_referente
             FROM pagamento
-            WHERE cd_pagamento = '$cd_pagamento'";
+            WHERE cd_pagamento = '$cdpagamento'";
     
     $stmt = $PDO->prepare($sql);
-    $stmt->bindParam(':cd_pagamento', $cd_pagamento, PDO::PARAM_INT);
+    $stmt->bindParam(':cdpagamento', $cdpagamento, PDO::PARAM_INT);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     

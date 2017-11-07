@@ -3,8 +3,8 @@
     require_once '../Classes/Pagamento.class.php';
     
     //recupera o id da URL
-    $cdpagamento = isset($_GET['cdpagamento']) ? $_GET['cdpagamento'] : null;
     
+    $cdpagamento = isset($_GET['cdpagamento']) ? $_GET['cdpagamento'] : null;
     $mesreferente = "";
     $datavencimento = "";
     $valormensalidade = "";
