@@ -26,10 +26,9 @@
         $formapagamento = isset($_POST['formapagamento'] )? $_POST['formapagamento']: null;
     }
     
-    $modalidade = isset($_POST['modalidade'] )? $_POST['modalidade']: null;
     
     $cdplano="";
   
     //Objeto da classe
-    $alterar= new Plano($cdplano, $tipoplano, $formapagamento, $modalidade);
-    $alterar->AlterarPlano($cdplano, $tipoplano, $formapagamento, $modalidade);
+    $alterar= new Plano($cdplano, $tipoplano, $formapagamento);
+    $alterar->AlterarPlano($cdplano, $tipoplano, $formapagamento);

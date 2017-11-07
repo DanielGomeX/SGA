@@ -18,10 +18,9 @@
                         $cdplano="";
                         $tipoplano="";
                         $formapagamento="";
-                        $modalidade="";
                         
-		        $consultar = new Plano($cdplano, $tipoplano, $formapagamento, $modalidade);
-                        $consultar->ConsultarPlano($cdplano, $tipoplano, $formapagamento, $modalidade);
+		        $consultar = new Plano($cdplano, $tipoplano, $formapagamento);
+                        $consultar->ConsultarPlano($cdplano, $tipoplano, $formapagamento);
 		        ?>
 		    </div>
 		</div>              

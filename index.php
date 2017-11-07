@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +11,8 @@
     <body>
         <form action="controllers/logarUsuario.php" method="POST">
 	<div class="login">
+            <div class="mensagem"><?php if(isset($_SESSION['Error'])){echo $_SESSION['Error'];
+            unset($_SESSION['Error']);}?></div>
 		<div class="login-screen">
 			<div class="app-title">
 				<h1>CT NINO SOARES</h1></div>

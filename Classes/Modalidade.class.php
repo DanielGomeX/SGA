@@ -5,14 +5,11 @@ class Modalidade {
     public $cdModalidade;
     public $nomemodalidade;
     public $qtAulaSemanal;
-    public $idProfessor;
-    public $nomeProfessor;
     public $qtHorasAula;
     
-    function __construct($cdModalidade,$nomemodalidade,$qtAulaSemanal,$idProfessor,$nomeProfessor,$qtHorasAula) {
+    function __construct($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula) {
         $this->cdModalidade = $cdModalidade;
         $this->nomemodalidade = $nomemodalidade;
-        $this->nomeProfessor = $nomeProfessor;
         $this->qtAulaSemanal = $qtAulaSemanal;
         $this->qtHorasAula = $qtHorasAula;
     }
@@ -29,14 +26,7 @@ class Modalidade {
         return $this->qtAulaSemanal;
     }
 
-    function getNomeProfessor() {
-        return $this->nomeProfessor;
-    }
     
-    function getIdProfessor(){
-        return $this->idProfessor;
-    }
-
     function getQtHorasAula() {
         return $this->qtHorasAula;
     }
@@ -53,44 +43,26 @@ class Modalidade {
         $this->qtAulaSemanal = $qtAulaSemanal;
     }
 
-    function setNomeProfessor($nomeProfessor) {
-        $this->nomeProfessor = $nomeProfessor;
-    }
-    
-    function setidProfessor($idProfessor){
-        $this->idProfessor = $idProfessor;
-    }
-
     function setQtHorasAula($qtHorasAula) {
         $this->qtHorasAula = $qtHorasAula;
     }
 
 //----------------------------MÉTODOS---------------------------------------------
-    public function CadastrarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$idProfessor,$nomeProfessor,$qtHorasAula){
+    public function CadastrarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula) {
   
         //inserir no banco
         $PDO = db_connect();
         $sql = "INSERT INTO modalidade
                 (nm_modalidade,
-                nm_professor,
-                id_professor,
                 qt_aulasem,
                 qt_hraula)
                 VALUES
                 (:nm_modalidade,
-                :nm_professor,
-                :id_professor,
                 :qt_aulasem,
-                :qt_hraula);
-                SELECT nm_professor,id_professor
-                FROM professor
-                WHERE nm_professor = :nm_professor,
-                      id_professor = :id_professor";
+                :qt_hraula)";
         
         $stmt = $PDO->prepare($sql);
         $stmt->bindParam(':nm_modalidade',$nomemodalidade);
-        $stmt->bindParam(':id_professor',$idProfessor);
-        $stmt->bindParam(':nm_professor',$nomeProfessor);
         $stmt->bindParam(':qt_aulasem',$qtAulaSemanal);
         $stmt->bindParam(':qt_hraula',$qtHorasAula);
 
@@ -105,23 +77,19 @@ class Modalidade {
         }
     }
     
-    public function AlterarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$idProfessor,$nomeProfessor,$qtHorasAula){
+    public function AlterarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula) {
          //atualiza o banco de dados
         $PDO = db_connect();
         $sql = "UPDATE modalidade SET 
             nm_modalidade = :nm_modalidade,
             qt_aulasem = :qt_aulasem,
-            qt_hraula = :qt_hraula,
-            nm_professor = :nm_professor,
-            id_professor = :id_professor
+            qt_hraula = :qt_hraula
             WHERE cd_modalidade = :cd_modalidade";
 
         $stmt = $PDO->prepare($sql);
         $stmt->bindParam(':nm_modalidade',$nomemodalidade);
         $stmt->bindParam(':qt_aulasem',$qtAulaSemanal);
         $stmt->bindParam(':qt_hraula',$qtHorasAula);
-        $stmt->bindParam(':nm_professor',$nomeProfessor);
-        $stmt->bindParam(':id_professor',$idProfessor);
         $stmt->bindParam(':cd_modalidade',$cdModalidade, PDO::PARAM_INT);
 
         if($stmt->execute()){
@@ -132,7 +100,7 @@ class Modalidade {
         }
     }
     
-    public function ConsultarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$idProfessor,$nomeProfessor,$qtHorasAula){
+    public function ConsultarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula) {
         
             $nome = $_POST['cxnome'];
             $pesquisa = $_POST['buscar'];
@@ -140,7 +108,6 @@ class Modalidade {
             $PDO = db_connect();
             if(isset($pesquisa)&&!empty($nome)){
             $stmt = $PDO->prepare("SELECT nm_modalidade,
-                                          nm_professor,
                                           qt_aulasem,
                                           qt_hraula
                                             FROM modalidade
@@ -156,7 +123,6 @@ class Modalidade {
                 echo "<table class='table table-hover'>";
                  echo'<thead>';
                   echo'<tr>';
-                      echo '<th>Nome do Professor:</th>';
                       echo '<th>Nome da Modalidade:</th>';
                       echo '<th>Quantidade de aulas por semana:</th>';
                       echo '<th>Quantidade de horas/aula:</th>';
@@ -165,7 +131,6 @@ class Modalidade {
               echo '<tbody>';
                 while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
               echo '<tr>';
-                echo '<td>'.$reg->nm_professor.'</td>';
                 echo '<td>'.$reg->nm_modalidade.'</td>';
                 echo '<td>'.$reg->qt_aulasem.'</td>';
                 echo '<td>'.$reg->qt_hraula.'</td>';
@@ -187,7 +152,7 @@ class Modalidade {
        
     }
     
-    public function ExcluirModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$idProfessor,$nomeProfessor,$qtHorasAula){
+    public function ExcluirModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula) {
         if(empty($cdModalidade)){
                 echo '</br><font color="red">ID não informado</font>';
                 exit;

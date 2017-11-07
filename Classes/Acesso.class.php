@@ -1,4 +1,5 @@
 <?php 
+
 require_once '../Model/init.php';
 
 class Acesso{
@@ -28,6 +29,7 @@ class Acesso{
 
 	public function logar($usuario, $senha){
 		//encriptando a senha
+		$usuario = addslashes($usuario);
     	$senhahash = make_hash($senha);
 		//-------------------    
 	    $PDO = db_connect();
@@ -40,35 +42,31 @@ class Acesso{
 	    $stmt->bindParam(':senha', $senhahash);
 	    $stmt->execute();
 	    
-	    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	    
-	    if(count($users)<=0){
-	    	$msg = "Usuário Não encontrado!";
+	    $users = $stmt->fetch(PDO::FETCH_ASSOC);
+	    if($users==""){	    		    	
+	    	$_SESSION['Error'] = "Usuário Não encontrado!";
+	    	header('Location: ../index.php');
 	    }
-    	//recupera o primeiro usuario
-	    $user=$users[0];
-	    
+
 	    //a partir daqui ele verifica o nivel de privilégio de cada um
-	    if($user['status'] == 1){	        
-	        session_start();
+	    if($users['status'] == 1){	 
 	        $_SESSION['logged_in'] = true;
-	        $_SESSION['user_id'] = $user['id'];
-	        $_SESSION['user_status'] = $user['status'];
-                $_SESSION['user_name'] = $user['usuario'];
-	    }elseif ($user['status'] == 2) {
-	        session_start();
+	        $_SESSION['user_id'] = $users['id'];
+            $_SESSION['user_name'] = $users['usuario'];
+	        $_SESSION['user_status'] = $users['status'];
+	        header('location: ../Views/painel.php');
+	    }elseif ($users['status'] == 2) {
 	        $_SESSION['logged_in'] = true;
-	        $_SESSION['user_id'] = $user['id'];
-	        $_SESSION['user_status'] = $user['status'];
-	    }else{
-	        session_start();
+	        $_SESSION['user_id'] = $users['id'];
+	        $_SESSION['user_name'] = $users['usuario'];
+	        $_SESSION['user_status'] = $users['status'];
+	        header('location: ../Views/painelAtendente.php');
+	    }elseif ($users['status'] == 3){
 	        $_SESSION['logged_in'] = true;
-	        $_SESSION['user_id'] = $user['id'];
-	        $_SESSION['user_status'] = $user['status'];
+	        $_SESSION['user_id'] = $users['id'];
+	        $_SESSION['user_name'] = $users['usuario'];
+	        $_SESSION['user_status'] = $users['status'];
+	        header('location: ../Views/painelProfessor.php');
 	    }
-	    
-	    header('location: ../Views/painel.php');
-    
-	    
 	}
 }

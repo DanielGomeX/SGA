@@ -14,31 +14,31 @@
                 <form action="../controllers/cadastrarAluno.php" method="POST"  align='middle'>
 			    	<div class="form-group">
 			    		<label for="nome">Nome</label>
-			        	<input class="form-control" type="text" id="nome" name="nome" placeholder="Nome do Aluno" />
+                                        <input required="required" class="form-control" type="text" id="nome" name="nome" placeholder="Nome do Aluno" />
 			    	</div>
 			    	<div class="form-group">
 			    		<label for="rg">RG</label>
-			        	<input class="form-control" type="text" id="rg" name="rg" maxlength="9" placeholder="RG"/>
+			        	<input required="required" class="form-control" type="text" id="rg" name="rg" maxlength="9" placeholder="RG"/>
 			    	</div>
 			    	<div class="form-group">
 			    		<label for="cpf">CPF</label>
-			        	<input class="form-control" type="text" id="cpf" name="cpf" maxlength="11" placeholder="CPF"/>
+			        	<input required="required" class="form-control" type="text" id="cpf" name="cpf" maxlength="11" placeholder="CPF"/>
 			    	</div>
 			    	<div class="form-group">
 			    		<label for="dtnasc">Data de Nascimento</label>
-			        	<input class="form-control" type="date" id="dtnasc" name="dtnasc" placeholder="Data de nascimento"/>
+                                        <input required="required" min="1940-01-01" max="2025-12-01" class="form-control" type="date" id="dtnasc" name="dtnasc" placeholder="Data de nascimento"/>
 			    	</div>
 			    	<div class="form-group">
 			    		<label for="endereço">Endereço</label>
-			        	<input class="form-control" type="text" id="end" name="end" placeholder="Endereço"/>
+			        	<input required="required" class="form-control" type="text" id="end" name="end" placeholder="Endereço"/>
 			    	</div>
 			    	<div class="form-group">
 			    		<label for="email">Email</label>
-			        	<input class="form-control" type="text" id="email" name="email" placeholder="E-mail"/>
+			        	<input required="required" class="form-control" type="text" id="email" name="email" placeholder="E-mail"/>
 			    	</div>
 			    	<div class="form-group">
 			    		<label for="tel">Telefone</label>
-                                        <input class="form-control" type="text" id="tel" name="tel" maxlength="12" placeholder="Telefone"/>
+                                        <input required="required" class="form-control" type="text" id="tel" name="tel" maxlength="12" placeholder="Telefone"/>
 			    	</div> 
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>

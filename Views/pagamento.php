@@ -2,7 +2,7 @@
     session_start();
     require '../Model/init.php';
     require '../controllers/check.php';
-    include ('../controllers/limitarPlano.php');
+    include ('../controllers/limitarPagamento.php');
     include ('header.php'); 
 ?>
     
@@ -26,9 +26,7 @@
           <table class="table table-hover">
               <thead>
                   <tr>
-                      <th>Nome do aluno</th>
                       <th>Valor da mensalidade</th>
-                      <th>Modalidade</th>
                       <th>Mês referente</th>
                       <th>Data de vencimento</th>
                   </tr>
@@ -36,17 +34,13 @@
               <tbody>
                   <?php while($user = $stmt->fetch(PDO::FETCH_ASSOC)):?>
                   <tr>                    
-                    <td><?PHP echo $user['nm_aluno'] ?></td>
-                    <td><?PHP echo $user['registro_geral_aluno'] ?></td>
-                    <td><?PHP echo $user['cpf_aluno'] ?></td>
-                    <td><?PHP echo date("d/m/Y", strtotime($user['dt_nascimento_aluno'])) ?></td>
-                    <td><?PHP echo $user['nm_endereco'] ?></td>
-                    <td><?PHP echo $user['nm_email_aluno'] ?></td>
-                    <td><?PHP echo $user['cd_telefone_aluno'] ?></td>
+                    <td><?PHP echo $user['vl_mensalidade'] ?></td>
+                    <td><?PHP echo $user['mes_referente'] ?></td>
+                    <td><?PHP echo $user['dt_vencimento'] ?></td>
                     <td>
-                    <a href="pagamentoEdit.php?id=<?php echo $user['matricula_aluno'] ?>">
+                    <a href="pagamentoEdit.php?cd_pagamento=<?php echo $user['cd_pagamento'] ?>">
                     <button class="btn btn-primary fa fa-edit"></button></a>
-                    <a href="../controllers/deletarPagamento.php?id=<?php echo $user['matricula_aluno'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
+                    <a href="../controllers/deletarPagamento.php?cd_pagamento=<?php echo $user['cd_pagamento'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
                     <button class="btn btn-danger fa fa-times"></button></a>
                       </td>
                   </tr>

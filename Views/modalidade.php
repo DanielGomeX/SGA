@@ -26,7 +26,6 @@
           <table class="table table-hover">
               <thead>
                   <tr>
-                      <th>Nome do professor:</th>
                       <th>Nome da modalidade:</th>
                       <th>Quantidade de aulas por semana:</th>
                       <th>Quantidade de horas/aula:</th>
@@ -35,7 +34,6 @@
               <tbody>
                   <?php while($user = $stmt->fetch(PDO::FETCH_ASSOC)):?>
                   <tr>                    
-                    <td><?PHP echo $user['nm_professor'] ?></td>
                     <td><?PHP echo $user['nm_modalidade'] ?></td>
                     <td><?PHP echo $user['qt_aulasem'] ?></td>
                     <td><?PHP echo $user['qt_hraula'] ?></td>

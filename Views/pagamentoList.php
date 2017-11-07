@@ -2,7 +2,7 @@
     session_start();
     require_once '../Model/init.php';
     require_once '../controllers/header.php';
-    include '../Classes/Modalidade.class.php';
+    include '../Classes/Pagamento.class.php';
     include 'header.php';
     $msg="";
 ?>
@@ -15,13 +15,13 @@
             	<div class="mensagem"><?php echo $msg; ?></div>
 		      <?php
                         		            
-                        $cdModalidade="";
-                        $nomemodalidade="";
-                        $qtAulaSemanal="";
-                        $qtHorasAula="";
+                        $cdpagamento="";
+                        $mesreferente="";
+                        $datavencimento="";
+                        $valormensalidade="";
                         
-		            $consultamodalidade = new Modalidade($cdModalidade, $nomemodalidade, $qtAulaSemanal, $qtHorasAula);
-                            $consultamodalidade->ConsultarModalidade($cdModalidade, $nomemodalidade, $qtAulaSemanal, $qtHorasAula);
+		            $consultapagamento = new Pagamento($cdpagamento, $mesreferente, $datavencimento, $valormensalidade);
+                            $consultapagamento->ConsultarPagamento($cdpagamento, $mesreferente, $datavencimento, $valormensalidade);
 		        ?>
 		    </div>
 		</div>              

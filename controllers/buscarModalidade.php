@@ -12,8 +12,6 @@
     //recupera os dados do usuário a ser editado
     $PDO = db_connect();
     $sql = "SELECT cd_modalidade,
-            id_professor,
-            nm_professor,
             nm_modalidade,
             qt_aulasem,
             qt_hraula
@@ -29,7 +27,7 @@
     // que o ID não corresponde a um usuário válido.
     if(!is_array($user)){
         echo '</br><font color="red">Nenhum Usuário encontrado</font>';
-        echo '<a href="index.php"> Voltar</a>';
+        echo '<a href="../Views/modalidade.php"> Voltar</a>';
         exit;
     }
 ?>
