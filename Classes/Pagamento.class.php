@@ -46,15 +46,12 @@ class Pagamento {
         $this->valormensalidade = $valormensalidade;
     }
 
-
-
 //----------------------------MÉTODOS---------------------------------------------
     function CadastrarPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
         
     //inserir no banco
     $PDO = db_connect();
     $sql = "INSERT INTO pagamento
-            (cd_pagamento,
             vl_mensalidade,
             dt_vencimento,
             mes_referente)
@@ -65,7 +62,6 @@ class Pagamento {
             :mes_referente)";
      
     $stmt = $PDO->prepare($sql);
-    $stmt->bindParam(':cd_pagamento', $cdpagamento);
     $stmt->bindParam(':vl_mensalidade',$valormensalidade);
     $stmt->bindParam(':dt_vencimento', $datavencimento);
     $stmt->bindParam(':mes_referente',$mesreferente);
@@ -106,6 +102,57 @@ class Pagamento {
     
     function ConsultarPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
         
+            $nome = $_POST['cxnome'];
+            $pesquisa = $_POST['buscar'];
+            
+            $PDO = db_connect();
+            if(isset($pesquisa)&&!empty($nome)){
+            $stmt = $PDO->prepare("SELECT mes_referente,
+                                                                    dt_vencimento,
+                                                                    vl_mensalidade
+                                                                      FROM pagamento
+                                                                      WHERE cd_pagamento
+                                                                      LIKE :letra");
+           
+            $stmt->bindValue(':letra', '%'.$nome.'%', PDO::PARAM_STR);
+            $stmt->execute();
+            $resultados = $stmt->rowCount();
+
+            if($resultados>=1){
+                echo "Resultado(s) encontrado(s): ".$resultados."<br /><br />";
+                echo "<table class='table table-hover'>";
+                 echo'<thead>';
+                  echo'<tr>';
+                      echo '<th>Tipo do Plano:</th>';
+                      echo '<th>Forma de Pagamento:</th>';
+                  echo '</tr>';
+              echo '</thead>';
+              echo '<tbody>';
+                while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
+              echo '<tr>';
+                echo '<td>'.$reg->tipo_plano.'</td>';
+                echo '<td>'.$reg->forma_pagamento.'</td>';
+                 echo '<td>
+                           <a href="alunoEdit.php?id='. $reg->cd_pagamento.'">
+                          <button class="btn btn-primary fa fa-edit"></button></a>
+                          <a href="../controllers/deletarAluno.php?id='.$reg->cd_pagamento.'" onclick="return confirm("Tem certeza que deseja remover?");">
+                          <button class="btn btn-danger fa fa-times"></button></a>
+                          </td>';
+                 echo '</tr>';
+                }
+                echo '</tbody>';
+                echo '</table>';
+
+                echo "<a href='../Views/plano.php')><button class='btn btn-primary' >Voltar</button></a> ";
+                }else{
+                    echo "Não existe Modalidade cadastrada";
+                    echo "</br><a href='../Views/plano.php')><button class='btn btn-primary'>Voltar</button></a> ";
+                }
+                }
+                else{
+                    echo "Preencha o campo de pesquisa";
+                    echo "</br><a href='../Views/plano.php')><button class='btn btn-primary' >Voltar</button></a> ";
+                }
     }
     
     function ExcluirPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {

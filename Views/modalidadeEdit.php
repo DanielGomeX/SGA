@@ -26,6 +26,7 @@
 			    		<label for="quthorasaula">Quantidade de horas/aula</label>
                                         <input class="form-control" type="number" min="1" max="5" id="qthorasaula" name="qthorasaula" value="<?php echo $user['qt_hraula']?>">
 			    	</div>
+                                                            <input type="hidden" name="id" value="<?php echo $id ?>"/>
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>
 			        <button class="btn btn-primary" id="voltar" formaction="modalidade.php">Voltar</button>

@@ -3,7 +3,7 @@
     require_once '../Classes/Pagamento.class.php';
     
     //recupera os valores do formulário
-    $cdpagamento = isset($_GET['cdpagamento'])? (int) $_GET['cdpagamento']: null;
+    $cdpagamento = isset($_POST['cdpagamento'])? $_POST['cdpagamento']: null;
     
     if($_POST['dtvencimento'] == 'dia 5'){
         $datavencimento = isset($_POST['dtvencimento'])? $_POST['dtvencimento']: null;
@@ -22,4 +22,3 @@
     
     $alterar = new Pagamento($cdpagamento, $mesreferente, $datavencimento, $valormensalidade);
     $alterar->AlterarPagamento($cdpagamento, $mesreferente, $datavencimento, $valormensalidade);
-?>

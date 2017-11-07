@@ -176,10 +176,16 @@ class Professor{
                              echo '<td>'.$reg->registro_geral_professor.'</td>';
                              echo '<td>'.$reg->cpf_professor.'</td>';
                              echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_professor)).'</td>';
-		             echo '<td>'.$reg->nm_endereco.'</td>';
-		             echo '<td>'.$reg->nm_email_professor.'</td>';
-		             echo '<td>'.$reg->cd_telefone_professor.'</td>';
-		             echo '</tr>';
+                             echo '<td>'.$reg->nm_endereco.'</td>';
+                             echo '<td>'.$reg->nm_email_professor.'</td>';
+                             echo '<td>'.$reg->cd_telefone_professor.'</td>';
+                              echo '<td>
+                                    <a href="alunoEdit.php?id='. $reg->id_professor.'">
+                                    <button class="btn btn-primary fa fa-edit"></button></a>
+                                     <a href="../controllers/deletarAluno.php?id='.$reg->id_professor.'" onclick="return confirm("Tem certeza que deseja remover?");">
+                                     <button class="btn btn-danger fa fa-times"></button></a>
+                                      </td>';
+	             echo '</tr>';
 		                
 		                }
                              echo '</tbody>';

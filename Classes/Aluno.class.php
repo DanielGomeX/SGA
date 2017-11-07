@@ -103,20 +103,20 @@ require_once '../Model/init.php';
 		if ($resultado == 0) {	
 		//insercao no banco
 	    $sql = "INSERT INTO aluno(nm_aluno,
-             registro_geral_aluno,
-            cpf_aluno,
-            dt_nascimento_aluno,
-            nm_endereco,
-            nm_email_aluno,
-            cd_telefone_aluno)
-            VALUES(
-            :nome,
-            :rg,
-            :cpf,
-            :dtnasc,
-            :endereco,
-            :email,
-            :telefone)";
+                                                        registro_geral_aluno,
+                                                       cpf_aluno,
+                                                       dt_nascimento_aluno,
+                                                       nm_endereco,
+                                                       nm_email_aluno,
+                                                       cd_telefone_aluno)
+                                                       VALUES(
+                                                       :nome,
+                                                       :rg,
+                                                       :cpf,
+                                                       :dtnasc,
+                                                       :endereco,
+                                                       :email,
+                                                       :telefone)";
 			$stmt = $PDO->prepare($sql);
 			$stmt->bindParam(':nome' ,$nome);
 			$stmt->bindParam(':rg' ,$rg);
@@ -204,15 +204,21 @@ require_once '../Model/init.php';
               echo '</thead>';
               echo '<tbody>';
                 while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
-              echo '<tr>';
-                echo '<td>'.$reg->nm_aluno.'</td>';
-                echo '<td>'.$reg->cpf_aluno.'</td>';
-                echo '<td>'.$reg->registro_geral_aluno.'</td>';
-                echo '<td>'.$reg->nm_endereco.'</td>';
-                echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_aluno)).'</td>';
-                echo '<td>'.$reg->cd_telefone_aluno.'</td>';
-                echo '<td>'.$reg->nm_email_aluno.'</td>';
-                 echo '</tr>';
+                    echo '<tr>';
+                              echo '<td>'.$reg->nm_aluno.'</td>';
+                              echo '<td>'.$reg->cpf_aluno.'</td>';
+                              echo '<td>'.$reg->registro_geral_aluno.'</td>';
+                              echo '<td>'.$reg->nm_endereco.'</td>';
+                              echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_aluno)).'</td>';
+                              echo '<td>'.$reg->cd_telefone_aluno.'</td>';
+                              echo '<td>'.$reg->nm_email_aluno.'</td>';
+                                echo '<td>
+                                        <a href="alunoEdit.php?id='. $reg->matricula_aluno.'">
+                                        <button class="btn btn-primary fa fa-edit"></button></a>
+                                        <a href="../controllers/deletarAluno.php?id='.$reg->matricula_aluno.'" onclick="return confirm("Tem certeza que deseja remover?");">
+                                        <button class="btn btn-danger fa fa-times"></button></a>
+                                        </td>';
+                       echo '</tr>';
                 }
                 echo '</tbody>';
                 echo '</table>';

@@ -27,7 +27,7 @@
     }
     
     
-    $cdplano="";
+    $cdplano = isset($_POST['cdplano'] )? $_POST['cdplano']: null;
   
     //Objeto da classe
     $alterar= new Plano($cdplano, $tipoplano, $formapagamento);

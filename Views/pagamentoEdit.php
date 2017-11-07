@@ -15,7 +15,7 @@
                 <form action="../controllers/editarPagamento.php" method="POST"  align='middle'>
 			    	<div class="form-group">
 			    		<label for="valormensalidade">Valor da Mensalidade</label>
-                                        <input required="required" class="form-control" type="text" id="valormensalidade" name="valormensalidade" value="<?php echo $user['vl_mensalidade'];?>" name="nomemodalidade"/>
+                                        <input required="required" class="form-control" type="text" id="valormensalidade" name="valormensalidade" value="<?php echo $user['vl_mensalidade'];?>" />
 			    	</div>
 			    	<div class="form-group">
 			    		<label for="mesreferente">Mês referente</label>
@@ -27,6 +27,8 @@
                                     <input type="radio" id="dtvencimento" name="dtvencimento" value="dia 10"/>Dia 10</br>
                                     <input type="radio" id="dtvencimento" name="dtvencimento" value="dia 15"/>Dia 15</br>
 			    	</div>
+                    
+                                                     <input type="hidden" name="cdpagamento" value="<?php echo  $cdpagamento?>">
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>
 			        <button class="btn btn-primary" id="voltar" formaction="pagamento.php">Voltar</button>

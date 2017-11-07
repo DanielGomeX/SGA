@@ -21,7 +21,7 @@
 			    	<div class="form-group">
                                     <label for="mesreferente">Mês referente</label>
                                     <input readonly="true" type="text" class="form-control"
-                                           id="mesreferente" name="mesreferente" value="<?php setlocale(LC_ALL,'pt_BR'); echo $mesdeagora = strftime("%B")?>"/>
+                                           id="mesreferente" name="mesreferente" value="<?php echo $mes = (string) date('F'); ?>"/>
 			    	</div>
 			    	<div class="form-group">
                                     <label for="dtvencimento">Data de vencimento</label></br>

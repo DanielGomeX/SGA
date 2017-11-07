@@ -118,6 +118,12 @@ class Plano {
               echo '<tr>';
                 echo '<td>'.$reg->tipo_plano.'</td>';
                 echo '<td>'.$reg->forma_pagamento.'</td>';
+                 echo '<td>
+                           <a href="alunoEdit.php?id='. $reg->id_professor.'">
+                          <button class="btn btn-primary fa fa-edit"></button></a>
+                          <a href="../controllers/deletarAluno.php?id='.$reg->id_professor.'" onclick="return confirm("Tem certeza que deseja remover?");">
+                          <button class="btn btn-danger fa fa-times"></button></a>
+                          </td>';
                  echo '</tr>';
                 }
                 echo '</tbody>';
