@@ -4,6 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head;
+        any other head content must come *after* these tags -->
   <title>SGA | Painel Administrativo</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -16,6 +19,9 @@
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins.  -->
   <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
+  
+  <!--BOOTSTRAP de paginação-->
+  <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,6 +37,7 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
+    
 <div class="wrapper">
 
   <!-- Main Header -->

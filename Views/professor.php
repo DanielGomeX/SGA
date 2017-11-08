@@ -60,11 +60,35 @@ include ('header.php');
         <?php else: ?>
  
         <p>Nenhum professor registrado</p>
- 
-        <?php endif; ?>
-        </br>
+            
+            <?php endif; ?>
+            </br>
+            <nav>
+            <ul class="pagination">
+              <li>
+                <a href="professor.php?pagina=0" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+                </li>
+            <?php 
+            for($i=0;$i<$num_paginas;$i++){
+            $estilo = "";
+            if($pagina == $i)
+                $estilo = "class=\"active\"";
+            ?>
+            <li <?php echo $estilo; ?> ><a href="professor.php?pagina=<?php echo $i; ?>"><?php echo $i+1; ?></a></li>
+                <?php } ?>
+            <li>
+              <a href="professor.php?pagina=<?php echo $num_paginas-1; ?>" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+            </ul>
+         </nav>
        <a href="profAdd.php"><button class="btn btn-primary fa fa-plus-square-o"> Professor</button></a>
-                       
+        </div>                
+    </div>                
+</div>                
         
 <?php 
   include ('footer.php');

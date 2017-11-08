@@ -52,8 +52,33 @@
  
         <p>Nenhum Pagamento registrado</p>
  
-        <?php endif; ?>
-        </br>
+            <?php endif; ?>
+            </br>
+            <nav>
+              <ul class="pagination">
+                <li>
+                  <a href="pagamento.php?pagina=0" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                
+                <?php 
+                for($i=0;$i<$num_paginas;$i++){
+                $estilo = "";
+                if($pagina == $i)
+                    $estilo = "class=\"active\"";
+                ?>
+                <li <?php echo $estilo; ?> ><a href="pagamento.php?pagina=<?php echo $i; ?>"><?php echo $i+1; ?></a></li>
+                    <?php } ?>
+                <li>
+                  <a href="pagamento.php?pagina=<?php echo $num_paginas-1; ?>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
        <a href="pagamentoAdd.php"><button class="btn btn-primary fa fa-plus-square-o"> Pagamento</button></a>
-
+        </div>
+     </div>
+</div>
 <?php include ('footer.php');?>
