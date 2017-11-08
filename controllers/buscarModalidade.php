@@ -4,9 +4,9 @@
        
     //valida o ID
     if(empty($cd_modalidade)){
-        echo '</br><font color="red">ID para alteração não definido</font>';
+        echo $_SESSION['Error']="ID para alteração não definido";
         echo '<a href="../Views/modalidade.php"> Voltar</a>';
-        exit;
+        //exit;
     }
     
     //recupera os dados do usuário a ser editado
@@ -26,8 +26,8 @@
     // se o método fetch() não retornar um array, significa
     // que o ID não corresponde a um usuário válido.
     if(!is_array($user)){
-        echo '</br><font color="red">Nenhum Usuário encontrado</font>';
+        echo $_SESSION['Error']="Nenhum Usuário encontrado";
         echo '<a href="../Views/modalidade.php"> Voltar</a>';
-        exit;
+        //exit;
     }
 ?>

@@ -68,7 +68,7 @@
     <section class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">        
-          <h4 class="center"><?php echo ucwords($_SESSION['user_name']); ?>  </h4>   
+          <h4 class="center"><?php echo ucwords($_SESSION['user_name']); ?></h4>   
       </div>
 
       <!-- search form (Optional) -->

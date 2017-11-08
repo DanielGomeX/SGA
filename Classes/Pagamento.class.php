@@ -52,12 +52,11 @@ class Pagamento {
     //inserir no banco
     $PDO = db_connect();
     $sql = "INSERT INTO pagamento
-            vl_mensalidade,
+            (vl_mensalidade,
             dt_vencimento,
             mes_referente)
             VALUES
-            (:cd_pagamento,
-            :vl_mensalidade,
+           (:vl_mensalidade,
             :dt_vencimento,
             :mes_referente)";
      
@@ -66,12 +65,10 @@ class Pagamento {
     $stmt->bindParam(':dt_vencimento', $datavencimento);
     $stmt->bindParam(':mes_referente',$mesreferente);
     
-    
-        
         if($stmt->execute()){
             header('location: ../Views/pagamento.php');
         }else{
-            echo '</br><font color="red">Ops! Erro ao cadastrar!</font>';
+            echo $_SESSION['Error']="Ops! Erro ao cadastrar";
             print_r($stmt->errorInfo());
         }
     }
@@ -94,7 +91,7 @@ class Pagamento {
         if($stmt->execute()){
             header('location: ../Views/pagamento.php');
         }else{
-            echo '</br><font color="red">Erro ao alterar!</font>';
+            echo $_SESSION['Error']= "Erro ao alterar!";
             print_r($stmt->errorInfo());
         }
     
@@ -107,14 +104,15 @@ class Pagamento {
             
             $PDO = db_connect();
             if(isset($pesquisa)&&!empty($nome)){
-            $stmt = $PDO->prepare("SELECT mes_referente,
-                                                                    dt_vencimento,
-                                                                    vl_mensalidade
-                                                                      FROM pagamento
-                                                                      WHERE cd_pagamento
-                                                                      LIKE :letra");
+            $stmt = $PDO->prepare("SELECT cd_pagamento,
+                                           dt_vencimento,
+                                           vl_mensalidade,
+                                           mes_referente
+                                             FROM pagamento
+                                             WHERE mes_referente
+                                             LIKE :letra ORDER BY mes_referente ASC");
            
-            $stmt->bindValue(':letra', '%'.$nome.'%', PDO::PARAM_STR);
+            $stmt->bindValue(':letra', $nome.'%', PDO::PARAM_STR);
             $stmt->execute();
             $resultados = $stmt->rowCount();
 
@@ -123,19 +121,21 @@ class Pagamento {
                 echo "<table class='table table-hover'>";
                  echo'<thead>';
                   echo'<tr>';
-                      echo '<th>Tipo do Plano:</th>';
-                      echo '<th>Forma de Pagamento:</th>';
+                      echo '<th>Valor da Mensalidade(em R$):</th>';
+                      echo '<th>Mês Referente:</th>';
+                      echo '<th>Data de Vencimento:</th>';
                   echo '</tr>';
               echo '</thead>';
               echo '<tbody>';
                 while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
               echo '<tr>';
-                echo '<td>'.$reg->tipo_plano.'</td>';
-                echo '<td>'.$reg->forma_pagamento.'</td>';
-                 echo '<td>
-                           <a href="alunoEdit.php?id='. $reg->cd_pagamento.'">
+                echo '<td>'.$reg->vl_mensalidade.'</td>';
+                echo '<td>'.$reg->mes_referente.'</td>';
+                echo '<td>'.$reg->dt_vencimento.'</td>';    
+                 echo '<td> 
+                           <a href="pagamentoEdit.php?cdpagamento='. $reg->cd_pagamento.'">
                           <button class="btn btn-primary fa fa-edit"></button></a>
-                          <a href="../controllers/deletarAluno.php?id='.$reg->cd_pagamento.'" onclick="return confirm("Tem certeza que deseja remover?");">
+                          <a href="../controllers/deletarPagamento.php?cdpagamento='.$reg->cd_pagamento.'" onclick="return confirm("Tem certeza que deseja remover?");">
                           <button class="btn btn-danger fa fa-times"></button></a>
                           </td>';
                  echo '</tr>';
@@ -143,22 +143,22 @@ class Pagamento {
                 echo '</tbody>';
                 echo '</table>';
 
-                echo "<a href='../Views/plano.php')><button class='btn btn-primary' >Voltar</button></a> ";
+                echo "<a href='../Views/pagamento.php')><button class='btn btn-primary' >Voltar</button></a> ";
                 }else{
-                    echo "Não existe Modalidade cadastrada";
-                    echo "</br><a href='../Views/plano.php')><button class='btn btn-primary'>Voltar</button></a> ";
+                    echo $_SESSION['Error']= "Não existe pagamento cadastrado";
+                    echo "</br><a href='../Views/pagamento.php')><button class='btn btn-primary'>Voltar</button></a> ";
                 }
                 }
                 else{
-                    echo "Preencha o campo de pesquisa";
-                    echo "</br><a href='../Views/plano.php')><button class='btn btn-primary' >Voltar</button></a> ";
+                    echo $_SESSION['Error']= "Preencha o campo de pesquisa";
+                    echo "</br><a href='../Views/pagamento.php')><button class='btn btn-primary' >Voltar</button></a> ";
                 }
     }
     
     function ExcluirPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
         if(empty($cdpagamento)){
-                   echo '</br><font color="red">ID não informado</font>';
-                   exit;
+                   echo $_SESSION['Error']="ID não informado";
+                   //exit;
 
                }
            //remove do banco

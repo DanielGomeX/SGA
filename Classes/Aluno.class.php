@@ -1,5 +1,6 @@
 <?php
-require_once '../Model/init.php';
+    require_once '../Model/init.php';
+    include '../Model/validadeCPF.php';
 
     class Aluno{
         public $id;
@@ -91,6 +92,8 @@ require_once '../Model/init.php';
 		$nome=ucwords(strtolower($nome));
 		$endereco=ucwords(strtolower($endereco));
 
+                //método que valida o CPF
+                validaCPF($cpf);                
 		//validacao de email
 		$PDO = db_connect();
 		$validar= $PDO->prepare("SELECT * FROM aluno
@@ -103,20 +106,20 @@ require_once '../Model/init.php';
 		if ($resultado == 0) {	
 		//insercao no banco
 	    $sql = "INSERT INTO aluno(nm_aluno,
-                                                        registro_geral_aluno,
-                                                       cpf_aluno,
-                                                       dt_nascimento_aluno,
-                                                       nm_endereco,
-                                                       nm_email_aluno,
-                                                       cd_telefone_aluno)
-                                                       VALUES(
-                                                       :nome,
-                                                       :rg,
-                                                       :cpf,
-                                                       :dtnasc,
-                                                       :endereco,
-                                                       :email,
-                                                       :telefone)";
+                           registro_geral_aluno,
+                           cpf_aluno,
+                           dt_nascimento_aluno,
+                           nm_endereco,
+                           nm_email_aluno,
+                           cd_telefone_aluno)
+                           VALUES(
+                           :nome,
+                           :rg,
+                           :cpf,
+                           :dtnasc,
+                           :endereco,
+                           :email,
+                           :telefone)";
 			$stmt = $PDO->prepare($sql);
 			$stmt->bindParam(':nome' ,$nome);
 			$stmt->bindParam(':rg' ,$rg);
@@ -128,17 +131,17 @@ require_once '../Model/init.php';
 			$stmt->execute();
 			header ('Location: ../Views/aluno.php');
 		}else{
-                    $msg="Desculpe, mas já existe um usuário com este email e/ou cpf em nosso sistema!";
+                    echo $_SESSION['Error']="Desculpe, mas já existe um usuário com este email e/ou cpf em nosso sistema!";
+                    var_dump($cpf);
 		}
 			if (isset($stmt)) {
-				$msg="Cadastro realizado com sucesso!";
+				 $_SESSION['Error']="Cadastro realizado com sucesso!";
 			}else{
 				if (empty($msg)) {
-					$msg="Ops!, Houve um erro em nosso sistema, contate o administrador!";
+					 $_SESSION['Error']="Ops!, Houve um erro em nosso sistema, contate o administrador!";
 				}
-				
 			}
-			echo $msg;
+			echo $_SESSION['Error'];
 		}
     
     public function AlterarAluno($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email){
@@ -168,7 +171,7 @@ require_once '../Model/init.php';
         if($stmt->execute()){
             header('location: ../Views/aluno.php');
         }else{
-            echo '</br><font color="red">Erro ao alterar!</font>';
+            echo $_SESSION['Error']="Erro ao alterar!";
             print_r($stmt->errorInfo());
         }
     }
@@ -182,9 +185,9 @@ require_once '../Model/init.php';
             if(isset($pesquisa)&&!empty($nome)){
             $stmt = $PDO->prepare("SELECT * FROM aluno
                                             WHERE nm_aluno
-                                            LIKE :letra");
+                                            LIKE :letra ORDER BY nm_aluno ASC");
            
-            $stmt->bindValue(':letra', '%'.$nome.'%', PDO::PARAM_STR);
+            $stmt->bindValue(':letra', $nome.'%', PDO::PARAM_STR);
             $stmt->execute();
             $resultados = $stmt->rowCount();
 
@@ -225,12 +228,12 @@ require_once '../Model/init.php';
 
                 echo "<a href='../Views/aluno.php')><button class='btn btn-primary' >Voltar</button></a> ";
                 }else{
-                    echo "Não existe Aluno cadastrado";
+                    echo $_SESSION['Error']="Não existe Aluno cadastrado";
                     echo "</br><a href='../Views/aluno.php')><button class='btn btn-primary'>Voltar</button></a> ";
                 }
                 }
                 else{
-                    echo "Preencha o campo de pesquisa";
+                    echo  $_SESSION['Error']="Preencha o campo de pesquisa";
                     echo "</br><a href='../Views/aluno.php')><button class='btn btn-primary' >Voltar</button></a> ";
                 }
     }
@@ -238,7 +241,7 @@ require_once '../Model/init.php';
     public function ExcluirAluno($id){
         
             if(empty($id)){
-                echo '</br><font color="red">ID não informado</font>';
+                echo $_SESSION['Error']="ID não informado";
                 exit;
             }
         //remove do banco

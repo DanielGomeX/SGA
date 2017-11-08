@@ -1,5 +1,7 @@
 <?php
-    require_once '../controllers/header.php'; 
+    session_start();
+    require_once '../controllers/header.php';
+    
    //recupera dados do formulário
     $nome = isset($_POST['nome'] )? $_POST['nome']: null;
     $cpf = isset($_POST['cpf'] )? $_POST['cpf']: null;
@@ -14,7 +16,7 @@
     if(empty($nome)|| empty($rg) || empty($cpf) || empty($datanascimento)||
         empty($endereco)||empty($email)|| empty($telefone)){
       
-        $msg="Preencha todos os campos!";
+        $_SESSION['Error']="Preencha todos os campos!";
     }else{
         //Email valido
 		if (filter_var($email,FILTER_VALIDATE_EMAIL)) {
@@ -26,6 +28,6 @@
 		}
 		//Email invalido
 		else{
-			echo $msg="Digite seu Email corretamente!";
+			echo $_SESSION['Error']="Digite seu Email corretamente!";
 		}
     }

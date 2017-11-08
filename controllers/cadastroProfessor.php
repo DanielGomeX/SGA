@@ -11,7 +11,7 @@
     
 	if(empty($nome)|| empty($rg) || empty($cpf) || empty($dtnasc)||
         empty($endereco)||empty($email)|| empty($telefone)){
-		$msg="Preencha todos os campos!";
+		$_SESSION['Error']="Preencha todos os campos!";
 	}
 		//Todos os campos preenchido
 	else{
@@ -23,7 +23,7 @@
 		}
 		//Email invalido
 		else{
-			$msg="Digite seu Email corretamente!";
+			$_SESSION['Error']="Digite seu Email corretamente!";
 		}
 	}
 ?>

@@ -6,7 +6,7 @@
     include ('header.php'); 
 ?>
     
-<form name="frmBusca" method="post" action="../Views/alunoList.php">
+<form name="frmBusca" method="post" action="../Views/pagamentoList.php">
             <div class="input-group">
               <input type="text" name="cxnome" id="cxnome" class="form-control" placeholder="Digite o nome">
               <span class="input-group-btn">
@@ -26,9 +26,9 @@
           <table class="table table-hover">
               <thead>
                   <tr>
-                      <th>Valor da mensalidade</th>
-                      <th>Mês referente</th>
-                      <th>Data de vencimento</th>
+                      <th>Valor da mensalidade(em R$):</th>
+                      <th>Mês referente:</th>
+                      <th>Data de vencimento:</th>
                   </tr>
               </thead>
               <tbody>

@@ -4,9 +4,9 @@
        
     //valida o ID
     if(empty($cdplano)){
-        echo '</br><font color="red">ID para alteração não definido</font>';
+        echo $_SESSION['Error']="ID para alteração não definido";
         echo '<a href="../Views/plano.php"> Voltar</a>';
-        exit;
+        //exit;
     }
     
     //recupera os dados do usuário a ser editado
@@ -24,8 +24,8 @@
     // se o método fetch() não retornar um array, significa
     // que o ID não corresponde a um usuário válido.
     if(!is_array($user)){
-        echo '</br><font color="red">Nenhum plano encontrado</font>';
+        echo $_SESSION['Error']="Nenhum plano encontrado";
         echo '<a href="../Views/plano.php"> Voltar</a>';
-        exit;
+        //exit;
     }
 ?>

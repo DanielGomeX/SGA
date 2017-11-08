@@ -60,7 +60,7 @@ class Plano {
         if($stmt->execute()){
             header('location: ../Views/plano.php');
         }else{
-            echo '</br><font color="red">Ops! Erro ao cadastrar!</font>';
+            echo $_SESSION['Error']="Ops! Erro ao cadastrar!";
             print_r($stmt->errorInfo());
         }
     }
@@ -81,7 +81,7 @@ class Plano {
         if($stmt->execute()){
             header('location: ../Views/plano.php');
         }else{
-            echo '</br><font color="red">Erro ao alterar!</font>';
+            echo $_SESSION['Error']="Erro ao alterar!";
             print_r($stmt->errorInfo());
         }
     
@@ -95,12 +95,13 @@ class Plano {
             $PDO = db_connect();
             if(isset($pesquisa)&&!empty($nome)){
             $stmt = $PDO->prepare("SELECT tipo_plano,
+                                          cd_plano,
                                           forma_pagamento
                                             FROM plano
                                             WHERE tipo_plano
-                                            LIKE :letra");
+                                            LIKE :letra ORDER BY tipo_plano ASC");
            
-            $stmt->bindValue(':letra', '%'.$nome.'%', PDO::PARAM_STR);
+            $stmt->bindValue(':letra', $nome.'%', PDO::PARAM_STR);
             $stmt->execute();
             $resultados = $stmt->rowCount();
 
@@ -118,12 +119,12 @@ class Plano {
               echo '<tr>';
                 echo '<td>'.$reg->tipo_plano.'</td>';
                 echo '<td>'.$reg->forma_pagamento.'</td>';
-                 echo '<td>
-                           <a href="alunoEdit.php?id='. $reg->id_professor.'">
-                          <button class="btn btn-primary fa fa-edit"></button></a>
-                          <a href="../controllers/deletarAluno.php?id='.$reg->id_professor.'" onclick="return confirm("Tem certeza que deseja remover?");">
-                          <button class="btn btn-danger fa fa-times"></button></a>
-                          </td>';
+                echo '<td>
+                  <a href="planoEdit.php?cdplano='. $reg->cd_plano.'"> 
+                  <button class="btn btn-primary fa fa-edit"></button></a>
+                  <a href="../controllers/deletarPlano.php?cdplano='.$reg->cd_plano.'" onclick="return confirm("Tem certeza que deseja remover?");">
+                  <button class="btn btn-danger fa fa-times"></button></a>
+                  </td>';                
                  echo '</tr>';
                 }
                 echo '</tbody>';
@@ -131,19 +132,19 @@ class Plano {
 
                 echo "<a href='../Views/plano.php')><button class='btn btn-primary' >Voltar</button></a> ";
                 }else{
-                    echo "Não existe Modalidade cadastrada";
+                    echo $_SESSION['Error']="Não existe Modalidade cadastrada";
                     echo "</br><a href='../Views/plano.php')><button class='btn btn-primary'>Voltar</button></a> ";
                 }
                 }
                 else{
-                    echo "Preencha o campo de pesquisa";
+                    echo $_SESSION['Error']="Preencha o campo de pesquisa";
                     echo "</br><a href='../Views/plano.php')><button class='btn btn-primary' >Voltar</button></a> ";
                 }
     }
     
     function ExcluirPlano($cdplano,$tipoplano, $formapagamento) {
         if(empty($cdplano)){
-                echo '</br><font color="red">ID não informado</font>';
+                echo $_SESSION['Error']="ID não informado";
                 exit;
                 
             }

@@ -108,13 +108,14 @@ class Modalidade {
             $PDO = db_connect();
             if(isset($pesquisa)&&!empty($nome)){
             $stmt = $PDO->prepare("SELECT nm_modalidade,
+                                          cd_modalidade,
                                           qt_aulasem,
                                           qt_hraula
                                             FROM modalidade
                                             WHERE nm_modalidade
                                             LIKE :letra");
            
-            $stmt->bindValue(':letra', '%'.$nome.'%', PDO::PARAM_STR);
+            $stmt->bindValue(':letra', $nome.'%', PDO::PARAM_STR);
             $stmt->execute();
             $resultados = $stmt->rowCount();
 
@@ -126,12 +127,6 @@ class Modalidade {
                       echo '<th>Nome da Modalidade:</th>';
                       echo '<th>Quantidade de aulas por semana:</th>';
                       echo '<th>Quantidade de horas/aula:</th>';
-                       echo '<td>
-                                        <a href="alunoEdit.php?id='. $reg->cd_modalidade.'">
-                                        <button class="btn btn-primary fa fa-edit"></button></a>
-                                        <a href="../controllers/deletarAluno.php?id='.$reg->cd_modalidade.'" onclick="return confirm("Tem certeza que deseja remover?");">
-                                        <button class="btn btn-danger fa fa-times"></button></a>
-                                        </td>';
                   echo '</tr>';
               echo '</thead>';
               echo '<tbody>';
@@ -140,6 +135,12 @@ class Modalidade {
                 echo '<td>'.$reg->nm_modalidade.'</td>';
                 echo '<td>'.$reg->qt_aulasem.'</td>';
                 echo '<td>'.$reg->qt_hraula.'</td>';
+                echo '<td>
+                        <a href="modalidadeEdit.php?cd_modalidade='. $reg->cd_modalidade.'">
+                        <button class="btn btn-primary fa fa-edit"></button></a>
+                        <a href="../controllers/deletarModalidade.php?cd_modalidade='.$reg->cd_modalidade.'" onclick="return confirm("Tem certeza que deseja remover?");">
+                        <button class="btn btn-danger fa fa-times"></button></a>
+                        </td>';
                  echo '</tr>';
                 }
                 echo '</tbody>';

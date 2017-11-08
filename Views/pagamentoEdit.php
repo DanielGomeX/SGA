@@ -23,12 +23,12 @@
 			    	</div>
 			    	<div class="form-group">
                                         <label for="dtvencimento">Data de vencimento</label></br>
-                                    <input required="required" type="radio" id="dtvencimento" name="dtvencimento" value="dia 5"/>Dia 5</br>
-                                    <input type="radio" id="dtvencimento" name="dtvencimento" value="dia 10"/>Dia 10</br>
-                                    <input type="radio" id="dtvencimento" name="dtvencimento" value="dia 15"/>Dia 15</br>
+                                    <input required="required" type="radio" id="dtvencimento" name="dtvencimento" value="dia 5" <?php if($user['dt_vencimento']=='dia 5'){echo "checked";}?>/>Dia 5</br>
+                                    <input type="radio" id="dtvencimento" name="dtvencimento" value="dia 10" <?php if($user['dt_vencimento']=='dia 10'){echo "checked";}?>/>Dia 10</br>
+                                    <input type="radio" id="dtvencimento" name="dtvencimento" value="dia 15"<?php if($user['dt_vencimento']=='dia 15'){echo "checked";}?>/>Dia 15</br>
 			    	</div>
                     
-                                                     <input type="hidden" name="cdpagamento" value="<?php echo  $cdpagamento?>">
+                                <input type="hidden" name="cdpagamento" value="<?php echo  $cdpagamento?>;">
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>
 			        <button class="btn btn-primary" id="voltar" formaction="pagamento.php">Voltar</button>

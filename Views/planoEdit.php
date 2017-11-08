@@ -15,18 +15,18 @@
                 <form action="../controllers/editarPlano.php" method="POST"  align='middle'>
                     <div class="form-group">
                         <label for="tipoplano" class="cadastroplano">Tipo do plano:</label></br>
-                        <input type="radio" id="tipoplano" name="tipoplano" value="mensal"/>Mensal</br>
-                        <input type="radio" id="tipoplano" name="tipoplano" value="trimestral"/>Trimestral</br>
-                        <input type="radio" id="tipoplano" name="tipoplano" value="semestral"/>Semestral</br>
-                        <input type="radio" id="tipoplano" name="tipoplano" value="anual"/>Anual</br>
+                        <input type="radio" id="tipoplano" name="tipoplano" value="mensal" <?php if($user['tipo_plano']=='mensal'){echo "checked";}?>/>Mensal</br>
+                        <input type="radio" id="tipoplano" name="tipoplano" value="trimestral" <?php if($user['tipo_plano']=='trimestral'){echo "checked";}?>/>Trimestral</br>
+                        <input type="radio" id="tipoplano" name="tipoplano" value="semestral" <?php if($user['tipo_plano']=='semestral'){echo "checked";}?>/>Semestral</br>
+                        <input type="radio" id="tipoplano" name="tipoplano" value="anual" <?php if($user['tipo_plano']=='anual'){echo "checked";}?>/>Anual</br>
                         
                     </div>
                     </br>
                     <div class="form-group">
                         <label for="formapgto" class="cadastroplano">Forma de pagamento:</label></br>
-                        <input type="radio" id="formapgto" name="formapagamento" value="dinheiro"/>Dinheiro</br>
-                        <input type="radio" id="formapgto" name="formapagamento" value="cartaocredito"/>Cartão de Crédito</br>
-                        <input type="radio" id="formapgto" name="formapagamento" value="cartaodebito"/>Cartão de Débito</br>
+                        <input type="radio" id="formapgto" name="formapagamento" value="dinheiro" <?php if($user['forma_pagamento']=='dinheiro'){echo "checked";}?>/>Dinheiro</br>
+                        <input type="radio" id="formapgto" name="formapagamento" value="cartaocredito" <?php if($user['forma_pagamento']=='cartaocredito'){echo "checked";}?>/>Cartão de Crédito</br>
+                        <input type="radio" id="formapgto" name="formapagamento" value="cartaodebito" <?php if($user['forma_pagamento']=='cartaodebito'){echo "checked";}?>/>Cartão de Débito</br>
                     </div>
                     
                     <input type="hidden" name="cdplano" value="<?php echo $cdplano ?>"/>
