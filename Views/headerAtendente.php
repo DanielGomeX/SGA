@@ -89,11 +89,10 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">OPÇÕES</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="#"><i class="fa fa-link"></i> <span>1</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>2</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>3</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>4</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>5</span></a></li>
+        <li><a href="alunoAtendente.php"><i class="fa fa-link"></i> <span>Aluno</span></a></li>
+        <li><a href="pagamentoAtendente.php"><i class="fa fa-link"></i> <span>Pagamento</span></a></li>
+        <li><a href="modalidadeAtendente.php"><i class="fa fa-link"></i> <span>Modalidade</span></a></li>
+        <li><a href="planoAtendente.php"><i class="fa fa-link"></i> <span>Plano</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

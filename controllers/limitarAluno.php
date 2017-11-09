@@ -9,7 +9,7 @@
 	} else {
 		$pg = $_GET['pg'];
 	}
-	$total_reg = "20";
+	$total_reg = "10";
 	$inicio = $pg -1; 
 	$inicio = $inicio * $total_reg;
 		
