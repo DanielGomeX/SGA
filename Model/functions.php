@@ -19,9 +19,10 @@
     }
 
     function dataatual(){
+            date_default_timezone_set('America/Sao_paulo');
         // Formato 24 horas (de 1 a 24)
-            $hora =  date_default_timezone_set('America/Sao_Paulo');
-            $dataLocal = date(' d/m/Y H:i', time());
+            $hora = date('G');
+            $dataLocal = date(' d/m/Y H:i');
             if (($hora >= 0) AND ($hora < 6)) {
             $mensagem =  "Boa madrugada";
             } else if (($hora >= 6) AND ($hora < 12)) {

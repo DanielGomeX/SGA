@@ -54,31 +54,60 @@
  
             <?php endif; ?>
             </br>
-            <nav>
-              <ul class="pagination">
-                <li>
-                  <a href="pagamento.php?pagina=0" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                
-                <?php 
-                for($i=0;$i<$num_paginas;$i++){
-                $estilo = "";
-                if($pagina == $i)
-                    $estilo = "class=\"active\"";
-                ?>
-                <li <?php echo $estilo; ?> ><a href="pagamento.php?pagina=<?php echo $i; ?>"><?php echo $i+1; ?></a></li>
-                    <?php } ?>
-                <li>
-                  <a href="pagamento.php?pagina=<?php echo $num_paginas-1; ?>" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <?php 
+           if ($total > 1) {
+		echo "<nav>";
+		echo "	<ul class='pagination pagination-sm'>";
+
+		if ($anterior > 0) {
+			echo "<li>";
+			echo "	<a href='?pg=".$anterior."' aria-label='Previous'>";
+			echo "		<span aria-hidden='true'>«</span>";
+			echo "	</a>";
+			echo "</li>";
+		} else {
+			echo "<li class='disabled'>";
+			echo "	<span aria-hidden='true'>«</span>";
+			echo "</li>";
+		}
+		
+		
+		for ($i=1;$i<=$total;$i++) {
+			if ($i < ($pg-4) AND $i == 1) {
+				echo "<li><a href='?pg=".$i."'>".$i."</a></li>";
+				echo "<li><a>...</a></li>";
+			}
+			
+			if ($i >= ($pg-4) AND $i <= ($pg+4)) {
+				if ($i == $pg) {
+					echo "<li class='active'><a href='?pg=".$i."'>".$i."</a></li>";
+				} else {
+					echo "<li><a href='?pg=".$i."'>".$i."</a></li>";
+				}
+			}
+			
+			if ($i > ($pg+4) AND $i == $total) {
+				echo "<li><a>...</a></li>";
+				echo "<li><a href='?pg=".$i."'>".$i."</a></li>";
+			}
+		}
+		
+                        if($pg < $total) {
+                                echo "<li>";
+                                echo "	<a href='?pg=".$proximo."' aria-label='Next'>";
+                                echo "		<span aria-hidden='true'>»</span>";
+                                echo "	</a>";
+                                echo "</li>";
+                        } else {
+                                echo "<li class='disabled'>";
+                                echo "	<span aria-hidden='true'>»</span>";
+                                echo "</li>";
+                        }
+
+                        echo "  </ul>";
+                        echo "</nav>";
+            }
+            ?>
        <a href="pagamentoAdd.php"><button class="btn btn-primary fa fa-plus-square-o"> Pagamento</button></a>
-        </div>
-     </div>
-</div>
+       
 <?php include ('footer.php');?>

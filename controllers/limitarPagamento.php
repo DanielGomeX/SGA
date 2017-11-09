@@ -2,32 +2,31 @@
 
     // abre a conexão
     $PDO = db_connect();
-
-//------------PAGINAÇÃO------------
-    // definir o numero de itens por pagina
-    $itens_por_pagina = 10;
-
-    // pegar a pagina atual
-    $pagina = intval($_GET['pagina']);
     
-    // SQL para selecionar os registros
-    $sql = "SELECT * FROM pagamento ORDER BY mes_referente ASC LIMIT  $pagina, $itens_por_pagina";
+    //------------------Paginação----------------------------------
+	if (!isset($_GET['pg'])) {
+		$pg = 1;
+	} else {
+		$pg = $_GET['pg'];
+	}
+	$total_reg = "20";
+	$inicio = $pg -1; 
+	$inicio = $inicio * $total_reg;
+		
+	$anterior = $pg -1; 
+	$proximo = $pg +1;
+	
+    //-----------------Paginação----------------------------------
+    
+    $sql = "SELECT * FROM pagamento ORDER BY mes_referente ASC LIMIT $inicio, $total_reg";
      //Seleciona os registros
     $stmt = $PDO->prepare($sql);
     $stmt->execute();
     
     // SQL para contar o total de registros
-    $sql_count = "SELECT COUNT(*) AS total FROM pagamento";
+    $sql_count = "SELECT COUNT(*) AS total FROM modalidade";
     
     // conta o total de registros
     $stmt_count = $PDO->prepare($sql_count);
     $stmt_count->execute();
     $total = $stmt_count->fetchColumn();
-    
-    
-   
-    
-    // definir numero de páginas
-    $num_paginas = ceil($total/$itens_por_pagina);
-
-?>
