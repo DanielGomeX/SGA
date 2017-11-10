@@ -31,6 +31,7 @@
                       <th>Modalidade:</th>
                       <th>Mês Referente:</th>
                       <th>Data de Vencimento:</th>
+                      <th>Acções:</th>
                   </tr>
               </thead>
               <tbody>
