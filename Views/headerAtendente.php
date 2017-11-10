@@ -15,7 +15,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins.  -->
-  <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="../dist/css/skins/skin-black.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="../dist/css/estilo.css">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -91,8 +91,8 @@
         <!-- Optionally, you can add icons to the links -->
         <li><a href="alunoAtendente.php"><i class="fa fa-link"></i> <span>Alunos</span></a></li>
         <li><a href="pagamentoAtendente.php"><i class="fa fa-link"></i> <span>Pagamento</span></a></li>
-        <li><a href="modalidadeAtendente.php"><i class="fa fa-link"></i> <span>Modalidade</span></a></li>
-        <li><a href="planoAtendente.php"><i class="fa fa-link"></i> <span>Plano</span></a></li>
+        <!--<li><a href="modalidadeAtendente.php"><i class="fa fa-link"></i> <span>Modalidade</span></a></li>
+        <li><a href="planoAtendente.php"><i class="fa fa-link"></i> <span>Plano</span></a></li> -->
       </ul>
       <!-- /.sidebar-menu -->
     </section>

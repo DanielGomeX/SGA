@@ -1,14 +1,7 @@
 <?php
 	session_start();
     require_once '../Model/init.php';
-    
-    if($_SESSION['user_status'] == '1'){
-    include 'header.php';
-    }elseif($_SESSION['user_status'] == '2'){
-        include 'headerAtendente.php';
-    }else{
-        include 'headerProfessor';
-    }
+    include 'headerAtendente.php';
 ?>
 		
         <h2 class="center">Sistema de Gerenciamento de Academia</h2>
@@ -46,15 +39,16 @@
 			    	<div class="form-group">
 			    		<label for="tel">Telefone</label>
                                         <input required="required" class="form-control" type="text" id="tel" name="tel" maxlength="12" placeholder="Telefone"/>
-			    	</div>
+			    	</div> 
                                 <div class="form-group">
 			    		<label for="tel">Plano</label>
-                                        <input required="required" class="form-control" type="text" id="tel" name="tel" maxlength="12" placeholder="Plano"/>
-			    	</div>
+                                        <input required="required" class="form-control" type="text" id="tel" name="tel" maxlength="12" placeholder="Telefone"/>
+			    	</div> 
                                 <div class="form-group">
 			    		<label for="tel">Modalidade</label>
-                                        <input required="required" class="form-control" type="text" id="tel" name="tel" maxlength="12" placeholder="Modalidade"/>
-			    	</div>
+                                        <input required="required" class="form-control" type="text" id="tel" name="tel" maxlength="12" placeholder="Telefone"/>
+			    	</div> 
+
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>
 			        <button class="btn btn-primary" id="voltar" formaction="aluno.php">Voltar</button>
