@@ -18,7 +18,7 @@
 	
     //-----------------Paginação----------------------------------
     
-    $sql = "SELECT * FROM modalidade ORDER BY nm_modlidade ASC LIMIT $inicio, $total_reg";
+    $sql = "SELECT * FROM modalidade ORDER BY nm_modalidade ASC LIMIT $inicio, $total_reg";
      //Seleciona os registros
     $stmt = $PDO->prepare($sql);
     $stmt->execute();

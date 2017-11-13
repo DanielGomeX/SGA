@@ -26,6 +26,8 @@
           <table class="table table-hover">
               <thead>
                   <tr>
+                      <th>Nome do Aluno</th>
+                      <th>Modalidade:</th>
                       <th>Valor da mensalidade(em R$):</th>
                       <th>Mês referente:</th>
                       <th>Data de vencimento:</th>
@@ -33,7 +35,8 @@
               </thead>
               <tbody>
                   <?php while($user = $stmt->fetch(PDO::FETCH_ASSOC)):?>
-                  <tr>                    
+                    <tr><?php echo $user['nm_aluno']?></tr>
+                    <td><?PHP echo $user['nm_modalidade'] ?></td>
                     <td><?PHP echo $user['vl_mensalidade'] ?></td>
                     <td><?PHP echo $user['mes_referente'] ?></td>
                     <td><?PHP echo $user['dt_vencimento'] ?></td>

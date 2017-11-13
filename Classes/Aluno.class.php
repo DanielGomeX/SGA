@@ -11,84 +11,104 @@
         public $endereco;
         public $telefone;
         public $email;
-    
-    function __construct($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email) {
-        $this->id = $id;
-        $this->nome = $nome ;
-        $this->rg = $rg;
-        $this->cpf = $cpf;
-        $this->datanascimento = $datanascimento;
-        $this->endereco = $endereco;
-        $this->telefone = $telefone;
-        $this->email = $email;
-    }
-    function getId(){
-        return $this->id;
-    }
-    
-    function getNome() {
-        return $this->nome;
-    }
+        public $tipoplano;
+        public $modalidade;
+        
+        function __construct($id, $nome, $rg, $cpf, $datanascimento, $endereco, $telefone, $email, $tipoplano, $modalidade) {
+            $this->id = $id;
+            $this->nome = $nome;
+            $this->rg = $rg;
+            $this->cpf = $cpf;
+            $this->datanascimento = $datanascimento;
+            $this->endereco = $endereco;
+            $this->telefone = $telefone;
+            $this->email = $email;
+            $this->tipoplano = $tipoplano;
+            $this->modalidade = $modalidade;
+        }
+        
+        function getId() {
+            return $this->id;
+        }
 
-    function getRg() {
-        return $this->rg;
-    }
+        function getNome() {
+            return $this->nome;
+        }
 
-    function getCpf() {
-        return $this->cpf;
-    }
+        function getRg() {
+            return $this->rg;
+        }
 
-    function getDatanascimento() {
-        return $this->datanascimento;
-    }
+        function getCpf() {
+            return $this->cpf;
+        }
 
-    function getEndereco() {
-        return $this->endereco;
-    }
+        function getDatanascimento() {
+            return $this->datanascimento;
+        }
 
-    function getTelefone() {
-        return $this->telefone;
-    }
+        function getEndereco() {
+            return $this->endereco;
+        }
 
-    function getEmail() {
-        return $this->email;
-    }
-    
-    function setId($id){
-        $this->id = $id;
-    }
+        function getTelefone() {
+            return $this->telefone;
+        }
 
-    function setNome($nome) {
-        $this->nome = $nome;
-    }
+        function getEmail() {
+            return $this->email;
+        }
 
-    function setRg($rg) {
-        $this->rg = $rg;
-    }
+        function getTipoplano() {
+            return $this->tipoplano;
+        }
 
-    function setCpf($cpf) {
-        $this->cpf = $cpf;
-    }
+        function getModalidade() {
+            return $this->modalidade;
+        }
 
-    function setDatanascimento($datanascimento) {
-        $this->datanascimento = $datanascimento;
-    }
+        function setId($id) {
+            $this->id = $id;
+        }
 
-    function setEndereco($endereco) {
-        $this->endereco = $endereco;
-    }
+        function setNome($nome) {
+            $this->nome = $nome;
+        }
 
-    function setTelefone($telefone) {
-        $this->telefone = $telefone;
-    }
+        function setRg($rg) {
+            $this->rg = $rg;
+        }
 
-    function setEmail($email) {
-        $this->email = $email;
-    }
-    
+        function setCpf($cpf) {
+            $this->cpf = $cpf;
+        }
+
+        function setDatanascimento($datanascimento) {
+            $this->datanascimento = $datanascimento;
+        }
+
+        function setEndereco($endereco) {
+            $this->endereco = $endereco;
+        }
+
+        function setTelefone($telefone) {
+            $this->telefone = $telefone;
+        }
+
+        function setEmail($email) {
+            $this->email = $email;
+        }
+
+        function setTipoplano($tipoplano) {
+            $this->tipoplano = $tipoplano;
+        }
+
+        function setModalidade($modalidade) {
+            $this->modalidade = $modalidade;
+        }    
     
 //----------------------------MÉTODOS---------------------------------------------
-    public function CadastrarAluno($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email){
+    public function CadastrarAluno($id, $nome, $rg, $cpf, $datanascimento, $endereco, $telefone, $email, $tipoplano, $modalidade) {
 		$nome=ucwords(strtolower($nome));
 		$endereco=ucwords(strtolower($endereco));
 
@@ -137,14 +157,14 @@
 			if (isset($stmt)) {
 				 $_SESSION['Error']="Cadastro realizado com sucesso!";
 			}else{
-				if (empty($msg)) {
+				if (empty($_SESSION['Error'])) {
 					 $_SESSION['Error']="Ops!, Houve um erro em nosso sistema, contate o administrador!";
 				}
 			}
 			echo $_SESSION['Error'];
 		}
     
-    public function AlterarAluno($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email){
+    public function AlterarAluno($id, $nome, $rg, $cpf, $datanascimento, $endereco, $telefone, $email, $tipoplano, $modalidade) {
         
         //atualiza o banco de dados
         $PDO = db_connect();
@@ -176,7 +196,7 @@
         }
     }
     
-    public function ConsultarAluno($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email){
+    public function ConsultarAluno($id, $nome, $rg, $cpf, $datanascimento, $endereco, $telefone, $email, $tipoplano, $modalidade) {
             
             $nome = $_POST['cxnome'];
             $pesquisa = $_POST['buscar'];
@@ -203,6 +223,8 @@
                       echo '<th>Data de Nascimento:</th>';
                       echo '<th>Telefone</th>';
                       echo '<th>Email:</th>';
+                      echo '<th>Tipo de Plano:</th>';
+                      echo '<th>Modalidade:</th>';
                   echo '</tr>';
               echo '</thead>';
               echo '<tbody>';
@@ -215,13 +237,22 @@
                               echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_aluno)).'</td>';
                               echo '<td>'.$reg->cd_telefone_aluno.'</td>';
                               echo '<td>'.$reg->nm_email_aluno.'</td>';
+                              echo '<td>'.$reg->tipo_plano.'</td>';
+                              echo '<td>'.$reg->nm_modalidade.'</td>';
+                              if($_SESSION['user_status'] == 1){                                  
                                 echo '<td>
                                         <a href="alunoEdit.php?id='. $reg->matricula_aluno.'">
                                         <button class="btn btn-primary fa fa-edit"></button></a>
                                         <a href="../controllers/deletarAluno.php?id='.$reg->matricula_aluno.'" onclick="return confirm("Tem certeza que deseja remover?");">
                                         <button class="btn btn-danger fa fa-times"></button></a>
                                         </td>';
-                       echo '</tr>';
+                              }elseif($_SESSION['user_status'] == 2 OR $_SESSION['user_status'] == 3){
+                                  echo '<td>
+                                        <a href="alunoPesq.php?id='. $reg->matricula_aluno.'">
+                                        <button class="btn btn-primary fa fa-search"></button></a>
+                                        </td>';
+                              }
+                    echo '</tr>';
                 }
                 echo '</tbody>';
                 echo '</table>';

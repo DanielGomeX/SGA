@@ -48,12 +48,33 @@
                                         <input required="required" class="form-control" type="text" id="tel" name="tel" maxlength="12" placeholder="Telefone"/>
 			    	</div>
                                 <div class="form-group">
-			    		<label for="tel">Plano</label>
-                                        <input required="required" class="form-control" type="text" id="tel" name="tel" maxlength="12" placeholder="Plano"/>
+			    		<label for="plan">Plano</label>
+                                        <select name="tipoplano">
+                                        <option id="plan" class="form-control">Selecione...</option>
+                                        <?php 
+                                            $PDO = db_connect();
+                                            $sql = "SELECT tipo_plano FROM plano";
+                                            $stmt = $PDO->prepare($sql);
+                                            $stmt->execute();
+                                        while($plan = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
+                                        <option value="<?php echo $plan['tipo_plano'] ;?>" id="plan" class="form-control">
+                                        <?php echo $plan['tipo_plano'] ;?></option>
+                                        <?php  }?>
+                                        </select>
 			    	</div>
                                 <div class="form-group">
 			    		<label for="tel">Modalidade</label>
-                                        <input required="required" class="form-control" type="text" id="tel" name="tel" maxlength="12" placeholder="Modalidade"/>
+                                        <select name="moda">
+                                            <option id="plan" class="form-control">Selecione...</option>
+                                        <?php 
+                                            $sql = "SELECT nm_modalidade FROM modalidade";
+                                            $stmt = $PDO->prepare($sql);
+                                            $stmt->execute();
+                                        while($plan = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
+                                        <option value="<?php echo $plan['nm_modalidade'] ;?>"id="plan" class="form-control">
+                                        <?php echo $plan['nm_modalidade'] ;?></option>
+                                        <?php  }?>
+                                        </select>
 			    	</div>
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>

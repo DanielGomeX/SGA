@@ -3,7 +3,15 @@
     require '../Model/init.php';
     require '../controllers/check.php';
     include ('../controllers/limitarAluno.php');
-    include ('header.php');
+    
+    if($_SESSION['user_status'] == 1){
+        include ('header.php');
+    }elseif($_SESSION['user_status'] == 2){
+        include ('headerAtendente.php');
+    }
+    elseif($_SESSION['user_status'] == 3){
+        include ('headerProfessor.php');
+    }
 ?>
 
     <form name="frmBusca" method="post" action="../Views/alunoList.php">
@@ -23,16 +31,10 @@
               <?php if(isset($total) > 0):?>
 
               </br>
-              <table class="table table-hover">
+              <table class="table table-striped">
                   <thead>
                       <tr>
                           <th>Nome</th>
-                          <th>RG</th>
-                          <th>CPF</th>
-                          <th>Data de Nascimento:</th>
-                          <th>Endereço</th>
-                          <th>Email</th>
-                          <th>Telefone</th>
                           <th>Ações</th>
                       </tr>
                   </thead>
@@ -40,18 +42,16 @@
                       <?php while($user = $stmt->fetch(PDO::FETCH_ASSOC)):?>
                       <tr>                    
                         <td><?PHP echo $user['nm_aluno'] ?></td>
-                        <td><?PHP echo $user['registro_geral_aluno'] ?></td>
-                        <td><?PHP echo $user['cpf_aluno'] ?></td>
-                        <td><?PHP echo date("d/m/Y", strtotime($user['dt_nascimento_aluno'])) ?></td>
-                        <td><?PHP echo $user['nm_endereco'] ?></td>
-                        <td><?PHP echo $user['nm_email_aluno'] ?></td>
-                        <td><?PHP echo $user['cd_telefone_aluno'] ?></td>
                         <td>
-                        <a href="alunoEdit.php?id=<?php echo $user['matricula_aluno'] ?>">
-                        <button class="btn btn-primary fa fa-edit"></button></a>
-                        <a href="../controllers/deletarAluno.php?id=<?php echo $user['matricula_aluno'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
-                        <button class="btn btn-danger fa fa-times"></button></a>
-                          </td>
+                        <a href="alunoPesq.php?id=<?php echo $user['matricula_aluno'] ?>">
+                        <button class="btn btn-primary fa fa-search"></button></a>
+                        <?php if($_SESSION['user_status'] == 1){ ?>
+                            <a href="../controllers/deletarAluno.php?id=<?php echo $user['matricula_aluno'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
+                            <button class="btn btn-danger fa fa-times"></button></a>
+                        <?php }elseif($_SESSION['user_status'] == 2 AND $_SESSION['user_status'] == 3){?>
+                            <a></a>
+                        <?php } ?>
+                        </td>
                       </tr>
                       <?php endwhile;?>
                   </tbody>

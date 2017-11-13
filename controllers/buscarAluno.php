@@ -18,6 +18,8 @@
             nm_endereco,
             nm_email_aluno,
             cd_telefone_aluno
+            tipo_plano,
+            nm_modalidade
             FROM aluno
             WHERE matricula_aluno = '$id'";
     
