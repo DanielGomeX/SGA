@@ -24,7 +24,7 @@
     $stmt->execute();
     
     // SQL para contar o total de registros
-    $sql_count = "SELECT COUNT(*) AS total FROM modalidade";
+    $sql_count = "SELECT COUNT(*) AS total FROM pagamento";
     
     // conta o total de registros
     $stmt_count = $PDO->prepare($sql_count);

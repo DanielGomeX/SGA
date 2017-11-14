@@ -1,7 +1,14 @@
 <?php	
     session_start();
     require_once '../Model/init.php';
+    
+    if($_SESSION['user_status'] == '1'){
     include 'header.php';
+    }elseif($_SESSION['user_status'] == '2'){
+        include 'headerAtendente.php';
+    }else{
+        include 'headerProfessor';
+    }
 ?>
         <h2 class="center">Sistema de Gerenciamento de Academia</h2>
         <div class="box box-solid box-primary">
@@ -13,8 +20,8 @@
                 <form action="../controllers/cadastrarPagamento.php" method="POST"  align='middle'>
                     <div class="form-group">
                         <label for="nomealuno">Nome do Aluno:</label>
-                        <select>
-                            <option>Selecione...</option>
+                        <select name="aluno" id="aluno" class="form-control">
+                            <option>Selecione o nome do aluno</option>
                             <?php 
                                $PDO = db_connect();
                                $sql = "SELECT nm_aluno FROM aluno ORDER BY nm_aluno ASC";
@@ -27,8 +34,8 @@
                     </div>
                     <div class="form-group">
                          <label for="moda">Modalidade</label>
-                         <select>
-                             <option>Selecione...</option>
+                         <select name="moda" id="moda" class="form-control">
+                             <option>Selecione a modalidade</option>
                              <?php
                                 $sql1 = "SELECT nm_modalidade FROM modalidade ORDER BY nm_modalidade ASC";
                                 $stmt = $PDO->prepare($sql1);

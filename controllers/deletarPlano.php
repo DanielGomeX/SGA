@@ -5,9 +5,9 @@ require_once '../Model/init.php';
     
     $tipoplano = "";
     $formapagamento = "";
-        
+    $modalidade="";
     //recupera o id da URL
     $cdplano = isset($_GET['cdplano']) ? $_GET['cdplano'] : null;
     
-    $deletar = new Plano($cdplano, $tipoplano, $formapagamento);
-    $deletar->ExcluirPlano($cdplano, $tipoplano, $formapagamento);
+    $deletar = new Plano($cdplano,$tipoplano, $formapagamento,$modalidade);
+    $deletar->ExcluirPlano($cdplano,$tipoplano, $formapagamento,$modalidade);

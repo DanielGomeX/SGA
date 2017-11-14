@@ -10,9 +10,13 @@
     $datanascimento = isset($_POST['dtnasc'] )? $_POST['dtnasc']: null;
     $telefone = isset($_POST['tel'] )? $_POST['tel']: null;
     $email = isset($_POST['email'] )? $_POST['email']: null;
+    $tipoplano = isset($_POST['plan'] )? $_POST['plan']: null;
+    $modalidade = isset($_POST['moda'] )? $_POST['moda']: null;
     $id = isset($_POST['id'])? $_POST['id'] : null;
     
-    $alterar = new Aluno($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email);
-    $alterar->AlterarAluno($id,$nome,$rg,$cpf,$datanascimento,$endereco,$telefone,$email);
+    $alterar = new Aluno($id, $nome, $rg, $cpf, $datanascimento, $endereco,
+            $telefone, $email, $tipoplano, $modalidade);
+    $alterar->AlterarAluno($id, $nome, $rg, $cpf, $datanascimento, $endereco,
+            $telefone, $email, $tipoplano, $modalidade);
     
 ?>

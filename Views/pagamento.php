@@ -3,7 +3,16 @@
     require '../Model/init.php';
     require '../controllers/check.php';
     include ('../controllers/limitarPagamento.php');
-    include ('header.php'); 
+    
+    if($_SESSION['user_status'] == 1){
+        include ('header.php');
+    }elseif($_SESSION['user_status'] == 2){
+        include ('headerAtendente.php');
+    }
+    elseif($_SESSION['user_status'] == 3){
+        include ('headerProfessor.php');
+    }
+    
 ?>
     
 <form name="frmBusca" method="post" action="../Views/pagamentoList.php">
@@ -35,10 +44,11 @@
               </thead>
               <tbody>
                   <?php while($user = $stmt->fetch(PDO::FETCH_ASSOC)):?>
-                    <tr><?php echo $user['nm_aluno']?></tr>
+                 <tr>
+                    <td><?php echo $user['nm_aluno']?></td>
                     <td><?PHP echo $user['nm_modalidade'] ?></td>
                     <td><?PHP echo $user['vl_mensalidade'] ?></td>
-                    <td><?PHP echo $user['mes_referente'] ?></td>
+                    <td><?PHP echo date('m/Y', strtotime($user['mes_referente'])) ?></td>
                     <td><?PHP echo $user['dt_vencimento'] ?></td>
                     <td>
                     <a href="pagamentoEdit.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>">

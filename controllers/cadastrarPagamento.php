@@ -5,6 +5,9 @@
     //recupera os valores do formulário
     $cdpagamento = "";
     
+    $nomealuno = isset($_POST['aluno'])? $_POST['aluno']: null;
+    $modalidade = isset($_POST['moda'])? $_POST['moda']: null;
+    
     if($_POST['dtvencimento'] == 'dia 5'){
         $datavencimento = isset($_POST['dtvencimento'])? $_POST['dtvencimento']: null;
     }elseif ($_POST['dtvencimento'] == 'dia 10') {
@@ -16,7 +19,9 @@
     $mesreferente = isset($_POST['mesreferente'])? $_POST['mesreferente']: null;
     $valormensalidade = isset($_POST['valormensalidade'])? $_POST['valormensalidade']: null;
     
-    $cadastrar = new Pagamento($cdpagamento, $mesreferente, $datavencimento, $valormensalidade);
-    $cadastrar->CadastrarPagamento($cdpagamento, $mesreferente, $datavencimento, $valormensalidade);
-    
+        $cadastrar = new Pagamento($cdpagamento, $nomealuno, $modalidade,
+            $valormensalidade, $mesreferente, $datavencimento);
+        $cadastrar->CadastrarPagamento($cdpagamento, $nomealuno, $modalidade,
+                $valormensalidade, $mesreferente, $datavencimento);
+
     

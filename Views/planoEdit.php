@@ -28,6 +28,23 @@
                         <input type="radio" id="formapgto" name="formapagamento" value="cartaocredito" <?php if($user['forma_pagamento']=='cartaocredito'){echo "checked";}?>/>Cartão de Crédito</br>
                         <input type="radio" id="formapgto" name="formapagamento" value="cartaodebito" <?php if($user['forma_pagamento']=='cartaodebito'){echo "checked";}?>/>Cartão de Débito</br>
                     </div>
+                    </br>
+                    <div class="form-group">
+                         <label for="moda">Modalidade:</label>
+                         <select name="moda">
+                             <option id="moda" class="form-control">Selecione...</option>
+                             <?php
+                                 $PDO = db_connect();
+                                 $sql = "SELECT nm_modalidade FROM plano ORDER BY nm_modalidade ASC";
+                                 $stmt = $PDO->prepare($sql);
+                                 $stmt->execute();
+                             while($plan = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
+                             <option <?php if($plan['nm_modalidade']==$user['nm_modalidade']){echo 'selected';} ?>
+                                 value="<?php echo $plan['nm_modalidade'] ;?> "id="moda" class="form-control">
+                             <?php echo $plan['nm_modalidade'];?></option>
+                             <?php }?>
+                         </select>
+                    </div>
                     
                     <input type="hidden" name="cdplano" value="<?php echo $cdplano ?>"/>
                     <label for="alterar"></label>        

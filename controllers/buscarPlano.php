@@ -12,7 +12,8 @@
     //recupera os dados do usuário a ser editado
     $PDO = db_connect();
     $sql = "SELECT tipo_plano,
-            forma_pagamento
+            forma_pagamento,
+            nm_modalidade
             FROM plano
             WHERE cd_plano = '$cdplano'";
     

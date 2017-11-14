@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once ('../Classes/Professor.class.php');
+    require_once ('../Classes/Aluno.class.php');
     
    //recupera dados do formulário
     $nome = isset($_POST['nome'] )? $_POST['nome']: null;
@@ -26,6 +26,7 @@
 				$cadastro = new Aluno($id, $nome, $rg, $cpf,
                                 $datanascimento, $endereco, $telefone, $email,
                                 $tipoplano, $modalidade);
+                                
 				$cadastro->CadastrarAluno($id, $nome, $rg, $cpf,
                                 $datanascimento, $endereco, $telefone, $email,
                                 $tipoplano, $modalidade);

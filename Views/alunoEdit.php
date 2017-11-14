@@ -3,6 +3,7 @@
     require_once '../Model/init.php';
     require '../controllers/check.php';
     include '../controllers/buscarAluno.php';
+    
     if($_SESSION['user_status'] == 1){
         include ('header.php');
     }elseif($_SESSION['user_status'] == 2){
@@ -52,9 +53,41 @@
                     </div>
                     <div class="form-group">
                         <label for="tel">Telefone</label>
-                        <input class="form-control" type="text" id="tel" name="tel" placeholder="Telefone"
+                        <input class="form-control" type="text" id="tel" name="tel"
                                value="<?php echo $user['cd_telefone_aluno']?>"/>
-                    </div>    
+                    </div>
+                    <div class="form-group">
+                        <label for="plan">Tipo de Plano</label>
+                        <select name="plan" id="plan" class="form-control">
+                            <option id="plan" class="form-control">Selecione...</option>
+                                <?php
+                                    $PDO = db_connect();
+                                    $sql = "SELECT tipo_plano FROM plano ORDER BY tipo_plano ASC";
+                                    $stmt = $PDO->prepare($sql);
+                                    $stmt->execute();
+                                while($plan = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
+                            <option <?php if($plan['tipo_plano']==$user['tipo_plano']){echo 'selected';} ?>
+                                value="<?php echo $plan['tipo_plano'] ;?> "id="plan" class="form-control">
+                            <?php echo $plan['tipo_plano'] ;?></option>
+                            <?php  }?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="moda">Modalidade</label>
+                       <select name="moda" id="moda" class="form-control">
+                             <option id="moda" class="form-control">Selecione...</option>
+                             <?php
+                                 $PDO = db_connect();
+                                 $sql = "SELECT nm_modalidade FROM plano ORDER BY nm_modalidade ASC";
+                                 $stmt = $PDO->prepare($sql);
+                                 $stmt->execute();
+                             while($plan = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
+                             <option <?php if($plan['nm_modalidade']==$user['nm_modalidade']){echo 'selected';} ?>
+                                 value="<?php echo $plan['nm_modalidade'] ;?> "id="moda" class="form-control">
+                             <?php echo $plan['nm_modalidade'];?></option>
+                             <?php }?>
+                         </select>
+                    </div>
                     
                     <input type="hidden" name="id" value="<?php echo $id ?>"/>
                     

@@ -6,12 +6,14 @@ class Modalidade {
     public $nomemodalidade;
     public $qtAulaSemanal;
     public $qtHorasAula;
+    public $professor;
     
-    function __construct($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula) {
+    function __construct($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula,$professor) {
         $this->cdModalidade = $cdModalidade;
         $this->nomemodalidade = $nomemodalidade;
         $this->qtAulaSemanal = $qtAulaSemanal;
         $this->qtHorasAula = $qtHorasAula;
+        $this->professor = $professor;
     }
     
     function getCdModalidade() {
@@ -30,6 +32,10 @@ class Modalidade {
     function getQtHorasAula() {
         return $this->qtHorasAula;
     }
+    
+    function getProfessor(){
+        return $this->professor;
+    }
 
     function setCdModalidade($cdModalidade) {
         $this->cdModalidade = $cdModalidade;
@@ -46,25 +52,32 @@ class Modalidade {
     function setQtHorasAula($qtHorasAula) {
         $this->qtHorasAula = $qtHorasAula;
     }
+    
+    function setProfessor($professor){
+        $this->professor = $professor;
+    }
 
 //----------------------------MÉTODOS---------------------------------------------
-    public function CadastrarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula) {
+    public function CadastrarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula,$professor) {
   
         //inserir no banco
         $PDO = db_connect();
         $sql = "INSERT INTO modalidade
                 (nm_modalidade,
                 qt_aulasem,
-                qt_hraula)
+                qt_hraula,
+                nm_professor)
                 VALUES
                 (:nm_modalidade,
                 :qt_aulasem,
-                :qt_hraula)";
+                :qt_hraula,
+                :nm_professor)";
         
         $stmt = $PDO->prepare($sql);
         $stmt->bindParam(':nm_modalidade',$nomemodalidade);
         $stmt->bindParam(':qt_aulasem',$qtAulaSemanal);
         $stmt->bindParam(':qt_hraula',$qtHorasAula);
+        $stmt->bindParam(':nm_professor',$professor);
 
         if($stmt->execute()){
             header('location: ../Views/modalidade.php');
@@ -77,7 +90,7 @@ class Modalidade {
         }
     }
     
-    public function AlterarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula) {
+    public function AlterarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula,$professor) {
          //atualiza o banco de dados
         $PDO = db_connect();
         $sql = "UPDATE modalidade SET 
@@ -100,7 +113,7 @@ class Modalidade {
         }
     }
     
-    public function ConsultarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula) {
+    public function ConsultarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula,$professor) {
         
             $nome = $_POST['cxnome'];
             $pesquisa = $_POST['buscar'];
@@ -159,7 +172,7 @@ class Modalidade {
        
     }
     
-    public function ExcluirModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula) {
+    public function ExcluirModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula,$professor) {
         if(empty($cdModalidade)){
                 echo '</br><font color="red">ID não informado</font>';
                 exit;

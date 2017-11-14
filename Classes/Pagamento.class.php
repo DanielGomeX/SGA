@@ -3,19 +3,35 @@ require_once '../Model/init.php';
 
 class Pagamento {
     public $cdpagamento;
+    public $nomealuno;
+    public $modalidade;
+    public $valormensalidade;
     public $mesreferente;
     public $datavencimento;
-    public $valormensalidade;
-            
-    function __construct($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
+    
+    function __construct($cdpagamento, $nomealuno, $modalidade, $valormensalidade, $mesreferente, $datavencimento) {
         $this->cdpagamento = $cdpagamento;
+        $this->nomealuno = $nomealuno;
+        $this->modalidade = $modalidade;
+        $this->valormensalidade = $valormensalidade;
         $this->mesreferente = $mesreferente;
         $this->datavencimento = $datavencimento;
-        $this->valormensalidade=$valormensalidade;
     }
-    
+
     function getCdpagamento() {
         return $this->cdpagamento;
+    }
+
+    function getNomealuno() {
+        return $this->nomealuno;
+    }
+
+    function getModalidade() {
+        return $this->modalidade;
+    }
+
+    function getValormensalidade() {
+        return $this->valormensalidade;
     }
 
     function getMesreferente() {
@@ -25,13 +41,21 @@ class Pagamento {
     function getDatavencimento() {
         return $this->datavencimento;
     }
-    
-    function getValormensalidade() {
-        return $this->valormensalidade;
-    }
 
     function setCdpagamento($cdpagamento) {
         $this->cdpagamento = $cdpagamento;
+    }
+
+    function setNomealuno($nomealuno) {
+        $this->nomealuno = $nomealuno;
+    }
+
+    function setModalidade($modalidade) {
+        $this->modalidade = $modalidade;
+    }
+
+    function setValormensalidade($valormensalidade) {
+        $this->valormensalidade = $valormensalidade;
     }
 
     function setMesreferente($mesreferente) {
@@ -41,26 +65,30 @@ class Pagamento {
     function setDatavencimento($datavencimento) {
         $this->datavencimento = $datavencimento;
     }
-    
-    function setValormensalidade($valormensalidade) {
-        $this->valormensalidade = $valormensalidade;
-    }
+
+
 
 //----------------------------MÉTODOS---------------------------------------------
-    function CadastrarPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
+    function CadastrarPagamento($cdpagamento, $nomealuno, $modalidade, $valormensalidade, $mesreferente, $datavencimento) {
         
     //inserir no banco
     $PDO = db_connect();
     $sql = "INSERT INTO pagamento
-            (vl_mensalidade,
+            (nm_aluno,
+            nm_modalidade,
+            vl_mensalidade,
             dt_vencimento,
             mes_referente)
             VALUES
-           (:vl_mensalidade,
+           (:nm_aluno,
+            :nm_modalidade,
+            :vl_mensalidade,
             :dt_vencimento,
             :mes_referente)";
      
     $stmt = $PDO->prepare($sql);
+    $stmt->bindParam(':nm_aluno',$nomealuno);
+    $stmt->bindParam(':nm_modalidade',$modalidade);
     $stmt->bindParam(':vl_mensalidade',$valormensalidade);
     $stmt->bindParam(':dt_vencimento', $datavencimento);
     $stmt->bindParam(':mes_referente',$mesreferente);
@@ -73,13 +101,15 @@ class Pagamento {
         }
     }
     
-    function AlterarPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
+    function AlterarPagamento($cdpagamento, $nomealuno, $modalidade, $valormensalidade, $mesreferente, $datavencimento) {
          //atualiza o banco de dados
         $PDO = db_connect();
-        $sql = "UPDATE pagamento SET 
+        $sql = "UPDATE pagamento SET
+            nm_aluno = :nm_aluno,
+            nm_modalidade = :nm_modalidade,
             vl_mensalidade = :vl_mensalidade,
             dt_vencimento = :dt_vencimento,
-            mes_referente = :mes_referente
+            mes_referente = :mes_referente,
             WHERE cd_pagamento = :cd_pagamento";
 
         $stmt = $PDO->prepare($sql);
@@ -97,7 +127,7 @@ class Pagamento {
     
     }
     
-    function ConsultarPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
+    function ConsultarPagamento($cdpagamento, $nomealuno, $modalidade, $valormensalidade, $mesreferente, $datavencimento) {
         
             $nome = $_POST['cxnome'];
             $pesquisa = $_POST['buscar'];
@@ -105,9 +135,11 @@ class Pagamento {
             $PDO = db_connect();
             if(isset($pesquisa)&&!empty($nome)){
             $stmt = $PDO->prepare("SELECT cd_pagamento,
-                                           dt_vencimento,
-                                           vl_mensalidade,
-                                           mes_referente
+                                            nm_aluno,
+                                            nm_modalidade
+                                            dt_vencimento,
+                                            vl_mensalidade,
+                                            mes_referente
                                              FROM pagamento
                                              WHERE mes_referente
                                              LIKE :letra ORDER BY mes_referente ASC");
@@ -155,11 +187,10 @@ class Pagamento {
                 }
     }
     
-    function ExcluirPagamento($cdpagamento, $mesreferente, $datavencimento,$valormensalidade) {
+    function ExcluirPagamento($cdpagamento, $nomealuno, $modalidade, $valormensalidade, $mesreferente, $datavencimento) {
         if(empty($cdpagamento)){
                    echo $_SESSION['Error']="ID não informado";
                    //exit;
-
                }
            //remove do banco
            $PDO = db_connect();

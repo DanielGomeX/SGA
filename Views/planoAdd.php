@@ -26,6 +26,22 @@
                                     <input type="radio" id="formapgto" name="formapagamento" value="cartaocredito"/>Cartão de Crédito</br>
                                     <input type="radio" id="formapgto" name="formapagamento" value="cartaodebito"/>Cartão de Débito</br>
 			    	</div>
+                                </br>
+                                <div class="form-group">
+                                    <label for="tel">Modalidade:</label>
+                                    <select name="moda">
+                                        <option id="plan" class="form-control">Selecione...</option>
+                                        <?php
+                                            $PDO = db_connect();
+                                            $sql = "SELECT nm_modalidade FROM modalidade ORDER BY nm_modalidade ASC";
+                                            $stmt = $PDO->prepare($sql);
+                                            $stmt->execute();
+                                        while($plan = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
+                                        <option value="<?php echo $plan['nm_modalidade'] ;?>"id="moda" class="form-control">
+                                        <?php echo $plan['nm_modalidade'] ;?></option>
+                                        <?php  }?>
+                                    </select>
+                                </div>
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>
 			        <button  class="btn btn-primary" id="voltar" formaction="plano.php">Voltar</button>

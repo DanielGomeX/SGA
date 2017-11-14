@@ -7,9 +7,10 @@
         $nomemodalidade="";
         $qtAulaSemanal="";
         $qtHorasAula="";
+        $professor = "";
         
     //recupera o id da URL
     $cdModalidade = isset($_GET['cd_modalidade']) ? $_GET['cd_modalidade'] : null;
     
-    $exluir = new Modalidade($cdModalidade, $nomemodalidade, $qtAulaSemanal, $qtHorasAula);
-    $exluir->ExcluirModalidade($cdModalidade, $nomemodalidade, $qtAulaSemanal, $qtHorasAula);
+    $exluir = new Modalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula,$professor);
+    $exluir->ExcluirModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula,$professor);

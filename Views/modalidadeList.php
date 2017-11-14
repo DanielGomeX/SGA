@@ -20,8 +20,8 @@
                         $qtAulaSemanal="";
                         $qtHorasAula="";
                         
-		            $consultamodalidade = new Modalidade($cdModalidade, $nomemodalidade, $qtAulaSemanal, $qtHorasAula);
-                            $consultamodalidade->ConsultarModalidade($cdModalidade, $nomemodalidade, $qtAulaSemanal, $qtHorasAula);
+		            $consultamodalidade = new Modalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula,$professor);
+                            $consultamodalidade->ConsultarModalidade($cdModalidade,$nomemodalidade,$qtAulaSemanal,$qtHorasAula,$professor);
 		        ?>
 		    </div>
 		</div>              

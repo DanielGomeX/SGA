@@ -131,7 +131,9 @@
                            dt_nascimento_aluno,
                            nm_endereco,
                            nm_email_aluno,
-                           cd_telefone_aluno)
+                           cd_telefone_aluno,
+                           tipo_plano,
+                           nm_modalidade)
                            VALUES(
                            :nome,
                            :rg,
@@ -139,7 +141,9 @@
                            :dtnasc,
                            :endereco,
                            :email,
-                           :telefone)";
+                           :telefone,
+                           :tipo_plano,
+                           :nm_modalidade)";
 			$stmt = $PDO->prepare($sql);
 			$stmt->bindParam(':nome' ,$nome);
 			$stmt->bindParam(':rg' ,$rg);
@@ -147,7 +151,9 @@
 			$stmt->bindParam(':dtnasc' ,$datanascimento);
 			$stmt->bindParam(':endereco' ,$endereco);
 			$stmt->bindParam(':email' ,$email);
-			$stmt->bindParam(':telefone' ,$telefone);		
+			$stmt->bindParam(':telefone' ,$telefone);
+                        $stmt->bindParam(':tipo_plano', $tipoplano);
+                        $stmt->bindParam(':nm_modalidade', $modalidade);
 			$stmt->execute();
 			header ('Location: ../Views/aluno.php');
 		}else{
@@ -175,7 +181,9 @@
             nm_endereco = :endereco,
             dt_nascimento_aluno = :dtnasc,
             cd_telefone_aluno = :telefone, 
-            nm_email_aluno = :email
+            nm_email_aluno = :email,
+            tipo_plano = :tipo_plano,
+            nm_modalidade = :nm_modalidade
             WHERE matricula_aluno = :id";
 
         $stmt = $PDO->prepare($sql);
@@ -186,6 +194,8 @@
         $stmt->bindParam(':dtnasc',$datanascimento);
         $stmt->bindParam(':telefone',$telefone);
         $stmt->bindParam(':email',$email);
+        $stmt->bindParam(':tipo_plano',$tipoplano);
+        $stmt->bindParam(':nm_modalidade',$modalidade);
         $stmt->bindParam(':id',$id, PDO::PARAM_INT);
 
         if($stmt->execute()){

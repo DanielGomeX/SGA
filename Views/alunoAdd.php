@@ -49,8 +49,8 @@
 			    	</div>
                                 <div class="form-group">
 			    		<label for="plan">Plano</label>
-                                        <select name="tipoplano">
-                                        <option id="plan" class="form-control">Selecione...</option>
+                                        <select name="tipoplano" id="moda" class="form-control">
+                                        <option id="plan" class="form-control">Selecione o tipo de plano</option>
                                         <?php 
                                             $PDO = db_connect();
                                             $sql = "SELECT tipo_plano FROM plano";
@@ -63,16 +63,14 @@
                                         </select>
 			    	</div>
                                 <div class="form-group">
-			    		<label for="tel">Modalidade</label>
-                                        <select name="moda">
-                                            <option id="plan" class="form-control">Selecione...</option>
+                                    <label for="moda">Modalidade</label></br>
                                         <?php 
                                             $sql = "SELECT nm_modalidade FROM modalidade";
                                             $stmt = $PDO->prepare($sql);
                                             $stmt->execute();
                                         while($plan = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
-                                        <option value="<?php echo $plan['nm_modalidade'] ;?>"id="plan" class="form-control">
-                                        <?php echo $plan['nm_modalidade'] ;?></option>
+                                        <input type="checkbox" name="moda" value="<?php echo $plan['nm_modalidade'] ;?>" >
+                                            <?php echo $plan['nm_modalidade'] ;?></br>
                                         <?php  }?>
                                         </select>
 			    	</div>

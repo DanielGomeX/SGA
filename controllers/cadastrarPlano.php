@@ -26,10 +26,11 @@
         $formapagamento = isset($_POST['formapagamento'] )? $_POST['formapagamento']: null;
     }
     
+    $modalidade = isset($_POST['moda'] )? $_POST['moda']: null;
     $cdplano="";
   
     //Objeto da classe
-    $cadastrar = new Plano($cdplano,$tipoplano, $formapagamento);
-    $cadastrar->CadastrarPlano($cdplano,$tipoplano, $formapagamento);
+    $cadastrar = new Plano($cdplano,$tipoplano, $formapagamento,$modalidade);
+    $cadastrar->CadastrarPlano($cdplano,$tipoplano, $formapagamento,$modalidade);
 	
 

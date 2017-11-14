@@ -28,6 +28,7 @@
                   <tr>
                       <th>Tipo de Plano</th>
                       <th>Forma de pagamento</th>
+                      <th>Modalidade</th>
                   </tr>
               </thead>
               <tbody>
@@ -35,6 +36,7 @@
                   <tr>                    
                     <td><?PHP echo $user['tipo_plano'] ?></td>
                     <td><?PHP echo $user['forma_pagamento'] ?></td>
+                    <td><?PHP echo $user['nm_modalidade'] ?></td>
                     <td>
                     <a href="planoEdit.php?cdplano=<?php echo $user['cd_plano'] ?>">
                     <button class="btn btn-primary fa fa-edit"></button></a>

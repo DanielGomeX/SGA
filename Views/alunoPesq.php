@@ -53,30 +53,18 @@
                     </div>
                     <div class="form-group">
                         <label for="tel">Telefone</label>
-                        <input class="form-control" type="text" id="tel" name="tel" placeholder="Telefone"
+                        <input class="form-control" type="text" id="tel" name="tel"
                                value="<?php echo $user['cd_telefone_aluno']?>" readonly="true"/>
                     </div>
                     <div class="form-group">
                         <label for="plan">Tipo de Plano</label>
-                        <option id="plan" class="form-control">Selecione...</option>
-                            <?php 
-                            while($user = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
-                        <option value="<?php echo $user['tipo_plano'] ;?>"id="plan" class="form-control">
-                       <?php echo $user['tipo_plano'] ;?></option>
-                       <?php  }?>
-                       </select>
+                       <input class="form-control" type="text" id="moda" name="moda"
+                        value="<?php echo $user['tipo_plano']?>" readonly="true"/>
                     </div>
-                    
                     <div class="form-group">
-                    <label for="tel">Modalidade</label>
-                     <select>
-                         <option id="plan" class="form-control">Selecione...</option>
-                     <?php 
-                     while($user = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
-                        <option value="<?php echo $user['nm_modalidade'] ;?>"id="plan" class="form-control">
-                     <?php echo $user['nm_modalidade'] ;?></option>
-                     <?php  }?>
-                     </select>
+                    <label for="moda">Modalidade</label>
+                    <input class="form-control" type="text" id="moda" name="moda"
+                               value="<?php echo $user['nm_modalidade']?>" readonly="true"/>
                     </div>
                     
                     <input type="hidden" name="id" value="<?php echo $id ?>"/>

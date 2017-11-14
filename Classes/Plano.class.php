@@ -5,11 +5,13 @@ class Plano {
     public $cdplano;
     public $tipoplano;
     public $formapagamento;
+    public $modalidade;
     
-    function __construct($cdplano,$tipoplano, $formapagamento) {
+    function __construct($cdplano,$tipoplano, $formapagamento,$modalidade) {
         $this->cdplano = $cdplano;
         $this->tipoplano = $tipoplano;
         $this->formapagamento = $formapagamento;
+        $this->modalidade= $modalidade;
     }
     
     function getCdplano(){
@@ -23,6 +25,10 @@ class Plano {
     function getFormapagamento() {
         return $this->formapagamento;
     }
+    
+    function getModalidade(){
+        return $this->modalidade;
+    }
 
     function setCdplano($cdplano){
         $this->cdplano= $cdplano;
@@ -35,26 +41,33 @@ class Plano {
     function setFormapagamento($formapagamento) {
         $this->formapagamento = $formapagamento;
     }
+    
+    function setModalidade($modalidade){
+        $this->modalidade = $modalidade;
+    }
 
 //----------------------------MÉTODOS---------------------------------------------
     
-    function CadastrarPlano($cdplano,$tipoplano, $formapagamento) {
+    function CadastrarPlano($cdplano,$tipoplano, $formapagamento,$modalidade) {
         
     //inserir no banco
     $PDO = db_connect();
     $sql = "INSERT INTO plano
             (cd_plano,
             tipo_plano,
-            forma_pagamento)
+            forma_pagamento,
+            nm_modalidade)
             VALUES
             (:cd_plano,
             :tipo_plano,
-            :forma_pagamento)";
+            :forma_pagamento,
+            :nm_modalidade)";
      
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':cd_plano', $cdplano);
     $stmt->bindParam(':tipo_plano', $tipoplano);
     $stmt->bindParam(':forma_pagamento', $formapagamento);
+    $stmt->bindParam(':nm_modalidade', $modalidade);
     
     
         if($stmt->execute()){
@@ -65,7 +78,7 @@ class Plano {
         }
     }
     
-    function AlterarPlano($cdplano,$tipoplano, $formapagamento) {
+    function AlterarPlano($cdplano,$tipoplano, $formapagamento,$modalidade) {
          //atualiza o banco de dados
         $PDO = db_connect();
         $sql = "UPDATE plano SET 
@@ -87,7 +100,7 @@ class Plano {
     
     }
     
-    function ConsultarPlano($cdplano,$tipoplano, $formapagamento) {
+    function ConsultarPlano($cdplano,$tipoplano, $formapagamento,$modalidade) {
         
             $nome = $_POST['cxnome'];
             $pesquisa = $_POST['buscar'];
@@ -142,7 +155,7 @@ class Plano {
                 }
     }
     
-    function ExcluirPlano($cdplano,$tipoplano, $formapagamento) {
+    function ExcluirPlano($cdplano,$tipoplano, $formapagamento,$modalidade) {
         if(empty($cdplano)){
                 echo $_SESSION['Error']="ID não informado";
                 exit;
