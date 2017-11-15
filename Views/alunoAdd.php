@@ -64,20 +64,22 @@
 			    	</div>
                                 <div class="form-group">
                                     <label for="moda">Modalidade</label></br>
+                                    <select name="moda" id="moda" class="form-control">
+                                        <option value="0">Selecione o nome da Modalidade</option>
                                         <?php 
                                             $sql = "SELECT nm_modalidade FROM modalidade";
                                             $stmt = $PDO->prepare($sql);
                                             $stmt->execute();
                                         while($plan = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
-                                        <input type="checkbox" name="moda" value="<?php echo $plan['nm_modalidade'] ;?>" >
-                                            <?php echo $plan['nm_modalidade'] ;?></br>
+                                        <option value="<?php echo $plan['nm_modalidade'] ;?>" id="moda" class="form-control">
+                                        <?php echo $plan['nm_modalidade'] ;?></option>
                                         <?php  }?>
                                         </select>
 			    	</div>
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>
-			        <button class="btn btn-primary" id="voltar" formaction="aluno.php">Voltar</button>
 			    </form>
+                <a href="aluno.php"><button class="btn btn-primary" id="voltar" >Voltar</button></a>
 			</div>
 		</div>
 <?php include 'footer.php'; ?>

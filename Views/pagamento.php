@@ -36,23 +36,15 @@
               <thead>
                   <tr>
                       <th>Nome do Aluno</th>
-                      <th>Modalidade:</th>
-                      <th>Valor da mensalidade(em R$):</th>
-                      <th>Mês referente:</th>
-                      <th>Data de vencimento:</th>
                   </tr>
               </thead>
               <tbody>
                   <?php while($user = $stmt->fetch(PDO::FETCH_ASSOC)):?>
                  <tr>
                     <td><?php echo $user['nm_aluno']?></td>
-                    <td><?PHP echo $user['nm_modalidade'] ?></td>
-                    <td><?PHP echo $user['vl_mensalidade'] ?></td>
-                    <td><?PHP echo date('m/Y', strtotime($user['mes_referente'])) ?></td>
-                    <td><?PHP echo $user['dt_vencimento'] ?></td>
                     <td>
-                    <a href="pagamentoEdit.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>">
-                    <button class="btn btn-primary fa fa-edit"></button></a>
+                    <a href="pagamentoPesq.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>">
+                    <button class="btn btn-primary fa fa-search"></button></a>
                     <a href="../controllers/deletarPagamento.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
                     <button class="btn btn-danger fa fa-times"></button></a>
                       </td>

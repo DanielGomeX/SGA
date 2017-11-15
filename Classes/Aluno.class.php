@@ -227,32 +227,32 @@
                  echo'<thead>';
                   echo'<tr>';
                       echo '<th>Nome:</th>';
-                      echo '<th>CPF:</th>';
+                     /* echo '<th>CPF:</th>';
                       echo '<th>RG:</th>';
                       echo '<th>Endereço:</th>';
                       echo '<th>Data de Nascimento:</th>';
                       echo '<th>Telefone</th>';
                       echo '<th>Email:</th>';
                       echo '<th>Tipo de Plano:</th>';
-                      echo '<th>Modalidade:</th>';
+                      echo '<th>Modalidade:</th>'; */
                   echo '</tr>';
               echo '</thead>';
               echo '<tbody>';
                 while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
                     echo '<tr>';
                               echo '<td>'.$reg->nm_aluno.'</td>';
-                              echo '<td>'.$reg->cpf_aluno.'</td>';
+                              /*echo '<td>'.$reg->cpf_aluno.'</td>';
                               echo '<td>'.$reg->registro_geral_aluno.'</td>';
                               echo '<td>'.$reg->nm_endereco.'</td>';
                               echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_aluno)).'</td>';
                               echo '<td>'.$reg->cd_telefone_aluno.'</td>';
                               echo '<td>'.$reg->nm_email_aluno.'</td>';
                               echo '<td>'.$reg->tipo_plano.'</td>';
-                              echo '<td>'.$reg->nm_modalidade.'</td>';
+                              echo '<td>'.$reg->nm_modalidade.'</td>';*/
                               if($_SESSION['user_status'] == 1){                                  
                                 echo '<td>
-                                        <a href="alunoEdit.php?id='. $reg->matricula_aluno.'">
-                                        <button class="btn btn-primary fa fa-edit"></button></a>
+                                        <a href="alunoPesq.php?id='. $reg->matricula_aluno.'">
+                                        <button class="btn btn-primary fa fa-search"></button></a>
                                         <a href="../controllers/deletarAluno.php?id='.$reg->matricula_aluno.'" onclick="return confirm("Tem certeza que deseja remover?");">
                                         <button class="btn btn-danger fa fa-times"></button></a>
                                         </td>';

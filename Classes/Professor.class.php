@@ -197,32 +197,28 @@ class Professor{
 	            echo "<table class='table table-hover'>";
 	            echo'<thead>';
 	            echo'<tr>';
-	            echo '<th>Nome:</th>';
-	            echo '<th>RG:</th>';
-	            echo '<th>CPF:</th>';
-	            echo '<th>Data de Nascimento:</th>';
-	            echo '<th>Endereço:</th>';
-	            echo '<th>Email:</th>';
-	            echo '<th>Telefone</th>';
+	            echo '<th>Nome</th>';
+                    echo '<th>Ações</th>';
 	            echo '</tr>';
 	            echo '</thead>';
                     echo '<tbody>';
                 while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
-                   echo '<tr>';
-                   echo '<td>'.$reg->nm_professor.'</td>';
-                   echo '<td>'.$reg->registro_geral_professor.'</td>';
-                   echo '<td>'.$reg->cpf_professor.'</td>';
-                   echo '<td>'. date("d/m/Y", strtotime($reg->dt_nascimento_professor)).'</td>';
-                   echo '<td>'.$reg->nm_endereco.'</td>';
-                   echo '<td>'.$reg->nm_email_professor.'</td>';
-                   echo '<td>'.$reg->cd_telefone_professor.'</td>';
-                    echo '<td>
-                      <a href="profEdit.php?id='. $reg->id_professor.'">
-                       <button class="btn btn-primary fa fa-edit"></button></a>
-                      <a href="../controllers/deletarProfessor.php?id='.$reg->id_professor.'" onclick="return confirm("Tem certeza que deseja remover?");">
-                      <a href="profEdit.php?id='. $reg->id_professor.'">   <button class="btn btn-danger fa fa-times"></button></a>
-                        </td>';
-	             echo '</tr>';
+                    echo '<tr>';
+                    echo '<td>'.$reg->nm_professor.'</td>';
+                    if($_SESSION['user_status'] == 1){                                  
+                                echo '<td>
+                                        <a href="profPesq.php?id='. $reg->id_professor.'">
+                                        <button class="btn btn-primary fa fa-search"></button></a>
+                                        <a href="../controllers/deletarAluno.php?id='.$reg->id_professor.'" onclick="return confirm("Tem certeza que deseja remover?");">
+                                        <button class="btn btn-danger fa fa-times"></button></a>
+                                        </td>';
+                              }elseif($_SESSION['user_status'] == 2 OR $_SESSION['user_status'] == 3){
+                                  echo '<td>
+                                        <a href="alunoPesq.php?id='. $reg->matricula_aluno.'">
+                                        <button class="btn btn-primary fa fa-search"></button></a>
+                                        </td>';
+                              }
+	            echo '</tr>';
 		       }
                     echo '</tbody>';
 		    echo '</table>';

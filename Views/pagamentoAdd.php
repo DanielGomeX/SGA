@@ -66,8 +66,8 @@
 		 	</div>
                         <label for="salvar"></label>
                     <button class="btn btn-primary" id="salvar" >Salvar</button>
-                     <button class="btn btn-primary" id="voltar" formaction="pagamento.php">Voltar</button>
 		 </form>
+                <a href="pagamento.php"><button class="btn btn-primary" id="voltar" >Voltar</button></a>
 			</div>
 		</div>
 <?php include 'footer.php'; ?>

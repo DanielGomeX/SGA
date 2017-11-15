@@ -52,8 +52,8 @@
                     <input type="hidden" name="id" value="<?php echo $id ?>"/>
                     <label for="alterar"></label>        
                     <button class="btn btn-primary" id="alterar" >Salvar</button>
-                    <button class="btn btn-primary" id="salvar" formaction="professor.php">Voltar</button>
                 </form>
+                <a href="professor.php"><button class="btn btn-primary" id="voltar" >Voltar</button></a>
             </div>
         </div>
 <?php include ('footer.php'); ?>

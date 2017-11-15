@@ -89,11 +89,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">OPÇÕES</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="#"><i class="fa fa-link"></i> <span>1</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>2</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>3</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>4</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>5</span></a></li>
+        <li><a href="../Views/profChamada.php"><i class="fa fa-link"></i> <span>Lista de Chamada</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

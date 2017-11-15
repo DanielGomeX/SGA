@@ -109,10 +109,12 @@ class Pagamento {
             nm_modalidade = :nm_modalidade,
             vl_mensalidade = :vl_mensalidade,
             dt_vencimento = :dt_vencimento,
-            mes_referente = :mes_referente,
+            mes_referente = :mes_referente
             WHERE cd_pagamento = :cd_pagamento";
 
         $stmt = $PDO->prepare($sql);
+        $stmt->bindParam(':nm_aluno',$nomealuno);
+        $stmt->bindParam(':nm_modalidade',$modalidade);
         $stmt->bindParam(':vl_mensalidade',$valormensalidade);
         $stmt->bindParam(':dt_vencimento',$datavencimento);
         $stmt->bindParam(':mes_referente',$mesreferente);
@@ -121,7 +123,7 @@ class Pagamento {
         if($stmt->execute()){
             header('location: ../Views/pagamento.php');
         }else{
-            echo $_SESSION['Error']= "Erro ao alterar!";
+            echo $_SESSION['Error']= "Erro ao alterar! </br>";
             print_r($stmt->errorInfo());
         }
     
@@ -134,15 +136,10 @@ class Pagamento {
             
             $PDO = db_connect();
             if(isset($pesquisa)&&!empty($nome)){
-            $stmt = $PDO->prepare("SELECT cd_pagamento,
-                                            nm_aluno,
-                                            nm_modalidade
-                                            dt_vencimento,
-                                            vl_mensalidade,
-                                            mes_referente
+            $stmt = $PDO->prepare("SELECT *
                                              FROM pagamento
-                                             WHERE mes_referente
-                                             LIKE :letra ORDER BY mes_referente ASC");
+                                             WHERE nm_aluno
+                                             LIKE :letra ORDER BY nm_aluno ASC");
            
             $stmt->bindValue(':letra', $nome.'%', PDO::PARAM_STR);
             $stmt->execute();
@@ -153,20 +150,24 @@ class Pagamento {
                 echo "<table class='table table-hover'>";
                  echo'<thead>';
                   echo'<tr>';
+                      echo '<th>Nome do Aluno:</th>';
+                     /* echo '<th>Modalidade:</th>';
                       echo '<th>Valor da Mensalidade(em R$):</th>';
                       echo '<th>Mês Referente:</th>';
-                      echo '<th>Data de Vencimento:</th>';
+                      echo '<th>Data de Vencimento:</th>'; */
                   echo '</tr>';
               echo '</thead>';
               echo '<tbody>';
                 while($reg = $stmt->fetch(PDO::FETCH_OBJ)){
               echo '<tr>';
+                echo '<td>'.$reg->nm_aluno.'</td>';
+                /*echo '<td>'.$reg->nm_modalidade.'</td>';
                 echo '<td>'.$reg->vl_mensalidade.'</td>';
                 echo '<td>'.$reg->mes_referente.'</td>';
-                echo '<td>'.$reg->dt_vencimento.'</td>';    
+                echo '<td>'.$reg->dt_vencimento.'</td>';*/
                  echo '<td> 
-                           <a href="pagamentoEdit.php?cdpagamento='. $reg->cd_pagamento.'">
-                          <button class="btn btn-primary fa fa-edit"></button></a>
+                           <a href="pagamentoPesq.php?cdpagamento='. $reg->cd_pagamento.'">
+                          <button class="btn btn-primary fa fa-search"></button></a>
                           <a href="../controllers/deletarPagamento.php?cdpagamento='.$reg->cd_pagamento.'" onclick="return confirm("Tem certeza que deseja remover?");">
                           <button class="btn btn-danger fa fa-times"></button></a>
                           </td>';

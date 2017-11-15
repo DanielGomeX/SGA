@@ -83,7 +83,8 @@ class Plano {
         $PDO = db_connect();
         $sql = "UPDATE plano SET 
             tipo_plano = :tipo_plano,
-            forma_pagamento = :forma_pagamento
+            forma_pagamento = :forma_pagamento,
+            nm_modalidade = :nm_modalidade
             WHERE cd_plano = :cd_plano";
 
         $stmt = $PDO->prepare($sql);
@@ -107,10 +108,7 @@ class Plano {
             
             $PDO = db_connect();
             if(isset($pesquisa)&&!empty($nome)){
-            $stmt = $PDO->prepare("SELECT tipo_plano,
-                                          cd_plano,
-                                          forma_pagamento
-                                            FROM plano
+            $stmt = $PDO->prepare("SELECT * FROM plano
                                             WHERE tipo_plano
                                             LIKE :letra ORDER BY tipo_plano ASC");
            
@@ -125,6 +123,7 @@ class Plano {
                   echo'<tr>';
                       echo '<th>Tipo do Plano:</th>';
                       echo '<th>Forma de Pagamento:</th>';
+                      echo '<th>Modalidade:</th>';
                   echo '</tr>';
               echo '</thead>';
               echo '<tbody>';
@@ -132,6 +131,7 @@ class Plano {
               echo '<tr>';
                 echo '<td>'.$reg->tipo_plano.'</td>';
                 echo '<td>'.$reg->forma_pagamento.'</td>';
+                echo '<td>'.$reg->nm_modalidade.'</td>';
                 echo '<td>
                   <a href="planoEdit.php?cdplano='. $reg->cd_plano.'"> 
                   <button class="btn btn-primary fa fa-edit"></button></a>
@@ -145,6 +145,7 @@ class Plano {
 
                 echo "<a href='../Views/plano.php')><button class='btn btn-primary' >Voltar</button></a> ";
                 }else{
+                    echo var_dump($reg);
                     echo $_SESSION['Error']="Não existe Modalidade cadastrada";
                     echo "</br><a href='../Views/plano.php')><button class='btn btn-primary'>Voltar</button></a> ";
                 }

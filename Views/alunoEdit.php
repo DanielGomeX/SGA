@@ -93,8 +93,8 @@
                     
                     <label for="alterar"></label>        
                     <button class="btn btn-primary" id="alterar" >Salvar</button>
-                    <button class="btn btn-primary" id="salvar" formaction="aluno.php">Voltar</button>
                 </form>
+                <a href="aluno.php"><button class="btn btn-primary" id="voltar" >Voltar</button></a>
             </div>
         </div>
   

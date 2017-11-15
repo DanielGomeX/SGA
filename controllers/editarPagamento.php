@@ -5,6 +5,9 @@
     //recupera os valores do formulário
     $cdpagamento = isset($_POST['cdpagamento'])? $_POST['cdpagamento']: null;
     
+    $nomealuno = isset($_POST['nomealuno'])? $_POST['nomealuno']: null;
+    $modalidade = isset($_POST['moda'])? $_POST['moda']: null;
+    
     if($_POST['dtvencimento'] == 'dia 5'){
         $datavencimento = isset($_POST['dtvencimento'])? $_POST['dtvencimento']: null;
         
@@ -20,5 +23,7 @@
     $valormensalidade = isset($_POST['valormensalidade'] )? $_POST['valormensalidade']: null;
     
     
-    $alterar = new Pagamento($cdpagamento, $mesreferente, $datavencimento, $valormensalidade);
-    $alterar->AlterarPagamento($cdpagamento, $mesreferente, $datavencimento, $valormensalidade);
+    $alterar = new Pagamento($cdpagamento, $nomealuno, $modalidade,
+            $valormensalidade, $mesreferente, $datavencimento);
+    $alterar->AlterarPagamento($cdpagamento, $nomealuno, $modalidade,
+            $valormensalidade, $mesreferente, $datavencimento);

@@ -49,8 +49,8 @@
                     <input type="hidden" name="cdplano" value="<?php echo $cdplano ?>"/>
                     <label for="alterar"></label>        
                     <button class="btn btn-primary" id="alterar" >Salvar</button>
-                    <button class="btn btn-primary" id="salvar" formaction="plano.php">Voltar</button>
                 </form>
+                <a href="plano.php"><button class="btn btn-primary" id="voltar" >Voltar</button></a>
             </div>
         </div>
 <?php include ('footer.php'); ?>

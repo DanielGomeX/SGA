@@ -11,7 +11,9 @@
     
     //recupera os dados do usuário a ser editado
     $PDO = db_connect();
-    $sql = "SELECT 
+    $sql = "SELECT
+            nm_aluno,
+            nm_modalidade,
             vl_mensalidade,
             dt_vencimento,
             mes_referente
