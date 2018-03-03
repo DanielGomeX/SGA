@@ -10,17 +10,18 @@
     $endereco = isset($_POST['end'] )? $_POST['end']: null;
     $email = isset($_POST['email'] )? $_POST['email']: null;
     $telefone = isset($_POST['tel'] )? $_POST['tel']: null;
+    $modalidade = isset($_POST['moda'] )? $_POST['moda']: null;
     $id = isset($_POST['id'])? $_POST['id'] : null;
 
     //validação(simples)
     if(empty($nome)|| empty($rg) || empty($cpf) || empty($dtnasc)||
-        empty($endereco)||empty($email)|| empty($telefone)){
+        empty($endereco)||empty($email)|| empty($telefone)||empty($modalidade)){
         echo '</br><font color="red">Volte e preencha os campos, por favor!</font>';
         echo '</br><a href="form-add.php">Voltar</a>';
         exit;
     }
 
-    $editar = new Professor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
-    $editar->AlterarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone);
+    $editar = new Professor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone,$modalidade);
+    $editar->AlterarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone,$modalidade);
 ?>
     

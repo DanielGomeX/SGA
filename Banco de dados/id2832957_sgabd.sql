@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.7.6
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Nov 13, 2017 at 03:13 AM
--- Server version: 10.1.24-MariaDB
--- PHP Version: 7.0.8
+-- Host: localhost
+-- Generation Time: Jan 09, 2018 at 09:31 PM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -107,9 +109,7 @@ INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm
 (11, '16930818981', '164907236', 'P.O. Box 416, 4624 Et, Street', '1987-06-04', '13-0410-79', 'mus.Proin@vulputatedui.co.uk', 'Joelle Gardner', '', ''),
 (12, '16210224366', '160711089', 'Ap #269-1391 Mollis Rd.', '2001-06-23', '13-0587-42', 'Curabitur.dictum@orci.ca', 'Stone O. Kerr', '', ''),
 (13, '16201201795', '167212246', 'P.O. Box 887, 8223 Euismod Road', '1985-02-24', '13-2883-25', 'massa.rutrum.magna@sempertellus.co.uk', 'Cara U. Lamb', '', ''),
-(14, '16730510853', '161808264', '6401 Dui. Av.', '2003-07-20', '13-2859-67', 'tristique@vitaealiquam.ca', 'Juliet Sellers', '', ''),
 (15, '16120509413', '169011263', 'Ap #143-7411 Dui Av.', '1987-04-26', '13-2208-43', 'dictum.sapien.Aenean@Phasellusnulla.org', 'Kai Fernandez', '', ''),
-(16, '16350626757', '165412283', '552-4246 Consectetuer Avenue', '1995-01-14', '13-8690-25', 'libero@magna.com', 'Autumn K. Spence', '', ''),
 (17, '16531206929', '161202195', 'P.O. Box 877, 6065 Consectetuer Avenue', '2001-01-13', '13-1912-24', 'Lorem.ipsum@purusactellus.co.uk', 'Phoebe M. Navarro', '', ''),
 (18, '16020810505', '167512169', '184-183 Integer St.', '2001-11-09', '13-4309-08', 'in.lobortis@Crasvehiculaaliquet.net', 'Vance Watts', '', ''),
 (19, '16181201674', '165610289', '2836 Curabitur Street', '1987-11-23', '13-0700-14', 'cursus@Namnullamagna.edu', 'Anthony Bartlett', '', ''),
@@ -436,10 +436,10 @@ INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm
 (340, '16951011761', '165012149', '432-3121 Luctus St.', '1996-06-07', '13-3908-61', 'ornare.libero@mipede.co.uk', 'Isaiah U. Waters', '', ''),
 (341, '16071002707', '166008296', '376 Arcu Ave', '2004-12-05', '13-1516-74', 'amet.risus@Nam.net', 'Julie Atkinson', '', ''),
 (342, '16520626159', '162803170', '754-270 Eu, Rd.', '1999-06-15', '13-0736-86', 'eros.non@nuncullamcorper.net', 'Tarik E. Griffin', '', ''),
-(343, '16590403678', '160711253', '3313 Odio Av.', '2006-07-14', '13-0162-49', 'bibendum.fermentum@purusNullamscelerisque.net', 'Martha Valenzuela', '', '');
-INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm_endereco`, `dt_nascimento_aluno`, `cd_telefone_aluno`, `nm_email_aluno`, `nm_aluno`, `tipo_plano`, `nm_modalidade`) VALUES
+(343, '16590403678', '160711253', '3313 Odio Av.', '2006-07-14', '13-0162-49', 'bibendum.fermentum@purusNullamscelerisque.net', 'Martha Valenzuela', '', ''),
 (344, '16140507965', '164710015', 'P.O. Box 551, 9101 Dictum Ave', '1995-02-16', '13-9250-03', 'elementum.at@Donecest.org', 'Brent Conner', '', ''),
-(345, '16310216111', '164803020', '6058 Eu, Ave', '2000-01-14', '13-5543-35', 'Cras.dictum.ultricies@mifringillami.net', 'Fay T. Day', '', ''),
+(345, '16310216111', '164803020', '6058 Eu, Ave', '2000-01-14', '13-5543-35', 'Cras.dictum.ultricies@mifringillami.net', 'Fay T. Day', '', '');
+INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm_endereco`, `dt_nascimento_aluno`, `cd_telefone_aluno`, `nm_email_aluno`, `nm_aluno`, `tipo_plano`, `nm_modalidade`) VALUES
 (346, '16510916016', '164504224', 'P.O. Box 922, 6780 Ac Av.', '1991-02-23', '13-5457-68', 'tempor.augue@necenimNunc.ca', 'Joy R. Alston', '', ''),
 (347, '16910722160', '162401162', '3355 Adipiscing Street', '1982-08-15', '13-5304-69', 'a@ipsumnunc.ca', 'Abra Young', '', ''),
 (348, '16080330385', '160901180', '4255 Diam. Rd.', '2004-10-28', '13-6857-42', 'Etiam.vestibulum@estarcu.org', 'Dai Arnold', '', ''),
@@ -780,10 +780,10 @@ INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm
 (683, '16960930710', '162307255', 'P.O. Box 111, 1287 Velit St.', '1987-10-24', '13-5998-02', 'ipsum.dolor@malesuada.org', 'Bianca Johns', '', ''),
 (684, '16490818781', '162506270', 'P.O. Box 454, 4393 Eu Rd.', '1995-07-14', '13-6664-83', 'tellus@vitaeposuereat.com', 'Ruby Hester', '', ''),
 (685, '16561222399', '167410057', 'P.O. Box 942, 3727 Metus St.', '2001-10-24', '13-8121-00', 'hendrerit.a.arcu@Duis.net', 'Solomon A. Shepherd', '', ''),
-(686, '16770118783', '162204152', '6375 Eu Av.', '1992-04-04', '13-5315-48', 'Donec@vestibulumMauris.com', 'Shaeleigh L. Lawson', '', '');
-INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm_endereco`, `dt_nascimento_aluno`, `cd_telefone_aluno`, `nm_email_aluno`, `nm_aluno`, `tipo_plano`, `nm_modalidade`) VALUES
+(686, '16770118783', '162204152', '6375 Eu Av.', '1992-04-04', '13-5315-48', 'Donec@vestibulumMauris.com', 'Shaeleigh L. Lawson', '', ''),
 (687, '16950508203', '162305257', '362-5801 Amet St.', '2002-01-22', '13-1796-81', 'cursus.luctus.ipsum@penatibusetmagnis.edu', 'Jamal U. Pitts', '', ''),
-(688, '16340513398', '161707145', 'Ap #720-1435 Sociosqu Street', '1993-04-28', '13-9788-27', 'enim.Nunc@tellusPhasellus.net', 'Kaseem Stewart', '', ''),
+(688, '16340513398', '161707145', 'Ap #720-1435 Sociosqu Street', '1993-04-28', '13-9788-27', 'enim.Nunc@tellusPhasellus.net', 'Kaseem Stewart', '', '');
+INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm_endereco`, `dt_nascimento_aluno`, `cd_telefone_aluno`, `nm_email_aluno`, `nm_aluno`, `tipo_plano`, `nm_modalidade`) VALUES
 (689, '16740503044', '160303054', 'Ap #894-3145 Non Ave', '1990-07-03', '13-0666-55', 'mollis.lectus.pede@Curabitursedtortor.org', 'Rashad Hamilton', '', ''),
 (690, '16701119129', '162611070', 'P.O. Box 390, 7276 Morbi Street', '1981-12-01', '13-4745-15', 'Cum@eu.edu', 'Jakeem A. Roy', '', ''),
 (691, '16770220349', '163903041', 'P.O. Box 668, 3155 Malesuada St.', '1986-11-07', '13-3945-35', 'lacus.Nulla@diamDuismi.com', 'Eaton Z. Wilkinson', '', ''),
@@ -933,7 +933,6 @@ INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm
 (835, '16510501289', '166909179', 'P.O. Box 696, 4805 Elementum Rd.', '1993-10-09', '13-9953-81', 'lectus.quis.massa@dui.ca', 'Carissa L. Norton', '', ''),
 (836, '16970328281', '162204244', '452-2377 Et Ave', '2006-08-02', '13-9137-34', 'sed.est.Nunc@magnisdis.com', 'Holly Weeks', '', ''),
 (837, '16000919292', '164210231', 'P.O. Box 805, 7997 Tellus. Ave', '1987-10-19', '13-3305-91', 'euismod@cursus.ca', 'Ulric Q. Miller', '', ''),
-(838, '16370115565', '166505073', 'P.O. Box 436, 7228 Penatibus St.', '1996-10-22', '13-5193-85', 'sit@dolor.com', 'Abbot C. Dyer', '', ''),
 (839, '16230330926', '164008206', '701-8636 Morbi St.', '2003-04-25', '13-9556-74', 'penatibus.et.magnis@auguescelerisquemollis.co.uk', 'Colton Vargas', '', ''),
 (840, '16360429102', '168009196', 'Ap #692-8564 Eget St.', '1994-03-06', '13-2837-02', 'neque.Nullam.nisl@augue.edu', 'Kennedy R. Dillard', '', ''),
 (841, '16410519337', '160508157', '798-1756 Magnis Street', '2002-07-23', '13-6262-17', 'non.nisi@enimnonnisi.co.uk', 'Glenna Sargent', '', ''),
@@ -1124,11 +1123,11 @@ INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm
 (1026, '16211108793', '165307113', '300-4285 Arcu. Rd.', '1996-01-10', '13-2885-78', 'id@elementumpurusaccumsan.co.uk', 'Imogene B. Mills', '', ''),
 (1027, '16260812898', '165704118', '461-1009 Lorem St.', '1990-03-26', '13-4426-22', 'rhoncus.Donec@risusquis.ca', 'Adam B. Delaney', '', ''),
 (1028, '16740918955', '167903194', '824-8821 Integer Road', '2005-06-07', '13-1889-40', 'dui.in.sodales@ametdiameu.net', 'Wing Love', '', ''),
-(1029, '16580310910', '161006199', '4677 Eu Ave', '1999-11-14', '13-6434-01', 'Mauris@scelerisque.net', 'Idola Small', '', '');
-INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm_endereco`, `dt_nascimento_aluno`, `cd_telefone_aluno`, `nm_email_aluno`, `nm_aluno`, `tipo_plano`, `nm_modalidade`) VALUES
+(1029, '16580310910', '161006199', '4677 Eu Ave', '1999-11-14', '13-6434-01', 'Mauris@scelerisque.net', 'Idola Small', '', ''),
 (1030, '16260802373', '164210157', 'P.O. Box 388, 169 In Ave', '1995-04-26', '13-4412-85', 'ornare.tortor.at@euaugueporttitor.com', 'Adrian Q. Marks', '', ''),
 (1031, '16351204000', '165912232', '308-1471 Ligula Avenue', '2000-06-12', '13-1272-33', 'sem.Pellentesque.ut@purus.ca', 'Reuben Wilson', '', ''),
-(1032, '16441210770', '167208211', '743-9923 Sapien, Ave', '1999-07-02', '13-7637-52', 'quam.Curabitur@eu.com', 'Hyatt S. Adkins', '', ''),
+(1032, '16441210770', '167208211', '743-9923 Sapien, Ave', '1999-07-02', '13-7637-52', 'quam.Curabitur@eu.com', 'Hyatt S. Adkins', '', '');
+INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm_endereco`, `dt_nascimento_aluno`, `cd_telefone_aluno`, `nm_email_aluno`, `nm_aluno`, `tipo_plano`, `nm_modalidade`) VALUES
 (1033, '16380801851', '168404199', '2276 Dis Rd.', '1988-01-26', '13-5115-48', 'fermentum@elit.com', 'August Acevedo', '', ''),
 (1034, '16361222866', '165601011', 'P.O. Box 262, 8198 Elit, St.', '1998-11-20', '13-2872-49', 'sit.amet@fermentumvelmauris.edu', 'Odysseus B. Schwartz', '', ''),
 (1035, '16920815515', '161312141', 'Ap #746-7373 Penatibus Rd.', '1987-12-02', '13-7528-76', 'lorem.fringilla@Sed.co.uk', 'Tobias Reyes', '', ''),
@@ -1197,7 +1196,9 @@ INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm
 (1098, '16880917646', '167004206', '986-3895 Vehicula Avenue', '1992-02-25', '13-4626-30', 'vel@eueuismod.edu', 'Jason Y. Hudson', '', ''),
 (1099, '16950505281', '169011089', '216-2150 Pellentesque Road', '1981-10-07', '13-2572-53', 'vitae.aliquet@ipsumprimis.ca', 'Cameran H. Silva', '', ''),
 (1100, '16761113376', '166001185', '5612 Condimentum St.', '1997-05-01', '13-3516-80', 'Donec@odiosempercursus.org', 'Ila H. Goodman', '', ''),
-(1101, '11111111111', '222222222', 'Rua Pedro Batista de Menezes,845', '1990-12-03', '1335911303', 'eder@domain.com', 'Eder Cirino', '', '');
+(1101, '11111111111', '222222222', 'Rua Pedro Batista de Menezes,845', '1990-12-03', '1335911303', 'eder@domain.com', 'Eder Cirino', '', ''),
+(1102, '32145698741', '789654123', 'Rua Z', '1980-04-09', '9874563214', 'joca@domain.com', 'Joca', 'mensal', 'Jiu Jitsu'),
+(1104, 'AAAAAAAAAAA', 'AAAAAAAAA', 'Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '1990-02-21', 'AAAAAAAAAA', 'carlos@email.com', 'AaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAAAAAAAA', 'Selecione.', 'Selecione...');
 
 -- --------------------------------------------------------
 
@@ -1213,6 +1214,15 @@ CREATE TABLE `modalidade` (
   `nm_professor` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `modalidade`
+--
+
+INSERT INTO `modalidade` (`cd_modalidade`, `nm_modalidade`, `qt_aulasem`, `qt_hraula`, `nm_professor`) VALUES
+(1, 'Jiu Jitsu', 5, 1, 'Daniel da Mae'),
+(4, '111111111111111', 5, 5, 'Lucia Teste'),
+(5, 'teste', 5, 5, 'Guilherme');
+
 -- --------------------------------------------------------
 
 --
@@ -1220,13 +1230,22 @@ CREATE TABLE `modalidade` (
 --
 
 CREATE TABLE `pagamento` (
-  `cd_pagamento` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `cd_pagamento` int(5) NOT NULL,
   `mes_referente` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `dt_vencimento` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `vl_mensalidade` int(6) NOT NULL,
   `nm_aluno` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `nm_modalidade` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `pagamento`
+--
+
+INSERT INTO `pagamento` (`cd_pagamento`, `mes_referente`, `dt_vencimento`, `vl_mensalidade`, `nm_aluno`, `nm_modalidade`) VALUES
+(1, '2017-11', 'dia 15', 85, 'Eder  Cirino', 'Jiu Jitsu'),
+(4, '22222-06', 'dia 15', 111, 'Adam Dalton', 'Jiu Jitsu'),
+(5, '2011-07', 'dia 10', 111, 'Adele P. Wynn', 'Selecione a modalidade');
 
 -- --------------------------------------------------------
 
@@ -1240,6 +1259,15 @@ CREATE TABLE `plano` (
   `forma_pagamento` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `nm_modalidade` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `plano`
+--
+
+INSERT INTO `plano` (`cd_plano`, `tipo_plano`, `forma_pagamento`, `nm_modalidade`) VALUES
+(1, 'mensal', 'dinheiro', 'Jiu Jitsu'),
+(3, 'trimestral', 'dinheiro', 'Jiu Jitsu'),
+(4, 'mensal', 'dinheiro', 'Selecione...');
 
 -- --------------------------------------------------------
 
@@ -1271,7 +1299,10 @@ INSERT INTO `professor` (`id_professor`, `nm_professor`, `registro_geral_profess
 (8, 'Daniel da Mae', '653254102', '3114521974', '1995-12-08', 'ruao do boqueirao', 'danzinho@domain.com', '1334568742', ''),
 (9, 'Eder Tio', '398755421', '365636574', '1990-12-03', 'rua vila sonia', 'edis@domain.com', '1334742987', ''),
 (11, 'Karina2', '986547845', '32198564213', '1987-10-12', 'rua das ruas em santos', 'karina@domain.com', '1336548751', ''),
-(13, 'Guilherme', '897878798', '96633258741', '1995-02-03', 'Rua H', 'gui@domain.com', '124452342525', '');
+(13, 'Guilherme', '897878798', '96633258741', '1995-02-03', 'Rua H', 'gui@domain.com', '124452342525', ''),
+(14, 'Jeferson', '353333475', '33344455566', '1982-04-12', 'Rua 5', 'asd@gmail.com', '13555558888', ''),
+(15, '123456', 'Guilherme', 'Guilherme', '1990-01-21', '222222222', 'guilherme@gmail.com', 'Guilherme', ''),
+(16, '121212', 'Carlos', 'Carlos', '1990-12-12', '2222222', 'carlos@email.com', 'Carlos', '');
 
 --
 -- Indexes for dumped tables
@@ -1328,26 +1359,38 @@ ALTER TABLE `professor`
 --
 ALTER TABLE `acesso`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `matricula_aluno` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1102;
+  MODIFY `matricula_aluno` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1105;
+
 --
 -- AUTO_INCREMENT for table `modalidade`
 --
 ALTER TABLE `modalidade`
-  MODIFY `cd_modalidade` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cd_modalidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `pagamento`
+--
+ALTER TABLE `pagamento`
+  MODIFY `cd_pagamento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `plano`
 --
 ALTER TABLE `plano`
-  MODIFY `cd_plano` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `cd_plano` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `id_professor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_professor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

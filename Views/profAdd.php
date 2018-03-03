@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    require_once '../Model/init.php';
     require_once '../controllers/header.php';
     include 'header.php';
 ?>
@@ -39,6 +40,21 @@
 			    	<div class="form-group">
 			    		<label for="tel">Telefone</label>
                                         <input required="required" class="form-control" type="text" id="tel" maxlength="12" name="tel" placeholder="Telefone"/>
+			    	</div> 
+			    	<div class="form-group">
+                                    <label for="moda">Modalidade</label></br>
+                                    <select name="moda" id="moda" class="form-control">
+                                        <option value="0">Selecione o nome da Modalidade</option>
+                                        <?php
+                                            $PDO = db_connect();
+                                            $sql = "SELECT nm_modalidade FROM modalidade";
+                                            $stmt = $PDO->prepare($sql);
+                                            $stmt->execute();
+                                        while($plan = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
+                                        <option value="<?php echo $plan['nm_modalidade'] ;?>" id="moda" class="form-control">
+                                        <?php echo $plan['nm_modalidade'] ;?></option>
+                                        <?php  }?>
+                                        </select>
 			    	</div> 
 			        <label for="salvar"></label>
 			        <button class="btn btn-primary" id="salvar" >Salvar</button>

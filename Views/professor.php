@@ -39,7 +39,7 @@ include ('header.php');
                         <a href="profPesq.php?id=<?php echo $user['id_professor'] ?>">
                         <button class="btn btn-primary fa fa-search"></button></a>
                         <?php if($_SESSION['user_status'] == 1){ ?>
-                            <a href="../controllers/deletarAluno.php?id=<?php echo $user['id_professor'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
+                            <a href="../controllers/deletarProfessor.php?id=<?php echo $user['id_professor'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
                             <button class="btn btn-danger fa fa-times"></button></a>
                         <?php }elseif($_SESSION['user_status'] == 2 AND $_SESSION['user_status'] == 3){?>
                             <a></a>

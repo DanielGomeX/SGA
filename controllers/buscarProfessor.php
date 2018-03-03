@@ -1,5 +1,4 @@
  <?php
-    session_start();
     //recupera o ID da URL
     $id = isset($_GET['id'])? (int) $_GET['id']: null;
        
@@ -17,7 +16,9 @@
             cpf_professor,
             dt_nascimento_professor,
             nm_endereco,
-            nm_email_professor,cd_telefone_professor
+            nm_email_professor,
+            cd_telefone_professor,
+            nm_modalidade
             FROM professor
             WHERE id_professor = '$id'";
     

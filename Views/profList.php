@@ -22,9 +22,10 @@
                         $endereco="";
                         $telefone="";
                         $email="";
+                        $modalidade = "";
                         
-		            $consultaProf = new Professor($id, $nome, $rg, $cpf, $dtnasc, $endereco, $email, $telefone);
-                            $consultaProf->ConsultarProfessor($id, $nome, $rg, $cpf, $dtnasc, $endereco, $email, $telefone);
+		            $consultaProf = new Professor($id, $nome, $rg, $cpf, $dtnasc, $endereco, $email, $telefone,$modalidade);
+                            $consultaProf->ConsultarProfessor($id, $nome, $rg, $cpf, $dtnasc, $endereco, $email, $telefone,$modalidade);
 		        ?>
 		    </div>
 		</div>              

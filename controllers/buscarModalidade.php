@@ -14,6 +14,7 @@
     $sql = "SELECT cd_modalidade,
             nm_modalidade,
             qt_aulasem,
+            nm_professor,
             qt_hraula
             FROM modalidade
             WHERE cd_modalidade = '$cd_modalidade'";

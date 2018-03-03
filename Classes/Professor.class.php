@@ -11,8 +11,9 @@ class Professor{
 	public $endereco;
 	public $email;
 	public $telefone;
-
-	function __construct($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone){
+        public $modalidade;
+        
+               function __construct($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone,$modalidade){
 		$this->id = $id;
 		$this->nome = $nome;
 		$this->rg = $rg;
@@ -21,6 +22,7 @@ class Professor{
 		$this->endereco = $endereco;
 		$this->email = $email;
 		$this->telefone = $telefone;
+                $this->modalidade = $modalidade;
 	}
 
 	function getId() {
@@ -52,6 +54,9 @@ class Professor{
 
     function getTelefone() {
         return $this->telefone;
+    }
+    function getModalidade() {
+        return $this->modalidade;
     }
 
     function setId($id) {
@@ -85,8 +90,12 @@ class Professor{
     function setTelefone($telefone) {
         $this->telefone = $telefone;
     }
+    
+    function setModalidade($modalidade) {
+        $this->modalidade = $modalidade;
+    }
 
-	public function CadastrarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone){
+	public function CadastrarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone,$modalidade){
             $nome=ucwords(strtolower($nome));
         	$endereco=ucwords(strtolower($endereco));
 
@@ -110,7 +119,8 @@ class Professor{
                         dt_nascimento_professor,
                         nm_endereco,
                         nm_email_professor,
-                        cd_telefone_professor)
+                        cd_telefone_professor,
+                        nm_modalidade)
                         VALUES
                         (:nome,
                         :rg,
@@ -118,7 +128,8 @@ class Professor{
                         :dtnasc,
                         :endereco,
                         :email,
-                        :telefone)";
+                        :telefone,
+                        :modalidade)";
 
 		$stmt = $PDO->prepare($sql);
 		$stmt->bindParam(':nome' ,$nome);
@@ -128,6 +139,7 @@ class Professor{
 		$stmt->bindParam(':endereco' ,$endereco);
 		$stmt->bindParam(':email' ,$email);
 		$stmt->bindParam(':telefone' ,$telefone);		
+		$stmt->bindParam(':modalidade' ,$modalidade);		
 		$stmt->execute();
 		header ('Location: ../Views/professor.php');
             }else{
@@ -144,7 +156,7 @@ class Professor{
 	}
         
         
-	public function AlterarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone){
+	public function AlterarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone,$modalidade){
 
             //atualiza o banco de dados
             $PDO = db_connect();
@@ -155,7 +167,8 @@ class Professor{
                 nm_endereco = :endereco,
                 dt_nascimento_professor = :dtnasc,
                 cd_telefone_professor = :telefone, 
-                nm_email_professor = :email
+                nm_email_professor = :email,
+                nm_modalidade = :modalidade
                 WHERE id_professor = :id";
 
             $stmt = $PDO->prepare($sql);
@@ -166,6 +179,7 @@ class Professor{
             $stmt->bindParam(':dtnasc',$dtnasc);
             $stmt->bindParam(':telefone',$telefone);
             $stmt->bindParam(':email',$email);
+            $stmt->bindParam(':modalidade', $modalidade);
             $stmt->bindParam(':id',$id, PDO::PARAM_INT);
 
             if($stmt->execute()){
@@ -177,7 +191,7 @@ class Professor{
 	}
 
         
-        public function ConsultarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone){
+        public function ConsultarProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone,$modalidade){
             
             $nome = $_POST['cxnome'];
             $pesquisa = $_POST['buscar'];
@@ -235,7 +249,7 @@ class Professor{
                     }
                      }
         
-	public function ExcluirProfessor($id,$nome,$rg,$cpf,$dtnasc,$endereco,$email,$telefone){
+	public function ExcluirProfessor($id){
 	    //remove do banco
 	    $PDO = db_connect();
 	    $sql = "DELETE FROM professor WHERE id_professor = :id";

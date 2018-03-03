@@ -96,12 +96,14 @@ class Modalidade {
         $sql = "UPDATE modalidade SET 
             nm_modalidade = :nm_modalidade,
             qt_aulasem = :qt_aulasem,
+            nm_professor = :nm_professor,
             qt_hraula = :qt_hraula
             WHERE cd_modalidade = :cd_modalidade";
 
         $stmt = $PDO->prepare($sql);
         $stmt->bindParam(':nm_modalidade',$nomemodalidade);
         $stmt->bindParam(':qt_aulasem',$qtAulaSemanal);
+        $stmt->bindParam(':nm_professor', $professor);
         $stmt->bindParam(':qt_hraula',$qtHorasAula);
         $stmt->bindParam(':cd_modalidade',$cdModalidade, PDO::PARAM_INT);
 

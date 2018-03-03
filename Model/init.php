@@ -8,7 +8,7 @@
         define('DB_USER', 'root');
     }
     if(!defined("DB_PASS")){
-        define('DB_PASS', '123');
+        define('DB_PASS', '');
     }
     if(!defined("DB_NAME")){
         define('DB_NAME', 'id2832957_sgabd');

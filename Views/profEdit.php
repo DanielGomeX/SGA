@@ -47,7 +47,23 @@
                         <label for="tel">Telefone</label>
                         <input class="form-control" type="text" id="tel" name="tel" placeholder="Telefone"
                                value="<?php echo $user['cd_telefone_professor']?>"/>
-                    </div>    
+                    </div>
+                     <div class="form-group">
+                        <label for="moda">Modalidade</label>
+                       <select name="moda" id="moda" class="form-control">
+                             <option id="moda" class="form-control">Selecione...</option>
+                             <?php
+                                 $PDO = db_connect();
+                                 $sql = "SELECT nm_modalidade FROM plano ORDER BY nm_modalidade ASC";
+                                 $stmt = $PDO->prepare($sql);
+                                 $stmt->execute();
+                             while($plan = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
+                             <option <?php if($plan['nm_modalidade']==$user['nm_modalidade']){echo 'selected';} ?>
+                                 value="<?php echo $plan['nm_modalidade'] ;?> "id="moda" class="form-control">
+                             <?php echo $plan['nm_modalidade'];?></option>
+                             <?php }?>
+                         </select>
+                    </div>
                     
                     <input type="hidden" name="id" value="<?php echo $id ?>"/>
                     <label for="alterar"></label>        

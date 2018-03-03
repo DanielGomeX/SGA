@@ -7,10 +7,10 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      ADS 5º Ciclo
+      ADS 6º Ciclo
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2017 <a href="#">Alunos</a>.</strong> FATEC Praia Grande.
+    <strong>Copyright &copy; <?php echo date('Y')?> <a href="#">Alunos</a>.</strong> FATEC Praia Grande.
   </footer>
 
   <!-- Control Sidebar -->
@@ -31,7 +31,7 @@
 
 <!-- REQUIRED JS SCRIPTS -->
 
-<!-- jQuery 3 -->
+<!-- jQuery 3 --> 
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -46,6 +46,7 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   	<!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="../dist/js/bootstrap.min.js"></script>
-
+        
 </body>
 </html>
+

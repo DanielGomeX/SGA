@@ -22,6 +22,11 @@
                                         <input class="form-control" type="number" min="1" max="5" id="qtaulassemana" name="qtaulassemana" value="<?php echo $user['qt_aulasem']?>">
                                           
 			    	</div>
+                                <div class="form-group">
+			    		<label for="nomeprofessor">Nome do Professor</label>
+                                        <input class="form-control" type="text" id="nomeprofessor" name="nomeprofessor" value="<?PHP echo $user['nm_professor'] ?>">
+                                          
+			    	</div>
 			    	<div class="form-group">
 			    		<label for="quthorasaula">Quantidade de horas/aula</label>
                                         <input class="form-control" type="number" min="1" max="5" id="qthorasaula" name="qthorasaula" value="<?php echo $user['qt_hraula']?>">
