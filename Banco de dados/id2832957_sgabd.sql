@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.6
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2018 at 09:31 PM
--- Server version: 10.1.29-MariaDB
+-- Generation Time: 11-Mar-2018 às 15:12
+-- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `academia`
+-- Estrutura da tabela `academia`
 --
 
 CREATE TABLE `academia` (
@@ -44,7 +44,7 @@ CREATE TABLE `academia` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acesso`
+-- Estrutura da tabela `acesso`
 --
 
 CREATE TABLE `acesso` (
@@ -55,7 +55,7 @@ CREATE TABLE `acesso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `acesso`
+-- Extraindo dados da tabela `acesso`
 --
 
 INSERT INTO `acesso` (`id`, `usuario`, `senha`, `status`) VALUES
@@ -75,7 +75,7 @@ INSERT INTO `acesso` (`id`, `usuario`, `senha`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aluno`
+-- Estrutura da tabela `aluno`
 --
 
 CREATE TABLE `aluno` (
@@ -92,7 +92,7 @@ CREATE TABLE `aluno` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `aluno`
+-- Extraindo dados da tabela `aluno`
 --
 
 INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm_endereco`, `dt_nascimento_aluno`, `cd_telefone_aluno`, `nm_email_aluno`, `nm_aluno`, `tipo_plano`, `nm_modalidade`) VALUES
@@ -1203,7 +1203,7 @@ INSERT INTO `aluno` (`matricula_aluno`, `cpf_aluno`, `registro_geral_aluno`, `nm
 -- --------------------------------------------------------
 
 --
--- Table structure for table `modalidade`
+-- Estrutura da tabela `modalidade`
 --
 
 CREATE TABLE `modalidade` (
@@ -1215,7 +1215,7 @@ CREATE TABLE `modalidade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `modalidade`
+-- Extraindo dados da tabela `modalidade`
 --
 
 INSERT INTO `modalidade` (`cd_modalidade`, `nm_modalidade`, `qt_aulasem`, `qt_hraula`, `nm_professor`) VALUES
@@ -1226,7 +1226,7 @@ INSERT INTO `modalidade` (`cd_modalidade`, `nm_modalidade`, `qt_aulasem`, `qt_hr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pagamento`
+-- Estrutura da tabela `pagamento`
 --
 
 CREATE TABLE `pagamento` (
@@ -1239,7 +1239,7 @@ CREATE TABLE `pagamento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `pagamento`
+-- Extraindo dados da tabela `pagamento`
 --
 
 INSERT INTO `pagamento` (`cd_pagamento`, `mes_referente`, `dt_vencimento`, `vl_mensalidade`, `nm_aluno`, `nm_modalidade`) VALUES
@@ -1250,7 +1250,7 @@ INSERT INTO `pagamento` (`cd_pagamento`, `mes_referente`, `dt_vencimento`, `vl_m
 -- --------------------------------------------------------
 
 --
--- Table structure for table `plano`
+-- Estrutura da tabela `plano`
 --
 
 CREATE TABLE `plano` (
@@ -1261,7 +1261,7 @@ CREATE TABLE `plano` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `plano`
+-- Extraindo dados da tabela `plano`
 --
 
 INSERT INTO `plano` (`cd_plano`, `tipo_plano`, `forma_pagamento`, `nm_modalidade`) VALUES
@@ -1272,7 +1272,7 @@ INSERT INTO `plano` (`cd_plano`, `tipo_plano`, `forma_pagamento`, `nm_modalidade
 -- --------------------------------------------------------
 
 --
--- Table structure for table `professor`
+-- Estrutura da tabela `professor`
 --
 
 CREATE TABLE `professor` (
@@ -1288,7 +1288,7 @@ CREATE TABLE `professor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `professor`
+-- Extraindo dados da tabela `professor`
 --
 
 INSERT INTO `professor` (`id_professor`, `nm_professor`, `registro_geral_professor`, `cpf_professor`, `dt_nascimento_professor`, `nm_endereco`, `nm_email_professor`, `cd_telefone_professor`, `nm_modalidade`) VALUES

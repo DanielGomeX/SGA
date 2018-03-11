@@ -19,21 +19,22 @@
 			    		<label for="qtaulassemana">Quantidade de aulas por semana</label>
                                         <input required="required" class="form-control" type="number" min="1" max="5" id="qtaulassemana" name="qtaulassemana" placeholder="Quantidade de aulas por semana">
 			    	</div>
-                                <div class="form-group">
-                                    <label for="professor">Nome do professor</label>
-                                    <select name="professor" class="form-control" id="professor">
-                                        <option>Selecione o nome do professor</option>
-                                        <?php 
-                                        $PDO = db_connect();
-                                        $sql = "SELECT nm_professor FROM professor ORDER BY nm_professor ASC";
-                                        $stmt = $PDO->prepare($sql);
-                                        $stmt->execute();
-                                        while($nmprof = $stmt->fetch(PDO::FETCH_ASSOC)){?>
-                                        <option  value="<?php echo $nmprof['nm_professor'] ?>">
-                                        <?php echo $nmprof['nm_professor'] ?></option>
-                                        <?php } ?>
-                                    </select>
-			    	</div>
+                    <div class="form-group">
+                        <label for="professor">Nome do professor</label>
+                        <select name="professor" class="form-control" id="professor">
+                            <option>Selecione o nome do professor</option>
+                            <?php
+                            $PDO = db_connect();
+                            $sql = "SELECT nm_professor FROM professor ORDER BY nm_professor ASC";
+                            $stmt = $PDO->prepare($sql);
+                            $stmt->execute();
+                            while ($nmprof = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                ?>
+                                <option  value="<?php echo $nmprof['nm_professor'] ?>">
+                                <?php echo $nmprof['nm_professor'] ?></option>
+<?php } ?>
+                        </select>
+                    </div>
 			    	<div class="form-group">
 			    		<label for="quthorasaula">Quantidade de horas/aula</label>
                                         <input required="required" class="form-control" type="number" min="1" max="5" id="qthorasaula" name="qthorasaula" placeholder="Quantidade de horas/aula">

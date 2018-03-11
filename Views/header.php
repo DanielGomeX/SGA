@@ -101,6 +101,7 @@
         <li><a href="modalidade.php"><i class="fa fa-link"></i> <span>Modalidades</span></a></li>
         <li><a href="plano.php"><i class="fa fa-link"></i> <span>Planos</span></a></li>
         <li><a href="pagamento.php"><i class="fa fa-link"></i> <span>Pagamento</span></a></li>
+        <li><a href="comprovante.php"><i class="fa fa-link"></i> <span>Emitir Comprovante</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
