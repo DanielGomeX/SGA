@@ -43,9 +43,11 @@
                  <tr>
                     <td><?php echo $user['nm_aluno']?></td>
                     <td>
-                    <a href="pagamentoPesq.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>">
+                    <a href="pagamentoPesq.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>" alt="Visualizar aluno">
                     <button class="btn btn-primary fa fa-search"></button></a>
-                    <a href="../controllers/deletarPagamento.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>" onclick="return confirm('Tem certeza que deseja remover?');">
+                    <a href="comprovante.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>" alt="Emitir Recibo">
+                    <button class="btn btn-warning fa fa-file"></button></a>
+                    <a href="../controllers/deletarPagamento.php?cdpagamento=<?php echo $user['cd_pagamento'] ?>" alt="Excluir" onclick="return confirm('Tem certeza que deseja remover?');">
                     <button class="btn btn-danger fa fa-times"></button></a>
                       </td>
                   </tr>

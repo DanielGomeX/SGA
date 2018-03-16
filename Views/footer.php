@@ -10,7 +10,7 @@
       ADS 6º Ciclo
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; <?php echo date('Y')?> <a href="#">Alunos</a>.</strong> FATEC Praia Grande.
+    <strong>Copyright &copy; 2018 <a href="#">Alunos</a>.</strong> FATEC Praia Grande.
   </footer>
 
   <!-- Control Sidebar -->
