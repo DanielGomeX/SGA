@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head;
         any other head content must come *after* these tags -->
-  <title>SGA | Painel Administrativo</title>
+  <title>SGA | Painel Administrativo</title>    
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -101,7 +101,6 @@
         <li><a href="modalidade.php"><i class="fa fa-link"></i> <span>Modalidades</span></a></li>
         <li><a href="plano.php"><i class="fa fa-link"></i> <span>Planos</span></a></li>
         <li><a href="pagamento.php"><i class="fa fa-link"></i> <span>Pagamento</span></a></li>
-        <li><a href="comprovante.php"><i class="fa fa-link"></i> <span>Emitir Comprovante</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

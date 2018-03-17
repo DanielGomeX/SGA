@@ -2,7 +2,7 @@
 session_start();
 require '../Model/init.php';
 require '../controllers/check.php';
-include '../controllers/buscarAluno.php';
+//include '../controllers/buscarAluno.php';
 
 if ($_SESSION['user_status'] == 1) {
     include ('header.php');
@@ -12,20 +12,51 @@ if ($_SESSION['user_status'] == 1) {
 
 <table class="table">
     <form action="enviarcomprovante.php" method="POST">
-        <thead style="width: ;">
-            <tr>
-                <th scope="col">Nº</th>
-                <th scope="col">R$ <?php echo $user['valormensalidade'] ?></th>
-            </tr>
-        </thead>
-        <tbody>
-        <td scope="row">Recebemos do Sr(a) <?php echo $user['nm_aluno'] ?></td>
-        <td scope="row">Endereço: <?php echo $user['nm_endereco'] ?></td>
-        <td scope="row">A importância de: </td>
-        <td scope="row">Referente ao mês de: <?php echo $user['mesreferente'] ?></td>
-        <td scope="row"></td>
-        </tbody>
+
+        <div class="form-group row">
+            <div class="col-xs-2">
+                <label for="ex1">Nº</label>
+                <input class="form-control" id="ex1" type="text" name="numerorecibo">
+            </div>
+
+            <div class="col-xs-2">
+                <label for="ex1">R$</label>
+                <input class="form-control" id="ex1" type="text"  name="valorrecibo" value="<?php echo $user['valormensalidade'] ?>">
+            </div>
+         </div>
+        
+        <div class="form-group row">
+            <div class="col-xs-4">
+                <label for="ex1">Recebemos do Sr(a):</label>
+                <input class="form-control" id="ex1" type="text" name="nomealuno" value="<?php echo $user['nm_aluno'] ?>">
+            </div>
+
+            <div class="col-xs-4">
+                <label for="ex1">Endereço:</label>
+                <input class="form-control" id="ex1" type="text"  name="endereco" value="<?php echo $user['nm_endereco'] ?>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-xs-2">
+                <label for="ex1">A importância de :</label>
+                <input class="form-control" id="ex1" type="text"  name="endereco" value="<?php echo $user['vl_mensalidade'] ?>">
+            </div>
+            
+            <div class="col-xs-2">
+                <label for="ex1">Referente ao mês de:</label>
+                <input class="form-control" id="ex1" type="text"  name="mesreferente" value="<?php echo $user['mesreferente'] ?>">
+            </div>
+            
+            <div class="col-xs-3">
+                <label for="ex1">.</label>
+                <input class="form-control" id="ex1" type="text"  name="mesreferente" value="<?php
+        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        date_default_timezone_set('America/Sao_Paulo');
+        echo ucwords(utf8_encode(strftime('%A, %d de %B de %Y', strtotime('today'))));
+        ?>">
+            </div>
+         </div>
     </form>
 </table>
-
+<a href="pagamento.php"><button class="btn btn-primary" id="voltar" >Voltar</button></a>
 <?php include ('footer.php'); ?>
